@@ -682,7 +682,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(agency_agent_write_ok[15s])",
+          "expr": "rate(arangodb_agent_write_ok[15s])",
           "legendFormat": "{{instance}}",
           "refId": "A"
         }
