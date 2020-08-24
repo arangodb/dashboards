@@ -126,7 +126,7 @@
         "for": "5m",
         "frequency": "1m",
         "handler": 1,
-        "message": "Virtual memory threashold reached!",
+        "message": "Virtual memory threshold reached!",
         "name": "Virtual Memory alert",
         "noDataState": "no_data",
         "notifications": []
