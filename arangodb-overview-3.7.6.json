@@ -21,7 +21,7 @@
   "panels": [
     {
       "cacheTimeout": null,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -74,11 +74,11 @@
       "pluginVersion": "7.1.1",
       "targets": [
         {
-          "expr": "rate(arangodb_process_statistics_user_time{kubernetes_pod_name!=\"\"}[2m])*6",
+          "expr": "rate(arangodb_process_statistics_user_time{instance!=\"\"}[2m])*6",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -92,7 +92,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -133,9 +133,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(arangodb_aql_total_query_time_msec{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_aql_total_query_time_msec{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -185,7 +185,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -227,9 +227,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(arangodb_aql_slow_query{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_aql_slow_query{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -279,7 +279,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -320,9 +320,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(rocksdb_actual_delayed_write_rate{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(rocksdb_actual_delayed_write_rate{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -372,7 +372,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -413,7 +413,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "arangodb_v8_context_free{kubernetes_pod_name!=\"\"}",
+          "expr": "arangodb_v8_context_free{instance!=\"\"}",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -465,7 +465,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -506,9 +506,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "arangodb_scheduler_num_worker_threads{kubernetes_pod_name!=\"\"}",
+          "expr": "arangodb_scheduler_num_worker_threads{instance!=\"\"}",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -558,7 +558,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -599,9 +599,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(arangodb_scheduler_queue_full_failures{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_scheduler_queue_full_failures{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -651,7 +651,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -691,9 +691,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rocksdb_is_write_stopped{kubernetes_pod_name!=\"\"}",
+          "expr": "rocksdb_is_write_stopped{instance!=\"\"}",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -743,7 +743,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -784,9 +784,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rocksdbengine_throttle_bps{kubernetes_pod_name!=\"\"}",
+          "expr": "rocksdbengine_throttle_bps{instance!=\"\"}",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -837,7 +837,7 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -879,11 +879,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "arangodb_process_statistics_virtual_memory_size{kubernetes_pod_name!=\"\"}",
+          "expr": "arangodb_process_statistics_virtual_memory_size{instance!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -933,7 +933,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -976,11 +976,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "arangodb_process_statistics_resident_set_size{kubernetes_pod_name!=\"\"}",
+          "expr": "arangodb_process_statistics_resident_set_size{instance!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1030,7 +1030,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1071,9 +1071,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(arangodb_agency_write_ok{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_agency_write_ok{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1123,7 +1123,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1164,9 +1164,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(arangodb_agency_read_no_leader{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_agency_read_no_leader{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1216,7 +1216,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1258,11 +1258,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "arangodb_process_statistics_number_of_threads{kubernetes_pod_name!=\"\"}",
+          "expr": "arangodb_process_statistics_number_of_threads{instance!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1312,7 +1312,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1354,11 +1354,11 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "arangodb_client_connection_statistics_client_connections{kubernetes_pod_name!=\"\"}",
+          "expr": "arangodb_client_connection_statistics_client_connections{instance!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1408,7 +1408,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1507,7 +1507,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1548,9 +1548,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(rocksdb_size_all_mem_tables{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(rocksdb_size_all_mem_tables{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1600,7 +1600,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1642,9 +1642,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rocksdb_live_sst_files_size{kubernetes_pod_name!=\"\"}",
+          "expr": "rocksdb_live_sst_files_size{instance!=\"\"}",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1694,7 +1694,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1735,9 +1735,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(rocksdb_block_cache_usage{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(rocksdb_block_cache_usage{instance!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1787,7 +1787,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1829,9 +1829,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rocksdb_block_cache_usage{kubernetes_pod_name!=\"\"}",
+          "expr": "rocksdb_block_cache_usage{instance!=\"\"}",
           "interval": "",
-          "legendFormat": "{{kubernetes_pod_name}}",
+          "legendFormat": "{{instance}}",
           "refId": "A"
         }
       ],
@@ -1890,7 +1890,7 @@
         "mode": "opacity"
       },
       "dataFormat": "timeseries",
-      "datasource": "$prometheus",
+      "datasource": null,
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1915,7 +1915,7 @@
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_ClusterComm_bucket{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_ClusterComm_bucket{instance!=\"\"}[2m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1964,7 +1964,7 @@
         "mode": "opacity"
       },
       "dataFormat": "timeseries",
-      "datasource": "$prometheus",
+      "datasource": null,
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1989,7 +1989,7 @@
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_AgencyComm_bucket{kubernetes_pod_name!=\"\"}[2m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_AgencyComm_bucket{instance!=\"\"}[2m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2029,7 +2029,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2123,7 +2123,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2217,7 +2217,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "$prometheus",
+      "datasource": null,
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2323,29 +2323,7 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": [
-      {
-        "current": {
-          "selected": false,
-          "text": "prom",
-          "value": "prom"
-        },
-        "description": null,
-        "error": null,
-        "hide": 0,
-        "includeAll": false,
-        "label": "prometheus",
-        "multi": false,
-        "name": "prometheus",
-        "options": [],
-        "query": "prometheus",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      }
-    ]
+    "list": []
   },
   "time": {
     "from": "now-1h",
