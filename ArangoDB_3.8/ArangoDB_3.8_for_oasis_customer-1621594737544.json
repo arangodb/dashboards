@@ -5,7 +5,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.5.4"
+      "version": "7.5.6"
     },
     {
       "type": "panel",
@@ -87,7 +87,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -97,7 +97,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_dropped_followers_total[1m])",
+              "expr": "rate(arangodb_dropped_followers_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -180,7 +180,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -190,7 +190,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_heartbeat_failures_total[1m])",
+              "expr": "rate(arangodb_heartbeat_failures_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -200,257 +200,6 @@
           "timeRegions": [],
           "timeShift": null,
           "title": "Total number of failed heartbeat transmissions",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "cards": {
-            "cardPadding": null,
-            "cardRound": null
-          },
-          "color": {
-            "cardColor": "#b4ff00",
-            "colorScale": "sqrt",
-            "colorScheme": "interpolateOranges",
-            "exponent": 0.5,
-            "mode": "spectrum"
-          },
-          "dataFormat": "timeseries",
-          "datasource": null,
-          "description": "Histogram of times required to send heartbeats. For every heartbeat\nsent the time is measured and an event is put into the histogram.\nIn the single server, this counter is only used in active failover mode.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 9
-          },
-          "heatmap": {},
-          "hideZeroBuckets": false,
-          "highlightCards": true,
-          "id": 4,
-          "legend": {
-            "show": false
-          },
-          "reverseYBuckets": false,
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_heartbeat_send_time_msec_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Time required to send a heartbeat",
-          "tooltip": {
-            "show": true,
-            "showHistogram": false
-          },
-          "type": "heatmap",
-          "xAxis": {
-            "show": true
-          },
-          "xBucketNumber": null,
-          "xBucketSize": null,
-          "yAxis": {
-            "decimals": null,
-            "format": "short",
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true,
-            "splitFactor": null
-          },
-          "yBucketBound": "auto",
-          "yBucketNumber": null,
-          "yBucketSize": null
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "Histogram of times required to send heartbeats. For every heartbeat\nsent the time is measured and an event is put into the histogram.\nIn the single server, this counter is only used in active failover mode.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 9
-          },
-          "hiddenSeries": false,
-          "id": 5,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_heartbeat_send_time_msec_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Time required to send a heartbeat (count of events per second)",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "Histogram of times required to send heartbeats. For every heartbeat\nsent the time is measured and an event is put into the histogram.\nIn the single server, this counter is only used in active failover mode.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 17
-          },
-          "hiddenSeries": false,
-          "id": 6,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_heartbeat_send_time_msec_sum[60s]) / rate(arangodb_heartbeat_send_time_msec_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Time required to send a heartbeat (average per second)",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -500,48 +249,146 @@
         "x": 0,
         "y": 1
       },
-      "id": 7,
+      "id": 4,
       "panels": [
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Total number of AQL queries finished.\nThis metric was named `arangodb_aql_all_query` in previous\nversions of ArangoDB.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 0,
             "y": 2
           },
-          "id": 8,
-          "pluginVersion": "7.5.4",
+          "hiddenSeries": false,
+          "id": 5,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_aql_all_query_total[1m])",
+              "expr": "rate(arangodb_aql_all_query_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Total number of AQL queries finished",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Current number of AQL queries executing.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 12,
             "y": 2
           },
-          "id": 9,
-          "pluginVersion": "7.5.4",
+          "hiddenSeries": false,
+          "id": 6,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
               "expr": "arangodb_aql_current_query",
@@ -549,24 +396,92 @@
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Current number of AQL queries executing",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Total memory limit for all AQL queries combined, in bytes.\nIf this value is reported as `0`, it means there is no total memory\nlimit in place for AQL queries. The value can be adjusted by the setting\nthe `--query.global-memory-limit` startup option.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 0,
             "y": 10
           },
-          "id": 10,
-          "pluginVersion": "7.5.4",
+          "hiddenSeries": false,
+          "id": 7,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
               "expr": "arangodb_aql_global_memory_limit",
@@ -574,24 +489,92 @@
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Total memory limit for all AQL queries combined",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Total memory usage of all AQL queries currently executing.\nThe granularity of this metric is steps of 32768 bytes. The current\nmemory usage of all AQL queries will be compared against the configured\nlimit in the `--query.global-memory-limit` startup option. \nIf the startup option has a value of `0`, then no global memory limit\nwill be enforced. If the startup option has a non-zero value, queries\nwill be aborted once the total query memory usage goes above the configured\nlimit.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 12,
             "y": 10
           },
-          "id": 11,
-          "pluginVersion": "7.5.4",
+          "hiddenSeries": false,
+          "id": 8,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
               "expr": "arangodb_aql_global_memory_usage",
@@ -599,58 +582,232 @@
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Total memory usage of all AQL queries executing; granularity: 32768 bytes steps",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Total number of times the global query memory limit threshold was reached.\nThis can happen if all running AQL queries in total try to use more memory than\nconfigured via the `--query.global-memory-limit` startup option.\nEvery time this counter will increase, an AQL query will have aborted with a \n\"resource limit exceeded\" error.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 0,
             "y": 18
           },
-          "id": 12,
-          "pluginVersion": "7.5.4",
+          "hiddenSeries": false,
+          "id": 9,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_aql_global_query_memory_limit_reached[1m])",
+              "expr": "rate(arangodb_aql_global_query_memory_limit_reached_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Number of times the global query memory limit threshold was reached",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Total number of times a local query memory limit threshold was reached, i.e.\na single query tried to allocate more memory than configured in the query's\n`memoryLimit` attribute or the value configured via the startup option\n`--query.memory-limit`.\nEvery time this counter will increase, an AQL query will have aborted with a \n\"resource limit exceeded\" error.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 12,
             "y": 18
           },
-          "id": 13,
-          "pluginVersion": "7.5.4",
+          "hiddenSeries": false,
+          "id": 10,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_aql_local_query_memory_limit_reached[1m])",
+              "expr": "rate(arangodb_aql_local_query_memory_limit_reached_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Number of times a local query memory limit threshold was reached",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
           "datasource": null,
@@ -665,7 +822,7 @@
             "x": 0,
             "y": 26
           },
-          "id": 14,
+          "id": 11,
           "legend": {
             "show": false
           },
@@ -693,8 +850,8 @@
             "x": 12,
             "y": 26
           },
-          "id": 15,
-          "pluginVersion": "7.5.4",
+          "id": 12,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_query_time_count[60s])",
@@ -718,8 +875,8 @@
             "x": 0,
             "y": 34
           },
-          "id": 16,
-          "pluginVersion": "7.5.4",
+          "id": 13,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_query_time_sum[60s]) / rate(arangodb_aql_query_time_count[60s])",
@@ -743,7 +900,7 @@
             "x": 12,
             "y": 34
           },
-          "id": 17,
+          "id": 14,
           "legend": {
             "show": false
           },
@@ -771,8 +928,8 @@
             "x": 0,
             "y": 42
           },
-          "id": 18,
-          "pluginVersion": "7.5.4",
+          "id": 15,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_slow_query_time_count[60s])",
@@ -796,8 +953,8 @@
             "x": 12,
             "y": 42
           },
-          "id": 19,
-          "pluginVersion": "7.5.4",
+          "id": 16,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_slow_query_time_sum[60s]) / rate(arangodb_aql_slow_query_time_count[60s])",
@@ -821,41 +978,16 @@
             "x": 0,
             "y": 50
           },
-          "id": 20,
-          "pluginVersion": "7.5.4",
+          "id": 17,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_total_query_time_msec_total[1m])",
+              "expr": "rate(arangodb_aql_total_query_time_msec_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
           "title": "Total execution time of all AQL queries",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Number of transactions using sequential locking of collections to avoid deadlocking.\nBy default, a coordinator will try to lock all shards of a collection in parallel.\nThis approach is normally fast but can cause deadlocks with other transactions that\nlock the same shards in a different order. In case such a deadlock is detected, the\ncoordinator will abort the lock round and start a new one that locks all shards in\nsequential order. This will avoid deadlocks, but has a higher setup overhead.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 50
-          },
-          "id": 23,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_collection_lock_sequential_mode_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of transactions using sequential locking of collections to avoid deadlocking",
           "type": "graph"
         }
       ],
@@ -871,7 +1003,7 @@
         "x": 0,
         "y": 2
       },
-      "id": 21,
+      "id": 18,
       "panels": [
         {
           "datasource": null,
@@ -886,11 +1018,11 @@
             "x": 0,
             "y": 3
           },
-          "id": 22,
-          "pluginVersion": "7.5.4",
+          "id": 19,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_lock_acquisition_micros_total[1m])",
+              "expr": "rate(arangodb_collection_lock_acquisition_micros_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -900,7 +1032,7 @@
         },
         {
           "datasource": null,
-          "description": "Number of timeouts when trying to acquire collection write locks.\nThis counter will be increased whenever a collection write lock\ncannot be acquired within the configured lock timeout. \nThis can only happen if writes on a collection are locked out by\nother operations on the collection that use an exclusive lock. Writes\nare not locked out by other, non-exclusively locked writes.\n",
+          "description": "Number of transactions using sequential locking of collections to avoid deadlocking.\nBy default, a coordinator will try to lock all shards of a collection in parallel.\nThis approach is normally fast but can cause deadlocks with other transactions that\nlock the same shards in a different order. In case such a deadlock is detected, the\ncoordinator will abort the lock round and start a new one that locks all shards in\nsequential order. This will avoid deadlocks, but has a higher setup overhead.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -911,16 +1043,16 @@
             "x": 12,
             "y": 3
           },
-          "id": 25,
-          "pluginVersion": "7.5.4",
+          "id": 20,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_lock_timeouts_write_total[1m])",
+              "expr": "rate(arangodb_collection_lock_sequential_mode_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Number of timeouts when trying to acquire collection write locks",
+          "title": "Number of transactions using sequential locking of collections to avoid deadlocking",
           "type": "graph"
         },
         {
@@ -936,16 +1068,41 @@
             "x": 0,
             "y": 11
           },
-          "id": 24,
-          "pluginVersion": "7.5.4",
+          "id": 21,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_lock_timeouts_exclusive_total[1m])",
+              "expr": "rate(arangodb_collection_lock_timeouts_exclusive_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
           "title": "Number of timeouts when trying to acquire collection exclusive locks",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Number of timeouts when trying to acquire collection write locks.\nThis counter will be increased whenever a collection write lock\ncannot be acquired within the configured lock timeout. \nThis can only happen if writes on a collection are locked out by\nother operations on the collection that use an exclusive lock. Writes\nare not locked out by other, non-exclusively locked writes.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 11
+          },
+          "id": 22,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_collection_lock_timeouts_write_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of timeouts when trying to acquire collection write locks",
           "type": "graph"
         },
         {
@@ -958,11 +1115,39 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
-            "y": 11
+            "x": 0,
+            "y": 19
           },
-          "id": 27,
-          "pluginVersion": "7.5.4",
+          "id": 23,
+          "legend": {
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_collection_truncate_time_bucket[60s])) by (le))",
+              "format": "heatmap",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time spent in collection truncate operations",
+          "type": "heatmap"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in collection truncate operations, including both\nuser-initiated truncate operations and truncate operations\nexecuted by the synchronous replication on followers.\nNote that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 19
+          },
+          "id": 24,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_collection_truncate_time_count[60s])",
@@ -984,63 +1169,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 19
-          },
-          "id": 26,
-          "legend": {
-            "show": false
-          },
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_collection_truncate_time_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Total time spent in collection truncate operations",
-          "type": "heatmap"
-        },
-        {
-          "datasource": null,
-          "description": "Total number of collection truncate operations on leaders (excl. synchronous\nreplication). Note that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 19
-          },
-          "id": 29,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_collection_truncates_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Total number of collection truncate operations (excl. synchronous replication)",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Total time spent in collection truncate operations, including both\nuser-initiated truncate operations and truncate operations\nexecuted by the synchronous replication on followers.\nNote that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
             "y": 27
           },
-          "id": 28,
-          "pluginVersion": "7.5.4",
+          "id": 25,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_collection_truncate_time_sum[60s]) / rate(arangodb_collection_truncate_time_count[60s])",
@@ -1053,7 +1185,7 @@
         },
         {
           "datasource": null,
-          "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "description": "Total number of collection truncate operations on leaders (excl. synchronous\nreplication). Note that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1064,8 +1196,61 @@
             "x": 12,
             "y": 27
           },
-          "id": 31,
-          "pluginVersion": "7.5.4",
+          "id": 26,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_collection_truncates_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total number of collection truncate operations (excl. synchronous replication)",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 35
+          },
+          "id": 27,
+          "legend": {
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_insert_time_bucket[60s])) by (le))",
+              "format": "heatmap",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time spent in document insert operations",
+          "type": "heatmap"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 35
+          },
+          "id": 28,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_insert_time_count[60s])",
@@ -1087,66 +1272,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 35
-          },
-          "id": 30,
-          "legend": {
-            "show": false
-          },
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_insert_time_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Total time spent in document insert operations",
-          "type": "heatmap"
-        },
-        {
-          "datasource": null,
-          "description": "Total time spent in document read-by-primary-key operations. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 35
-          },
-          "id": 33,
-          "legend": {
-            "show": false
-          },
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_read_time_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Total time spent in document read-by-primary-key operations",
-          "type": "heatmap"
-        },
-        {
-          "datasource": null,
-          "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
             "y": 43
           },
-          "id": 32,
-          "pluginVersion": "7.5.4",
+          "id": 29,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_insert_time_sum[60s]) / rate(arangodb_document_insert_time_count[60s])",
@@ -1170,17 +1299,20 @@
             "x": 12,
             "y": 43
           },
-          "id": 35,
-          "pluginVersion": "7.5.4",
+          "id": 30,
+          "legend": {
+            "show": false
+          },
           "targets": [
             {
-              "expr": "rate(arangodb_document_read_time_sum[60s]) / rate(arangodb_document_read_time_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_read_time_bucket[60s])) by (le))",
+              "format": "heatmap",
+              "legendFormat": "",
               "refId": "A"
             }
           ],
-          "title": "Total time spent in document read-by-primary-key operations (average per second)",
-          "type": "graph"
+          "title": "Total time spent in document read-by-primary-key operations",
+          "type": "heatmap"
         },
         {
           "datasource": null,
@@ -1195,8 +1327,8 @@
             "x": 0,
             "y": 51
           },
-          "id": 34,
-          "pluginVersion": "7.5.4",
+          "id": 31,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_read_time_count[60s])",
@@ -1209,7 +1341,7 @@
         },
         {
           "datasource": null,
-          "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "description": "Total time spent in document read-by-primary-key operations. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1220,16 +1352,16 @@
             "x": 12,
             "y": 51
           },
-          "id": 37,
-          "pluginVersion": "7.5.4",
+          "id": 32,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_document_remove_time_count[60s])",
+              "expr": "rate(arangodb_document_read_time_sum[60s]) / rate(arangodb_document_read_time_count[60s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Total time spent in document remove operations (count of events per second)",
+          "title": "Total time spent in document read-by-primary-key operations (average per second)",
           "type": "graph"
         },
         {
@@ -1245,7 +1377,7 @@
             "x": 0,
             "y": 59
           },
-          "id": 36,
+          "id": 33,
           "legend": {
             "show": false
           },
@@ -1273,7 +1405,57 @@
             "x": 12,
             "y": 59
           },
-          "id": 39,
+          "id": 34,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_document_remove_time_count[60s])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time spent in document remove operations (count of events per second)",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 67
+          },
+          "id": 35,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_document_remove_time_sum[60s]) / rate(arangodb_document_remove_time_count[60s])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time spent in document remove operations (average per second)",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 67
+          },
+          "id": 36,
           "legend": {
             "show": false
           },
@@ -1299,60 +1481,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 67
-          },
-          "id": 38,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_document_remove_time_sum[60s]) / rate(arangodb_document_remove_time_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Total time spent in document remove operations (average per second)",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 67
-          },
-          "id": 41,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_document_replace_time_sum[60s]) / rate(arangodb_document_replace_time_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Total time spent in document replace operations (average per second)",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
             "y": 75
           },
-          "id": 40,
-          "pluginVersion": "7.5.4",
+          "id": 37,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_replace_time_count[60s])",
@@ -1365,7 +1497,7 @@
         },
         {
           "datasource": null,
-          "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1376,8 +1508,61 @@
             "x": 12,
             "y": 75
           },
-          "id": 43,
-          "pluginVersion": "7.5.4",
+          "id": 38,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_document_replace_time_sum[60s]) / rate(arangodb_document_replace_time_count[60s])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time spent in document replace operations (average per second)",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 83
+          },
+          "id": 39,
+          "legend": {
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_update_time_bucket[60s])) by (le))",
+              "format": "heatmap",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time spent in document update operations",
+          "type": "heatmap"
+        },
+        {
+          "datasource": null,
+          "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 83
+          },
+          "id": 40,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_update_time_count[60s])",
@@ -1399,63 +1584,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 83
-          },
-          "id": 42,
-          "legend": {
-            "show": false
-          },
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_update_time_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Total time spent in document update operations",
-          "type": "heatmap"
-        },
-        {
-          "datasource": null,
-          "description": "Total number of document write operations (insert, update, replace, remove) on\nleaders, excluding writes by the synchronous replication on followers.\nThis metric is only present if the option `--server.export-read-write-metrics` \nis set to `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 83
-          },
-          "id": 45,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_document_writes_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Total number of document write operations (excl. synchronous replication)",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
             "y": 91
           },
-          "id": 44,
-          "pluginVersion": "7.5.4",
+          "id": 41,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_update_time_sum[60s]) / rate(arangodb_document_update_time_count[60s])",
@@ -1468,7 +1600,7 @@
         },
         {
           "datasource": null,
-          "description": "Total number of transactions committed. In the cluster, this metric will \nbe collected separately for transactions on coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_committed` in previous\nversions of ArangoDB.\n",
+          "description": "Total number of document write operations (insert, update, replace, remove) on\nleaders, excluding writes by the synchronous replication on followers.\nThis metric is only present if the option `--server.export-read-write-metrics` \nis set to `true`.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1479,16 +1611,16 @@
             "x": 12,
             "y": 91
           },
-          "id": 47,
-          "pluginVersion": "7.5.4",
+          "id": 42,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_committed_total[1m])",
+              "expr": "rate(arangodb_document_writes_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Number of transactions committed",
+          "title": "Total number of document write operations (excl. synchronous replication)",
           "type": "graph"
         },
         {
@@ -1504,11 +1636,11 @@
             "x": 0,
             "y": 99
           },
-          "id": 46,
-          "pluginVersion": "7.5.4",
+          "id": 43,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_aborted_total[1m])",
+              "expr": "rate(arangodb_transactions_aborted_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1518,7 +1650,7 @@
         },
         {
           "datasource": null,
-          "description": "Total number of transactions started/begun. In the cluster, this metric will \nbe collected separately for transactions on coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_started` in previous\nversions of ArangoDB.\n",
+          "description": "Total number of transactions committed. In the cluster, this metric will \nbe collected separately for transactions on coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_committed` in previous\nversions of ArangoDB.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -1529,16 +1661,16 @@
             "x": 12,
             "y": 99
           },
-          "id": 49,
-          "pluginVersion": "7.5.4",
+          "id": 44,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_started_total[1m])",
+              "expr": "rate(arangodb_transactions_committed_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Number of transactions started",
+          "title": "Number of transactions committed",
           "type": "graph"
         },
         {
@@ -1554,16 +1686,41 @@
             "x": 0,
             "y": 107
           },
-          "id": 48,
-          "pluginVersion": "7.5.4",
+          "id": 45,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_expired_total[1m])",
+              "expr": "rate(arangodb_transactions_expired_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
           "title": "Total number of expired transactions",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Total number of transactions started/begun. In the cluster, this metric will \nbe collected separately for transactions on coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_started` in previous\nversions of ArangoDB.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 107
+          },
+          "id": 46,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_transactions_started_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of transactions started",
           "type": "graph"
         }
       ],
@@ -1579,7 +1736,7 @@
         "x": 0,
         "y": 3
       },
-      "id": 50,
+      "id": 47,
       "panels": [
         {
           "datasource": null,
@@ -1594,7 +1751,7 @@
             "x": 0,
             "y": 4
           },
-          "id": 51,
+          "id": 48,
           "legend": {
             "show": false
           },
@@ -1622,8 +1779,8 @@
             "x": 12,
             "y": 4
           },
-          "id": 52,
-          "pluginVersion": "7.5.4",
+          "id": 49,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_received_count[60s])",
@@ -1647,8 +1804,8 @@
             "x": 0,
             "y": 12
           },
-          "id": 53,
-          "pluginVersion": "7.5.4",
+          "id": 50,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_received_sum[60s]) / rate(arangodb_client_connection_statistics_bytes_received_count[60s])",
@@ -1672,7 +1829,7 @@
             "x": 12,
             "y": 12
           },
-          "id": 54,
+          "id": 51,
           "legend": {
             "show": false
           },
@@ -1700,8 +1857,8 @@
             "x": 0,
             "y": 20
           },
-          "id": 55,
-          "pluginVersion": "7.5.4",
+          "id": 52,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_sent_count[60s])",
@@ -1725,8 +1882,8 @@
             "x": 12,
             "y": 20
           },
-          "id": 56,
-          "pluginVersion": "7.5.4",
+          "id": 53,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_sent_sum[60s]) / rate(arangodb_client_connection_statistics_bytes_sent_count[60s])",
@@ -1750,8 +1907,8 @@
             "x": 0,
             "y": 28
           },
-          "id": 57,
-          "pluginVersion": "7.5.4",
+          "id": 54,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_client_connection_statistics_client_connections",
@@ -1775,7 +1932,7 @@
             "x": 12,
             "y": 28
           },
-          "id": 58,
+          "id": 55,
           "legend": {
             "show": false
           },
@@ -1803,8 +1960,8 @@
             "x": 0,
             "y": 36
           },
-          "id": 59,
-          "pluginVersion": "7.5.4",
+          "id": 56,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_io_time_count[60s])",
@@ -1828,8 +1985,8 @@
             "x": 12,
             "y": 36
           },
-          "id": 60,
-          "pluginVersion": "7.5.4",
+          "id": 57,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_io_time_sum[60s]) / rate(arangodb_client_connection_statistics_io_time_count[60s])",
@@ -1853,7 +2010,7 @@
             "x": 0,
             "y": 44
           },
-          "id": 61,
+          "id": 58,
           "legend": {
             "show": false
           },
@@ -1881,8 +2038,8 @@
             "x": 12,
             "y": 44
           },
-          "id": 62,
-          "pluginVersion": "7.5.4",
+          "id": 59,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_queue_time_count[60s])",
@@ -1906,8 +2063,8 @@
             "x": 0,
             "y": 52
           },
-          "id": 63,
-          "pluginVersion": "7.5.4",
+          "id": 60,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_queue_time_sum[60s]) / rate(arangodb_client_connection_statistics_queue_time_count[60s])",
@@ -1931,7 +2088,7 @@
             "x": 12,
             "y": 52
           },
-          "id": 64,
+          "id": 61,
           "legend": {
             "show": false
           },
@@ -1959,8 +2116,8 @@
             "x": 0,
             "y": 60
           },
-          "id": 65,
-          "pluginVersion": "7.5.4",
+          "id": 62,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_request_time_count[60s])",
@@ -1984,8 +2141,8 @@
             "x": 12,
             "y": 60
           },
-          "id": 66,
-          "pluginVersion": "7.5.4",
+          "id": 63,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_request_time_sum[60s]) / rate(arangodb_client_connection_statistics_request_time_count[60s])",
@@ -2009,7 +2166,7 @@
             "x": 0,
             "y": 68
           },
-          "id": 67,
+          "id": 64,
           "legend": {
             "show": false
           },
@@ -2037,8 +2194,8 @@
             "x": 12,
             "y": 68
           },
-          "id": 68,
-          "pluginVersion": "7.5.4",
+          "id": 65,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_total_time_count[60s])",
@@ -2062,8 +2219,8 @@
             "x": 0,
             "y": 76
           },
-          "id": 69,
-          "pluginVersion": "7.5.4",
+          "id": 66,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_total_time_sum[60s]) / rate(arangodb_client_connection_statistics_total_time_count[60s])",
@@ -2087,11 +2244,11 @@
             "x": 12,
             "y": 76
           },
-          "id": 70,
-          "pluginVersion": "7.5.4",
+          "id": 67,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_async_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_async_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2112,11 +2269,11 @@
             "x": 0,
             "y": 84
           },
-          "id": 71,
-          "pluginVersion": "7.5.4",
+          "id": 68,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_delete_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_delete_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2137,11 +2294,11 @@
             "x": 12,
             "y": 84
           },
-          "id": 72,
-          "pluginVersion": "7.5.4",
+          "id": 69,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_get_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_get_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2162,11 +2319,11 @@
             "x": 0,
             "y": 92
           },
-          "id": 73,
-          "pluginVersion": "7.5.4",
+          "id": 70,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_head_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_head_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2187,11 +2344,11 @@
             "x": 12,
             "y": 92
           },
-          "id": 74,
-          "pluginVersion": "7.5.4",
+          "id": 71,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_options_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_options_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2212,11 +2369,11 @@
             "x": 0,
             "y": 100
           },
-          "id": 75,
-          "pluginVersion": "7.5.4",
+          "id": 72,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_patch_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_patch_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2237,11 +2394,11 @@
             "x": 12,
             "y": 100
           },
-          "id": 76,
-          "pluginVersion": "7.5.4",
+          "id": 73,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_post_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_post_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2262,11 +2419,11 @@
             "x": 0,
             "y": 108
           },
-          "id": 77,
-          "pluginVersion": "7.5.4",
+          "id": 74,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_put_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_put_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2287,11 +2444,11 @@
             "x": 12,
             "y": 108
           },
-          "id": 78,
-          "pluginVersion": "7.5.4",
+          "id": 75,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_other_http_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_other_http_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2312,11 +2469,11 @@
             "x": 0,
             "y": 116
           },
-          "id": 79,
-          "pluginVersion": "7.5.4",
+          "id": 76,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_superuser_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_superuser_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2337,11 +2494,11 @@
             "x": 12,
             "y": 116
           },
-          "id": 80,
-          "pluginVersion": "7.5.4",
+          "id": 77,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_total_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_total_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2362,41 +2519,16 @@
             "x": 0,
             "y": 124
           },
-          "id": 81,
-          "pluginVersion": "7.5.4",
+          "id": 78,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_user_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_user_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
           "title": "Total number of HTTP requests executed by user clients",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Number of intermediate commits performed in transactions.\nAn intermediate commit happens if a logical transaction needs to be\nsplit into multiple physical transaction because of the volume of data\nhandled in the transaction. The thresholds for when to perform an\nintermediate commit can be controlled by startup options \n`--rocksdb.intermediate-commit-count` (number of write operations after\nwhich an intermediate commit is triggered) and `--rocksdb.intermediate-commit-size`\n(cumulated size of write operations after which an intermediate commit is triggered).\nThe values can also be overridden for individual transactions.\nThis metric was named `arangodb_intermediate_commits` in previous\nversions of ArangoDb.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 124
-          },
-          "id": 82,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_intermediate_commits_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of intermediate commits performed in transactions",
           "type": "graph"
         },
         {
@@ -2409,14 +2541,14 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 132
+            "x": 12,
+            "y": 124
           },
-          "id": 83,
-          "pluginVersion": "7.5.4",
+          "id": 79,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_process_statistics_major_page_faults_total[1m])",
+              "expr": "rate(arangodb_process_statistics_major_page_faults_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2434,11 +2566,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 132
           },
-          "id": 84,
-          "pluginVersion": "7.5.4",
+          "id": 80,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_minor_page_faults_total",
@@ -2459,11 +2591,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 140
+            "x": 12,
+            "y": 132
           },
-          "id": 85,
-          "pluginVersion": "7.5.4",
+          "id": 81,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_number_of_threads",
@@ -2484,11 +2616,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 140
           },
-          "id": 86,
-          "pluginVersion": "7.5.4",
+          "id": 82,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_resident_set_size",
@@ -2509,11 +2641,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 148
+            "x": 12,
+            "y": 140
           },
-          "id": 87,
-          "pluginVersion": "7.5.4",
+          "id": 83,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_resident_set_size_percent",
@@ -2534,11 +2666,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 148
           },
-          "id": 88,
-          "pluginVersion": "7.5.4",
+          "id": 84,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_system_time",
@@ -2559,11 +2691,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 156
+            "x": 12,
+            "y": 148
           },
-          "id": 89,
-          "pluginVersion": "7.5.4",
+          "id": 85,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_user_time",
@@ -2584,11 +2716,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 156
           },
-          "id": 90,
-          "pluginVersion": "7.5.4",
+          "id": 86,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_virtual_memory_size",
@@ -2609,11 +2741,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 164
+            "x": 12,
+            "y": 156
           },
-          "id": 91,
-          "pluginVersion": "7.5.4",
+          "id": 87,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_cpu_cores",
@@ -2634,11 +2766,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 164
           },
-          "id": 92,
-          "pluginVersion": "7.5.4",
+          "id": 88,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_idle_percent",
@@ -2659,11 +2791,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 172
+            "x": 12,
+            "y": 164
           },
-          "id": 93,
-          "pluginVersion": "7.5.4",
+          "id": 89,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_iowait_percent",
@@ -2684,11 +2816,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 172
           },
-          "id": 94,
-          "pluginVersion": "7.5.4",
+          "id": 90,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_physical_memory",
@@ -2709,14 +2841,14 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 180
+            "x": 12,
+            "y": 172
           },
-          "id": 95,
-          "pluginVersion": "7.5.4",
+          "id": 91,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_server_statistics_server_uptime_total[1m])",
+              "expr": "rate(arangodb_server_statistics_server_uptime_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2734,11 +2866,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 180
           },
-          "id": 96,
-          "pluginVersion": "7.5.4",
+          "id": 92,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_system_percent",
@@ -2759,11 +2891,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 188
+            "x": 12,
+            "y": 180
           },
-          "id": 97,
-          "pluginVersion": "7.5.4",
+          "id": 93,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_user_percent",
@@ -2784,11 +2916,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 188
           },
-          "id": 98,
-          "pluginVersion": "7.5.4",
+          "id": 94,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_alive",
@@ -2809,11 +2941,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 196
+            "x": 12,
+            "y": 188
           },
-          "id": 99,
-          "pluginVersion": "7.5.4",
+          "id": 95,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_busy",
@@ -2834,11 +2966,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 196
           },
-          "id": 100,
-          "pluginVersion": "7.5.4",
+          "id": 96,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_dirty",
@@ -2859,11 +2991,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 204
+            "x": 12,
+            "y": 196
           },
-          "id": 101,
-          "pluginVersion": "7.5.4",
+          "id": 97,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_free",
@@ -2884,11 +3016,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 12,
+            "x": 0,
             "y": 204
           },
-          "id": 102,
-          "pluginVersion": "7.5.4",
+          "id": 98,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_max",
@@ -2909,11 +3041,11 @@
           "gridPos": {
             "h": 8,
             "w": 12,
-            "x": 0,
-            "y": 212
+            "x": 12,
+            "y": 204
           },
-          "id": 103,
-          "pluginVersion": "7.5.4",
+          "id": 99,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_min",
@@ -2922,31 +3054,6 @@
             }
           ],
           "title": "Minimum number of concurrent V8 contexts",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Number of leader shards on this machine. Every shard has a leader and\npotentially multiple followers.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 212
-          },
-          "id": 106,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "arangodb_shards_leader_number",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of leader shards on this machine",
           "type": "graph"
         }
       ],
@@ -2962,8 +3069,108 @@
         "x": 0,
         "y": 4
       },
-      "id": 104,
+      "id": 100,
       "panels": [
+        {
+          "datasource": null,
+          "description": "Total number of collection truncate operations by synchronous\nreplication on followers. Note that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 5
+          },
+          "id": 101,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_collection_truncates_replication_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total number of collection truncate operations by synchronous replication",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Total number of document write operations by synchronous replication.\nThis metric is only present if the option\n`--server.export-read-write-metrics` is set to `true`.\nTotal number of document write operations (insert, update, replace, remove)\nexecuted by the synchronous replication on followers.\nThis metric is only present if the option `--server.export-read-write-metrics` \nis set to `true`.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 5
+          },
+          "id": 102,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_document_writes_replication_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total number of document write operations by synchronous replication",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Measures the time required to clone the existing leader copy of the data onto a new replica shard.\nWill only be measured on the follower server. This time is expected to increase whenever new followers\nare created, e.g. increasing replication factor, shard redistribution.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "id": 103,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_dump_apply_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated time needed to apply asynchronously replicated data on initial synchronization of shards",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "During initial replication the existing data from the leader is copied asynchronously\nover to new shards. The amount of requests required to transport data to this server,\nas a replica for a shard, is counted here.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "id": 104,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_dump_bytes_received_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total number of bytes replicated in initial asynchronous phase",
+          "type": "graph"
+        },
         {
           "datasource": null,
           "description": "During initial replication the existing data from the leader is copied asynchronously\nover to new shards. The amount of documents transported to this server, as a replica for\na shard, is counted here.\n",
@@ -2975,13 +3182,13 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 5
+            "y": 21
           },
           "id": 105,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_documents_total[1m])",
+              "expr": "rate(arangodb_replication_dump_documents_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2991,7 +3198,7 @@
         },
         {
           "datasource": null,
-          "description": "Number of shards on this machine. Every shard has a leader and\npotentially multiple followers. This metric counts both leader and\nfollower shards.\n",
+          "description": "During initial replication the existing data from the leader is copied asynchronously\nover to new shards. The accumulated time the follower waited for the leader to send\nthe data is counted here.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -3000,18 +3207,568 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 5
+            "y": 21
           },
-          "id": 108,
-          "pluginVersion": "7.5.4",
+          "id": 106,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "arangodb_shards_number",
+              "expr": "rate(arangodb_replication_dump_request_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Number of shards on this machine",
+          "title": "Accumulated wait time for replication requests in initial asynchronous phase",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "During initial replication the existing data from the leader is copied asynchronously\nover to new shards. The amount of data transported to this server, as a replica for\na shard, is counted here.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 29
+          },
+          "id": 107,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_dump_requests_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of requests used in initial asynchronous replication phase",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "During initial replication the existing data from the leader is copied asynchronously\nover to new shards. Whenever there is a communication issue between the follower and\nthe leader of the shard it will be counted here for the follower. This communication\nissues cover failed connections or http errors, but they also cover invalid or\nunexpected data formats revieved on the follower.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 29
+          },
+          "id": 108,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_failed_connects_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of failed connection attempts and response errors during initial asynchronous replication",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the accumulated wait time for replication key\nchunks determination requests, in milliseconds. This is part of the\nolder (pre 3.8) initial replication protocol, which might still be used\nin 3.8 for collections which have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the time used for the initial step of getting\nthe checksums for the key chunks.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 37
+          },
+          "id": 109,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_chunks_requests_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated wait time for replication key chunks determination requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the accumulated wait time for requesting actual\ndocuments for the initial replication, in milliseconds. This is part\nof the older (pre 3.8) initial replication protocol, which might\nstill be used in 3.8 for collections which have been created by older\nversions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the time used for the final step of actually\ngetting the needed documents.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 37
+          },
+          "id": 110,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_docs_requests_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated time needed to request replication docs data",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Accumulated time needed to apply replication initial sync insertions.\nThis counter exhibits the accumulated wait time for actually inserting\ndocuments for the initial synchronization, in milliseconds. This is\npart of the older (pre 3.8) initial replication protocol, which might\nstill be used in 3.8 for collections which have been created by older\nversions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the time used for the actual insertion of\nreplicated documents on the follower.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 45
+          },
+          "id": 111,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_insert_apply_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated time needed to apply replication initial sync insertions",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the accumulated wait time for fetching key\nlists for a chunk, in milliseconds. This is part of the\nolder (pre 3.8) initial replication protocol, which might still be used\nin 3.8 for collections which have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the time used for the second step of getting\nlists of key/revision pairs for each chunk.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 45
+          },
+          "id": 112,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_keys_requests_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated wait time for replication keys requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the accumulated wait time for removing local\ndocuments during initial synchronization of a shard on the follower,\nin milliseconds. This is part of the older (pre 3.8) initial\nreplication protocol, which might still be used in 3.8 for collections\nwhich have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the time used for the intermediate step of\nremoving unneeded documents on the follower.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 53
+          },
+          "id": 113,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_remove_apply_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated time needed to apply replication initial sync removals",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the accumulated number of bytes received\nfor initial synchronization of shards. This is part of the\nolder (pre 3.8) initial replication protocol, which might still be used\nin 3.8 for collections which have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates number of bytes received for all three steps.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 53
+          },
+          "id": 114,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_sync_bytes_received_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated amount of bytes received in initial sync",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the total number of documents inserted on the\nfollower during initial synchronization of shards. This is part of the\nolder (pre 3.8) initial replication protocol, which might still be\nused in 3.8 for collections which have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the total number of documents inserted in the\nthird step.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 61
+          },
+          "id": 115,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_sync_docs_inserted_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of documents inserted by replication initial sync",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the total number of documents removed on the\nfollower during initial synchronization of shards. This is part of the\nolder (pre 3.8) initial replication protocol, which might still be\nused in 3.8 for collections which have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the total number of documents removed in the\nthird step.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 61
+          },
+          "id": 116,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_sync_docs_removed_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of documents removed by replication initial sync",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the total number of documents fetched on the\nfollower from the leader during initial synchronization of shards.\nThis is part of the older (pre 3.8) initial replication protocol,\nwhich might still be used in 3.8 for collections which have been\ncreated by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the total number of documents fetched from the\nleader in the third step.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 69
+          },
+          "id": 117,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_sync_docs_requested_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of documents requested by replication initial sync",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the total number of times documents have been\nfetched on the follower from the leader during initial synchronization\nof shards. This is part of the older (pre 3.8) initial replication\nprotocol, which might still be used in 3.8 for collections which have\nbeen created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric accumulates the total number of times documents have been\nfetched from the leader in the third step.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 69
+          },
+          "id": 118,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_sync_docs_requests_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of replication initial sync docs requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter exhibits the accumulated number of keys requests for\ninitial synchronization of shards. This is part of the\nolder (pre 3.8) initial replication protocol, which might still be used\nin 3.8 for collections which have been created by older versions.\n\nIn this older protocol, the follower first fetches an overview over\na shard from the leader. This does a full collection scan and\ndivides the primary keys in the collection into equal sized chunks.\nThen, a checksum for each chunk is returned. The same is then done\non the follower and the checksums are compared, chunk by chunk. For\neach chunk, for which the checksums do not match, the list of keys and\nrevisions is fetched from the leader. This then enables the follower\nto fetch the actually needed documents and remove superfluous ones\nlocally.\n\nThis metric counts the number of times the follower fetches a list of\nkeys for some chunk.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 77
+          },
+          "id": 119,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_initial_sync_keys_requests_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of replication initial sync keys requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The total amount of all synchronous replication operation requests\nbetween dbservers being done.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 77
+          },
+          "id": 120,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_synchronous_requests_total_number_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total number of synchronous replication requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The total time needed for all synchronous replication requests\nbetween dbservers being done.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 85
+          },
+          "id": 121,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_synchronous_requests_total_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total time needed for all synchronous replication requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The accumulated time needed to locally process the continuous\nreplication log on a follower received from a replication\nleader.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 85
+          },
+          "id": 122,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_tailing_apply_time_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated time needed to apply replication tailing data",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The accumulated number of bytes received from a leader for replication tailing requests. The higher the amount of bytes is, the more data is being processed afterwards on the follower dbserver.",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 93
+          },
+          "id": 123,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_tailing_bytes_received_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated number of bytes received for replication tailing requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The accumulated number of replication tailing document inserts/replaces processed on a follower.",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 93
+          },
+          "id": 124,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_tailing_documents_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Accumulated number of replication tailing document inserts/replaces processed",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The number of replication tailing markers processed on a follower\ndbserver. Markers are specific operations which are part of the\nwrite-ahead log (WAL). Example actions which are being used in\nmarkers: Create or drop a database. Create, drop, rename, change\nor truncate a collection. Create or drop an index. Create, drop,\nchange a view. Start, commit or abort a transaction.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 101
+          },
+          "id": 125,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_tailing_markers_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of replication tailing markers processed",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The amount of document removal based marker operations on a\nfollower dbserver.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 101
+          },
+          "id": 126,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_tailing_removals_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of replication tailing document removals processed",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "The total amount of network replication tailing requests.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 109
+          },
+          "id": 127,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_replication_tailing_requests_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of replication tailing requests",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "Number of leader shards on this machine. Every shard has a leader and\npotentially multiple followers.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 109
+          },
+          "id": 128,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "arangodb_shards_leader_number",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of leader shards on this machine",
           "type": "graph"
         },
         {
@@ -3025,10 +3782,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 13
+            "y": 117
           },
-          "id": 107,
-          "pluginVersion": "7.5.4",
+          "id": 129,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_shards_not_replicated",
@@ -3041,7 +3798,7 @@
         },
         {
           "datasource": null,
-          "description": "This counter reflects the number of times RocksDB was observed by\nArangoDB to have entered a stopped write state.\n\nIf the RocksDB background threads which do cleanup and compaction\ncannot keep up with the writing, then RocksDB first throttles its\nwrite rate (\"write stall\") and later stops the writing entirely\n(\"write stop\"). Both are suboptimal, since the write rate is too high,\nbut write stops are considerably worse, since they can lead to service\nunavailability.\n",
+          "description": "Number of shards on this machine. Every shard has a leader and\npotentially multiple followers. This metric counts both leader and\nfollower shards.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -3050,18 +3807,18 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 13
+            "y": 117
           },
-          "id": 112,
-          "pluginVersion": "7.5.4",
+          "id": 130,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_rocksdb_write_stops_total[1m])",
+              "expr": "arangodb_shards_number",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Number of times RocksDB has entered a stopped write state",
+          "title": "Number of shards on this machine",
           "type": "graph"
         },
         {
@@ -3075,10 +3832,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 21
+            "y": 125
           },
-          "id": 109,
-          "pluginVersion": "7.5.4",
+          "id": 131,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_shards_out_of_sync",
@@ -3091,7 +3848,7 @@
         },
         {
           "datasource": null,
-          "description": "Number of requests forwarded to another coordinator.\nRequest forwarding can happen in load-balanced setups,\nwhen one coordinator receives and forwards requests \nthat can only be handled by a different coordinator.\nThis includes requests for streaming transactions,\nAQL, query cursors, Pregel jobs and some others.\n",
+          "description": "Number of times a mismatching shard checksum was detected when\nsyncing shards. This is a very special metric which is rarely used.\nWhen followers of shards get in sync with their leaders, just when\neverything is completed a final checksum is taken as an additional\nprecaution. If this checksum differs between leader an follower, the\nresync process starts from scratch.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -3100,18 +3857,18 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 21
+            "y": 125
           },
-          "id": 118,
-          "pluginVersion": "7.5.4",
+          "id": 132,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_network_forwarded_requests_total[1m])",
+              "expr": "rate(arangodb_sync_wrong_checksum_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Number of requests forwarded to another coordinator",
+          "title": "Number of times a mismatching shard checksum was detected when syncing shards",
           "type": "graph"
         }
       ],
@@ -3127,59 +3884,8 @@
         "x": 0,
         "y": 5
       },
-      "id": 110,
-      "panels": [
-        {
-          "datasource": null,
-          "description": "This counter reflects the number of times RocksDB was observed by\nArangoDB to have entered a stalled (slowed) write state.\n\nIf the RocksDB background threads which do cleanup and compaction\ncannot keep up with the writing, then RocksDB first throttles its\nwrite rate (\"write stall\") and later stops the writing entirely\n(\"write stop\"). Both are suboptimal, since the write rate is too high.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 6
-          },
-          "id": 111,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_rocksdb_write_stalls_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of times RocksDB has entered a stalled (slowed) write state",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Number of outgoing internal requests in flight. This metric is increased\nwhenever any cluster-internal request is about to be sent via the underlying \nconnection pool, and is decreased whenever a response for such a request is\nreceived or the request runs into a timeout.\nThis metric provides an estimate of the fan-out of operations. For example,\na user operation on a collection with a single shard will normally lead to\na single internal request (plus replication), whereas an operation on a\ncollection with 10 shards may lead to a fan-out of 10 (plus replication).\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 6
-          },
-          "id": 120,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "arangodb_network_requests_in_flight",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of outgoing internal requests in flight",
-          "type": "graph"
-        }
-      ],
+      "id": 133,
+      "panels": [],
       "title": "RocksDB",
       "type": "row"
     },
@@ -3192,7 +3898,7 @@
         "x": 0,
         "y": 6
       },
-      "id": 113,
+      "id": 134,
       "panels": [],
       "title": "Connectivity",
       "type": "row"
@@ -3206,416 +3912,7 @@
         "x": 0,
         "y": 7
       },
-      "id": 114,
-      "panels": [
-        {
-          "cards": {
-            "cardPadding": null,
-            "cardRound": null
-          },
-          "color": {
-            "cardColor": "#b4ff00",
-            "colorScale": "sqrt",
-            "colorScheme": "interpolateOranges",
-            "exponent": 0.5,
-            "mode": "spectrum"
-          },
-          "dataFormat": "timeseries",
-          "datasource": null,
-          "description": "This histogram shows how long requests to the agency took.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 8
-          },
-          "heatmap": {},
-          "hideZeroBuckets": false,
-          "highlightCards": true,
-          "id": 115,
-          "legend": {
-            "show": false
-          },
-          "reverseYBuckets": false,
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_agencycomm_request_time_msec_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Request time for Agency requests",
-          "tooltip": {
-            "show": true,
-            "showHistogram": false
-          },
-          "type": "heatmap",
-          "xAxis": {
-            "show": true
-          },
-          "xBucketNumber": null,
-          "xBucketSize": null,
-          "yAxis": {
-            "decimals": null,
-            "format": "short",
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true,
-            "splitFactor": null
-          },
-          "yBucketBound": "auto",
-          "yBucketNumber": null,
-          "yBucketSize": null
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "This histogram shows how long requests to the agency took.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 8
-          },
-          "hiddenSeries": false,
-          "id": 116,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_agencycomm_request_time_msec_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Request time for Agency requests (count of events per second)",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "This histogram shows how long requests to the agency took.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 16
-          },
-          "hiddenSeries": false,
-          "id": 117,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_agencycomm_request_time_msec_sum[60s]) / rate(arangodb_agencycomm_request_time_msec_count[60s])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Request time for Agency requests (average per second)",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "Total number of V8 context enter failures. A context receives a context\nenter event every time it begins to execute some JavaScript. If no\ncontext is available at such a time the system waits for 60s for a\ncontext to become free. If this does not happen within the 60s, the\ncontext enter event fails, a warning is logged and this counter is\nincreased by one.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 16
-          },
-          "hiddenSeries": false,
-          "id": 125,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_v8_context_enter_failures_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Total number of V8 context enter failures",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "datasource": null,
-          "description": "Number of internal requests that have timed out. This metric is increased\nwhenever any cluster-internal request executed in the underlying connection\npool runs into a timeout.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 24
-          },
-          "id": 119,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_network_request_timeouts_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of internal requests that have timed out",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "This counter reflects the total number of V8 context exit events.\nA context receives a context exit event every time it finishes to\nexecute some JavaScript.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 24
-          },
-          "id": 127,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_v8_context_exited_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Total number of V8 context exit events",
-          "type": "graph"
-        }
-      ],
-      "title": "Network",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 8
-      },
-      "id": 121,
+      "id": 135,
       "panels": [
         {
           "aliasColors": {},
@@ -3623,7 +3920,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "description": "This counter reflects the total number of V8 contexts ever created. It is\nOK if this number keeps growing since the V8 contexts are created and\ndestroyed as needed. In rare cases a high fluctuation can indicate\nsome unfortunate usage pattern.\n",
+          "description": "Number of requests forwarded to another coordinator.\nRequest forwarding can happen in load-balanced setups,\nwhen one coordinator receives and forwards requests \nthat can only be handled by a different coordinator.\nThis includes requests for streaming transactions,\nAQL, query cursors, Pregel jobs and some others.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -3634,10 +3931,10 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 9
+            "y": 8
           },
           "hiddenSeries": false,
-          "id": 122,
+          "id": 136,
           "legend": {
             "avg": false,
             "current": false,
@@ -3654,7 +3951,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -3664,7 +3961,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_created_total[1m])",
+              "expr": "rate(arangodb_network_forwarded_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3673,7 +3970,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Total number of V8 contexts ever created",
+          "title": "Number of requests forwarded to another coordinator",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3727,10 +4024,10 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 9
+            "y": 8
           },
           "hiddenSeries": false,
-          "id": 123,
+          "id": 139,
           "legend": {
             "avg": false,
             "current": false,
@@ -3747,7 +4044,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -3757,7 +4054,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_creation_time_msec_total[1m])",
+              "expr": "rate(arangodb_v8_context_creation_time_msec_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3767,6 +4064,207 @@
           "timeRegions": [],
           "timeShift": null,
           "title": "Accumulated total time for creating V8 contexts",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "title": "Network",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 137,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "description": "This counter reflects the total number of V8 contexts ever created. It is\nOK if this number keeps growing since the V8 contexts are created and\ndestroyed as needed. In rare cases a high fluctuation can indicate\nsome unfortunate usage pattern.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 9
+          },
+          "hiddenSeries": false,
+          "id": 138,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "rate(arangodb_v8_context_created_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Total number of V8 contexts ever created",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "description": "Total number of V8 context enter failures. A context receives a context\nenter event every time it begins to execute some JavaScript. If no\ncontext is available at such a time the system waits for 60s for a\ncontext to become free. If this does not happen within the 60s, the\ncontext enter event fails, a warning is logged and this counter is\nincreased by one.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 9
+          },
+          "hiddenSeries": false,
+          "id": 141,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "rate(arangodb_v8_context_enter_failures_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Total number of V8 context enter failures",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3823,7 +4321,7 @@
             "y": 17
           },
           "hiddenSeries": false,
-          "id": 124,
+          "id": 140,
           "legend": {
             "avg": false,
             "current": false,
@@ -3840,7 +4338,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -3850,7 +4348,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_destroyed_total[1m])",
+              "expr": "rate(arangodb_v8_context_destroyed_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3902,7 +4400,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "description": "The current number of threads actually working on some job (i.e., not\nspinning while waiting for new work).\n",
+          "description": "This counter reflects the total number of V8 context exit events.\nA context receives a context exit event every time it finishes to\nexecute some JavaScript.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -3916,7 +4414,7 @@
             "y": 17
           },
           "hiddenSeries": false,
-          "id": 133,
+          "id": 143,
           "legend": {
             "avg": false,
             "current": false,
@@ -3933,7 +4431,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -3943,7 +4441,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "arangodb_scheduler_num_working_threads",
+              "expr": "rate(arangodb_v8_context_exited_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3952,7 +4450,7 @@
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Current number of working threads",
+          "title": "Total number of V8 context exit events",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -3990,190 +4488,29 @@
           }
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
           "datasource": null,
           "description": "Total number of V8 context enter events. A context receives a context\nenter event every time it begins to execute some JavaScript. This number\nis a rough estimate as to how much JavaScript the server executes.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
-          "fill": 1,
-          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 0,
             "y": 25
           },
-          "hiddenSeries": false,
-          "id": 126,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
+          "id": 142,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_entered_total[1m])",
+              "expr": "rate(arangodb_v8_context_entered_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
           "title": "Total number of V8 context enter events",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "Number of tasks dropped because the queue was already full. The queue capacities\ncan be configured via the startup options `--server.scheduler-queue-size`,\n`--server.prio1-size`, `--server.prio2-size` and `--server.maximal-queue-size`.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 25
-          },
-          "hiddenSeries": false,
-          "id": 135,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_scheduler_queue_full_failures_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Number of tasks dropped and not added to internal queue",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
+          "type": "graph"
         }
       ],
       "title": "V8",
@@ -4188,7 +4525,7 @@
         "x": 0,
         "y": 9
       },
-      "id": 128,
+      "id": 144,
       "panels": [],
       "title": "Agency",
       "type": "row"
@@ -4202,338 +4539,8 @@
         "x": 0,
         "y": 10
       },
-      "id": 129,
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "Last recorded dequeue time for a low priority queue item, i.e., the amount of\ntime the job was sitting in the queue. If there is nothing to do for a long\ntime, this metric will be reset to zero.\nA large value for this metric indicates that the server is under heavy load\nand low priority jobs cannot be dequeued in a timely manner\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 11
-          },
-          "hiddenSeries": false,
-          "id": 130,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "arangodb_scheduler_low_prio_queue_last_dequeue_time",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Last recorded dequeue time for a low priority queue item",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "The number of worker threads currently working on some job or spinning while\nwaiting for new work (i.e., not sleeping).\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 11
-          },
-          "hiddenSeries": false,
-          "id": 131,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "arangodb_scheduler_num_awake_threads",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Number of awake worker threads",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "The number of worker threads currently started. Worker threads can be started\nand stopped dynamically based on the server load.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 19
-          },
-          "hiddenSeries": false,
-          "id": 132,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "arangodb_scheduler_num_worker_threads",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Current number of worker threads",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "datasource": null,
-          "description": "Total number of low priority jobs currently being processed.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 27
-          },
-          "id": 134,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "arangodb_scheduler_ongoing_low_prio",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Total number of ongoing RestHandlers coming from the low prio queue",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "The total number of currently queued jobs in all queues.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 35
-          },
-          "id": 136,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "arangodb_scheduler_queue_length",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Server's internal queue length",
-          "type": "graph"
-        }
-      ],
+      "id": 145,
+      "panels": [],
       "title": "Scheduler",
       "type": "row"
     },
@@ -4546,7 +4553,7 @@
         "x": 0,
         "y": 11
       },
-      "id": 137,
+      "id": 146,
       "panels": [],
       "title": "Maintenance",
       "type": "row"
@@ -4564,7 +4571,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "ArangoDB 3.8, for application developers",
-  "uid": "QKCUF6uMk",
+  "title": "ArangoDB_3.8_for_oasis_customer",
+  "uid": "W7oozd3Mz",
   "version": 1
 }

@@ -5,7 +5,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "7.5.4"
+      "version": "7.5.6"
     },
     {
       "type": "panel",
@@ -87,7 +87,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -97,7 +97,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_dropped_followers_total[1m])",
+              "expr": "rate(arangodb_dropped_followers_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -180,7 +180,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -190,7 +190,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_heartbeat_failures_total[1m])",
+              "expr": "rate(arangodb_heartbeat_failures_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -338,7 +338,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -431,7 +431,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -503,45 +503,143 @@
       "id": 7,
       "panels": [
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Total number of AQL queries finished.\nThis metric was named `arangodb_aql_all_query` in previous\nversions of ArangoDB.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 0,
             "y": 2
           },
+          "hiddenSeries": false,
           "id": 8,
-          "pluginVersion": "7.5.4",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_aql_all_query_total[1m])",
+              "expr": "rate(arangodb_aql_all_query_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Total number of AQL queries finished",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
           "datasource": null,
           "description": "Current number of AQL queries executing.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
           },
+          "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 12,
             "x": 12,
             "y": 2
           },
+          "hiddenSeries": false,
           "id": 9,
-          "pluginVersion": "7.5.4",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
               "expr": "arangodb_aql_current_query",
@@ -549,8 +647,46 @@
               "refId": "A"
             }
           ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
           "title": "Current number of AQL queries executing",
-          "type": "graph"
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
         },
         {
           "datasource": null,
@@ -566,7 +702,7 @@
             "y": 10
           },
           "id": 10,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_aql_global_memory_limit",
@@ -591,7 +727,7 @@
             "y": 10
           },
           "id": 11,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_aql_global_memory_usage",
@@ -616,10 +752,10 @@
             "y": 18
           },
           "id": 12,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_global_query_memory_limit_reached[1m])",
+              "expr": "rate(arangodb_aql_global_query_memory_limit_reached_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -641,10 +777,10 @@
             "y": 18
           },
           "id": 13,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_local_query_memory_limit_reached[1m])",
+              "expr": "rate(arangodb_aql_local_query_memory_limit_reached_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -694,7 +830,7 @@
             "y": 26
           },
           "id": 15,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_query_time_count[60s])",
@@ -719,7 +855,7 @@
             "y": 34
           },
           "id": 16,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_query_time_sum[60s]) / rate(arangodb_aql_query_time_count[60s])",
@@ -772,7 +908,7 @@
             "y": 42
           },
           "id": 18,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_slow_query_time_count[60s])",
@@ -797,7 +933,7 @@
             "y": 42
           },
           "id": 19,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_aql_slow_query_time_sum[60s]) / rate(arangodb_aql_slow_query_time_count[60s])",
@@ -822,10 +958,10 @@
             "y": 50
           },
           "id": 20,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_total_query_time_msec_total[1m])",
+              "expr": "rate(arangodb_aql_total_query_time_msec_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -847,7 +983,7 @@
             "y": 50
           },
           "id": 23,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_collection_truncate_time_count[60s])",
@@ -915,10 +1051,10 @@
             "y": 3
           },
           "id": 25,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_truncates_total[1m])",
+              "expr": "rate(arangodb_collection_truncates_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -940,7 +1076,7 @@
             "y": 11
           },
           "id": 24,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_collection_truncate_time_sum[60s]) / rate(arangodb_collection_truncate_time_count[60s])",
@@ -965,7 +1101,7 @@
             "y": 11
           },
           "id": 27,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_insert_time_count[60s])",
@@ -1046,7 +1182,7 @@
             "y": 27
           },
           "id": 28,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_insert_time_sum[60s]) / rate(arangodb_document_insert_time_count[60s])",
@@ -1071,7 +1207,7 @@
             "y": 27
           },
           "id": 31,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_read_time_sum[60s]) / rate(arangodb_document_read_time_count[60s])",
@@ -1096,7 +1232,7 @@
             "y": 35
           },
           "id": 30,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_read_time_count[60s])",
@@ -1121,7 +1257,7 @@
             "y": 35
           },
           "id": 33,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_remove_time_count[60s])",
@@ -1202,7 +1338,7 @@
             "y": 51
           },
           "id": 34,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_remove_time_sum[60s]) / rate(arangodb_document_remove_time_count[60s])",
@@ -1227,7 +1363,7 @@
             "y": 51
           },
           "id": 37,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_replace_time_sum[60s]) / rate(arangodb_document_replace_time_count[60s])",
@@ -1252,7 +1388,7 @@
             "y": 59
           },
           "id": 36,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_replace_time_count[60s])",
@@ -1277,7 +1413,7 @@
             "y": 59
           },
           "id": 39,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_update_time_count[60s])",
@@ -1330,10 +1466,10 @@
             "y": 67
           },
           "id": 41,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_aborted_total[1m])",
+              "expr": "rate(arangodb_transactions_aborted_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1355,7 +1491,7 @@
             "y": 75
           },
           "id": 40,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_document_update_time_sum[60s]) / rate(arangodb_document_update_time_count[60s])",
@@ -1380,10 +1516,10 @@
             "y": 75
           },
           "id": 43,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_expired_total[1m])",
+              "expr": "rate(arangodb_transactions_expired_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1405,10 +1541,10 @@
             "y": 83
           },
           "id": 42,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_committed_total[1m])",
+              "expr": "rate(arangodb_transactions_committed_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1430,7 +1566,7 @@
             "y": 83
           },
           "id": 47,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_received_count[60s])",
@@ -1455,10 +1591,10 @@
             "y": 91
           },
           "id": 44,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_started_total[1m])",
+              "expr": "rate(arangodb_transactions_started_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1551,7 +1687,7 @@
             "y": 4
           },
           "id": 51,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_sent_sum[60s]) / rate(arangodb_client_connection_statistics_bytes_sent_count[60s])",
@@ -1576,7 +1712,7 @@
             "y": 12
           },
           "id": 48,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_received_sum[60s]) / rate(arangodb_client_connection_statistics_bytes_received_count[60s])",
@@ -1629,7 +1765,7 @@
             "y": 20
           },
           "id": 50,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_bytes_sent_count[60s])",
@@ -1654,7 +1790,7 @@
             "y": 20
           },
           "id": 55,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_io_time_sum[60s]) / rate(arangodb_client_connection_statistics_io_time_count[60s])",
@@ -1679,7 +1815,7 @@
             "y": 28
           },
           "id": 52,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_client_connection_statistics_client_connections",
@@ -1704,7 +1840,7 @@
             "y": 28
           },
           "id": 57,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_queue_time_count[60s])",
@@ -1729,7 +1865,7 @@
             "y": 36
           },
           "id": 54,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_io_time_count[60s])",
@@ -1810,7 +1946,7 @@
             "y": 44
           },
           "id": 61,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_request_time_sum[60s]) / rate(arangodb_client_connection_statistics_request_time_count[60s])",
@@ -1835,7 +1971,7 @@
             "y": 52
           },
           "id": 58,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_queue_time_sum[60s]) / rate(arangodb_client_connection_statistics_queue_time_count[60s])",
@@ -1860,7 +1996,7 @@
             "y": 52
           },
           "id": 63,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_total_time_count[60s])",
@@ -1885,7 +2021,7 @@
             "y": 60
           },
           "id": 60,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_request_time_count[60s])",
@@ -1910,10 +2046,10 @@
             "y": 60
           },
           "id": 65,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_async_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_async_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1963,10 +2099,10 @@
             "y": 68
           },
           "id": 67,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_get_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_get_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1988,7 +2124,7 @@
             "y": 76
           },
           "id": 64,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_client_connection_statistics_total_time_sum[60s]) / rate(arangodb_client_connection_statistics_total_time_count[60s])",
@@ -2013,10 +2149,10 @@
             "y": 76
           },
           "id": 69,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_options_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_options_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2038,10 +2174,10 @@
             "y": 84
           },
           "id": 66,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_delete_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_delete_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2063,10 +2199,10 @@
             "y": 84
           },
           "id": 71,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_post_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_post_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2088,10 +2224,10 @@
             "y": 92
           },
           "id": 68,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_head_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_head_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2113,10 +2249,10 @@
             "y": 92
           },
           "id": 73,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_other_http_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_other_http_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2138,10 +2274,10 @@
             "y": 100
           },
           "id": 70,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_patch_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_patch_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2163,10 +2299,10 @@
             "y": 100
           },
           "id": 75,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_total_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_total_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2188,10 +2324,10 @@
             "y": 108
           },
           "id": 72,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_put_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_http_put_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2213,10 +2349,10 @@
             "y": 108
           },
           "id": 77,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_intermediate_commits_total[1m])",
+              "expr": "rate(arangodb_intermediate_commits_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2238,10 +2374,10 @@
             "y": 116
           },
           "id": 74,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_superuser_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_superuser_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2263,7 +2399,7 @@
             "y": 116
           },
           "id": 79,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_minor_page_faults_total",
@@ -2288,10 +2424,10 @@
             "y": 124
           },
           "id": 76,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_user_requests_total[1m])",
+              "expr": "rate(arangodb_http_request_statistics_user_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2313,7 +2449,7 @@
             "y": 124
           },
           "id": 81,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_resident_set_size",
@@ -2338,10 +2474,10 @@
             "y": 132
           },
           "id": 78,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_process_statistics_major_page_faults_total[1m])",
+              "expr": "rate(arangodb_process_statistics_major_page_faults_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2363,7 +2499,7 @@
             "y": 132
           },
           "id": 83,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_system_time",
@@ -2388,7 +2524,7 @@
             "y": 140
           },
           "id": 80,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_number_of_threads",
@@ -2413,7 +2549,7 @@
             "y": 140
           },
           "id": 85,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_virtual_memory_size",
@@ -2438,7 +2574,7 @@
             "y": 148
           },
           "id": 82,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_resident_set_size_percent",
@@ -2463,7 +2599,7 @@
             "y": 148
           },
           "id": 87,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_idle_percent",
@@ -2488,7 +2624,7 @@
             "y": 156
           },
           "id": 84,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_process_statistics_user_time",
@@ -2513,7 +2649,7 @@
             "y": 156
           },
           "id": 89,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_physical_memory",
@@ -2538,7 +2674,7 @@
             "y": 164
           },
           "id": 86,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_cpu_cores",
@@ -2563,7 +2699,7 @@
             "y": 164
           },
           "id": 91,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_system_percent",
@@ -2588,7 +2724,7 @@
             "y": 172
           },
           "id": 88,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_iowait_percent",
@@ -2613,7 +2749,7 @@
             "y": 172
           },
           "id": 93,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_alive",
@@ -2638,10 +2774,10 @@
             "y": 180
           },
           "id": 90,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_server_statistics_server_uptime_total[1m])",
+              "expr": "rate(arangodb_server_statistics_server_uptime_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2663,7 +2799,7 @@
             "y": 180
           },
           "id": 95,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_dirty",
@@ -2688,7 +2824,7 @@
             "y": 188
           },
           "id": 92,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_server_statistics_user_percent",
@@ -2713,7 +2849,7 @@
             "y": 188
           },
           "id": 97,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_max",
@@ -2738,7 +2874,7 @@
             "y": 196
           },
           "id": 94,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_busy",
@@ -2763,10 +2899,10 @@
             "y": 196
           },
           "id": 101,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_document_writes_replication_total[1m])",
+              "expr": "rate(arangodb_document_writes_replication_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2788,7 +2924,7 @@
             "y": 204
           },
           "id": 96,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_free",
@@ -2801,7 +2937,7 @@
         },
         {
           "datasource": null,
-          "description": "When using a DC-2-DC configuration of ArangoDB this metric is active on both data-centers.\nIt indicates that the follower data-center peridocally matches the available databases and collections\nin order to mirror them. If no DC-2-DC is set up this value is expected to be 0.\n",
+          "description": "When using a DC-2-DC configuration of ArangoDB this metric is active on both data-centers.\nIt indicates that the follower data-center periodically matches the available databases and collections\nin order to mirror them. If no DC-2-DC is set up this value is expected to be 0.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -2813,10 +2949,10 @@
             "y": 204
           },
           "id": 103,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_cluster_inventory_requests_total[1m])",
+              "expr": "rate(arangodb_replication_cluster_inventory_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2838,7 +2974,7 @@
             "y": 212
           },
           "id": 98,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_v8_context_min",
@@ -2863,10 +2999,10 @@
             "y": 212
           },
           "id": 105,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_bytes_received_total[1m])",
+              "expr": "rate(arangodb_replication_dump_bytes_received_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2903,10 +3039,10 @@
             "y": 5
           },
           "id": 100,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_truncates_replication_total[1m])",
+              "expr": "rate(arangodb_collection_truncates_replication_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2928,10 +3064,10 @@
             "y": 5
           },
           "id": 107,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_request_time_total[1m])",
+              "expr": "rate(arangodb_replication_dump_request_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2953,10 +3089,10 @@
             "y": 13
           },
           "id": 102,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_refused_followers_total[1m])",
+              "expr": "rate(arangodb_refused_followers_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2978,10 +3114,10 @@
             "y": 13
           },
           "id": 109,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_failed_connects_total[1m])",
+              "expr": "rate(arangodb_replication_failed_connects_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3003,10 +3139,10 @@
             "y": 21
           },
           "id": 104,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_apply_time_total[1m])",
+              "expr": "rate(arangodb_replication_dump_apply_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3028,10 +3164,10 @@
             "y": 21
           },
           "id": 111,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_docs_requests_time_total[1m])",
+              "expr": "rate(arangodb_replication_initial_docs_requests_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3053,10 +3189,10 @@
             "y": 29
           },
           "id": 106,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_documents_total[1m])",
+              "expr": "rate(arangodb_replication_dump_documents_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3078,10 +3214,10 @@
             "y": 29
           },
           "id": 113,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_keys_requests_time_total[1m])",
+              "expr": "rate(arangodb_replication_initial_keys_requests_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3103,10 +3239,10 @@
             "y": 37
           },
           "id": 108,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_requests_total[1m])",
+              "expr": "rate(arangodb_replication_dump_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3128,10 +3264,10 @@
             "y": 37
           },
           "id": 115,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_bytes_received_total[1m])",
+              "expr": "rate(arangodb_replication_initial_sync_bytes_received_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3153,10 +3289,10 @@
             "y": 45
           },
           "id": 110,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_chunks_requests_time_total[1m])",
+              "expr": "rate(arangodb_replication_initial_chunks_requests_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3178,10 +3314,10 @@
             "y": 45
           },
           "id": 117,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_removed_total[1m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_removed_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3203,10 +3339,10 @@
             "y": 53
           },
           "id": 112,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_insert_apply_time_total[1m])",
+              "expr": "rate(arangodb_replication_initial_insert_apply_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3228,10 +3364,10 @@
             "y": 53
           },
           "id": 119,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_requests_total[1m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3253,10 +3389,10 @@
             "y": 61
           },
           "id": 114,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_remove_apply_time_total[1m])",
+              "expr": "rate(arangodb_replication_initial_remove_apply_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3278,10 +3414,10 @@
             "y": 61
           },
           "id": 121,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_synchronous_requests_total_number_total[1m])",
+              "expr": "rate(arangodb_replication_synchronous_requests_total_number_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3303,10 +3439,10 @@
             "y": 69
           },
           "id": 116,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_inserted_total[1m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_inserted_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3328,10 +3464,10 @@
             "y": 69
           },
           "id": 123,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_apply_time_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_apply_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3353,10 +3489,10 @@
             "y": 77
           },
           "id": 118,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_requested_total[1m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_requested_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3378,10 +3514,10 @@
             "y": 77
           },
           "id": 125,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_documents_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_documents_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3403,10 +3539,10 @@
             "y": 85
           },
           "id": 120,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_keys_requests_total[1m])",
+              "expr": "rate(arangodb_replication_initial_sync_keys_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3428,10 +3564,10 @@
             "y": 85
           },
           "id": 127,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_markers_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_markers_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3453,10 +3589,10 @@
             "y": 93
           },
           "id": 122,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_synchronous_requests_total_time_total[1m])",
+              "expr": "rate(arangodb_replication_synchronous_requests_total_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3478,10 +3614,10 @@
             "y": 93
           },
           "id": 129,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_request_time_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_request_time_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3503,10 +3639,10 @@
             "y": 101
           },
           "id": 124,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_bytes_received_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_bytes_received_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3528,7 +3664,7 @@
             "y": 101
           },
           "id": 131,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_shards_leader_number",
@@ -3553,10 +3689,10 @@
             "y": 109
           },
           "id": 126,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_follow_tick_failures_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_follow_tick_failures_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3578,7 +3714,7 @@
             "y": 109
           },
           "id": 133,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_shards_number",
@@ -3603,10 +3739,10 @@
             "y": 117
           },
           "id": 128,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_removals_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_removals_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3628,10 +3764,10 @@
             "y": 117
           },
           "id": 135,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_sync_wrong_checksum_total[1m])",
+              "expr": "rate(arangodb_sync_wrong_checksum_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3653,10 +3789,10 @@
             "y": 125
           },
           "id": 130,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_requests_total[1m])",
+              "expr": "rate(arangodb_replication_tailing_requests_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3677,8 +3813,8 @@
             "x": 12,
             "y": 125
           },
-          "id": 143,
-          "pluginVersion": "7.5.4",
+          "id": 145,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_agencycomm_request_time_msec_count[60s])",
@@ -3703,7 +3839,7 @@
             "y": 133
           },
           "id": 132,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_shards_not_replicated",
@@ -3712,31 +3848,6 @@
             }
           ],
           "title": "Number of shards not replicated at all",
-          "type": "graph"
-        },
-        {
-          "datasource": null,
-          "description": "Number of requests forwarded to another coordinator.\nRequest forwarding can happen in load-balanced setups,\nwhen one coordinator receives and forwards requests \nthat can only be handled by a different coordinator.\nThis includes requests for streaming transactions,\nAQL, query cursors, Pregel jobs and some others.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 133
-          },
-          "id": 145,
-          "pluginVersion": "7.5.4",
-          "targets": [
-            {
-              "expr": "rate(arangodb_network_forwarded_requests_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "title": "Number of requests forwarded to another coordinator",
           "type": "graph"
         },
         {
@@ -3753,7 +3864,7 @@
             "y": 141
           },
           "id": 134,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "arangodb_shards_out_of_sync",
@@ -3778,7 +3889,58 @@
         "y": 5
       },
       "id": 136,
-      "panels": [],
+      "panels": [
+        {
+          "datasource": null,
+          "description": "This counter reflects the number of times RocksDB was observed by\nArangoDB to have entered a stalled (slowed) write state.\n\nIf the RocksDB background threads which do cleanup and compaction\ncannot keep up with the writing, then RocksDB first throttles its\nwrite rate (\"write stall\") and later stops the writing entirely\n(\"write stop\"). Both are suboptimal, since the write rate is too high.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 6
+          },
+          "id": 137,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_rocksdb_write_stalls_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of times RocksDB has entered a stalled (slowed) write state",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter reflects the number of times RocksDB was observed by\nArangoDB to have entered a stopped write state.\n\nIf the RocksDB background threads which do cleanup and compaction\ncannot keep up with the writing, then RocksDB first throttles its\nwrite rate (\"write stall\") and later stops the writing entirely\n(\"write stop\"). Both are suboptimal, since the write rate is too high,\nbut write stops are considerably worse, since they can lead to service\nunavailability.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 6
+          },
+          "id": 138,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_rocksdb_write_stops_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Number of times RocksDB has entered a stopped write state",
+          "type": "graph"
+        }
+      ],
       "title": "RocksDB",
       "type": "row"
     },
@@ -3791,7 +3953,7 @@
         "x": 0,
         "y": 6
       },
-      "id": 137,
+      "id": 139,
       "panels": [
         {
           "cards": {
@@ -3821,7 +3983,7 @@
           "heatmap": {},
           "hideZeroBuckets": false,
           "highlightCards": true,
-          "id": 138,
+          "id": 140,
           "legend": {
             "show": false
           },
@@ -3878,7 +4040,7 @@
             "y": 7
           },
           "hiddenSeries": false,
-          "id": 139,
+          "id": 141,
           "legend": {
             "avg": false,
             "current": false,
@@ -3895,7 +4057,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -3971,7 +4133,7 @@
             "y": 15
           },
           "hiddenSeries": false,
-          "id": 140,
+          "id": 142,
           "legend": {
             "avg": false,
             "current": false,
@@ -3988,7 +4150,7 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -4050,7 +4212,7 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": null,
-          "description": "Number of outgoing internal requests in flight. This metric is increased\nwhenever any cluster-internal request is about to be sent via the underlying \nconnection pool, and is decreased whenever a response for such a request is\nreceived or the request runs into a timeout.\nThis metric provides an estimate of the fan-out of operations. For example,\na user operation on a collection with a single shard will normally lead to\na single internal request (plus replication), whereas an operation on a\ncollection with 10 shards may lead to a fan-out of 10 (plus replication).\n",
+          "description": "Number of requests forwarded to another coordinator.\nRequest forwarding can happen in load-balanced setups,\nwhen one coordinator receives and forwards requests \nthat can only be handled by a different coordinator.\nThis includes requests for streaming transactions,\nAQL, query cursors, Pregel jobs and some others.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -4081,7 +4243,180 @@
             "alertThreshold": true
           },
           "percentage": false,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "rate(arangodb_network_forwarded_requests_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeRegions": [],
+          "timeShift": null,
+          "title": "Number of requests forwarded to another coordinator",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "title": "Connectivity",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 143,
+      "panels": [
+        {
+          "cards": {
+            "cardPadding": null,
+            "cardRound": null
+          },
+          "color": {
+            "cardColor": "#b4ff00",
+            "colorScale": "sqrt",
+            "colorScheme": "interpolateOranges",
+            "exponent": 0.5,
+            "mode": "spectrum"
+          },
+          "dataFormat": "timeseries",
+          "datasource": null,
+          "description": "This histogram shows how long requests to the agency took.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "heatmap": {},
+          "hideZeroBuckets": false,
+          "highlightCards": true,
+          "id": 144,
+          "legend": {
+            "show": false
+          },
+          "reverseYBuckets": false,
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_agencycomm_request_time_msec_bucket[60s])) by (le))",
+              "format": "heatmap",
+              "legendFormat": "",
+              "refId": "A"
+            }
+          ],
+          "title": "Request time for Agency requests",
+          "tooltip": {
+            "show": true,
+            "showHistogram": false
+          },
+          "type": "heatmap",
+          "xAxis": {
+            "show": true
+          },
+          "xBucketNumber": null,
+          "xBucketSize": null,
+          "yAxis": {
+            "decimals": null,
+            "format": "short",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true,
+            "splitFactor": null
+          },
+          "yBucketBound": "auto",
+          "yBucketNumber": null,
+          "yBucketSize": null
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": null,
+          "description": "Number of outgoing internal requests in flight. This metric is increased\nwhenever any cluster-internal request is about to be sent via the underlying \nconnection pool, and is decreased whenever a response for such a request is\nreceived or the request runs into a timeout.\nThis metric provides an estimate of the fan-out of operations. For example,\na user operation on a collection with a single shard will normally lead to\na single internal request (plus replication), whereas an operation on a\ncollection with 10 shards may lead to a fan-out of 10 (plus replication).\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "fill": 1,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "hiddenSeries": false,
+          "id": 149,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 1,
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "7.5.6",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -4136,179 +4471,6 @@
             "align": false,
             "alignLevel": null
           }
-        }
-      ],
-      "title": "Connectivity",
-      "type": "row"
-    },
-    {
-      "collapsed": true,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "id": 141,
-      "panels": [
-        {
-          "cards": {
-            "cardPadding": null,
-            "cardRound": null
-          },
-          "color": {
-            "cardColor": "#b4ff00",
-            "colorScale": "sqrt",
-            "colorScheme": "interpolateOranges",
-            "exponent": 0.5,
-            "mode": "spectrum"
-          },
-          "dataFormat": "timeseries",
-          "datasource": null,
-          "description": "This histogram shows how long requests to the agency took.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 8
-          },
-          "heatmap": {},
-          "hideZeroBuckets": false,
-          "highlightCards": true,
-          "id": 142,
-          "legend": {
-            "show": false
-          },
-          "reverseYBuckets": false,
-          "targets": [
-            {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_agencycomm_request_time_msec_bucket[60s])) by (le))",
-              "format": "heatmap",
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Request time for Agency requests",
-          "tooltip": {
-            "show": true,
-            "showHistogram": false
-          },
-          "type": "heatmap",
-          "xAxis": {
-            "show": true
-          },
-          "xBucketNumber": null,
-          "xBucketSize": null,
-          "yAxis": {
-            "decimals": null,
-            "format": "short",
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true,
-            "splitFactor": null
-          },
-          "yBucketBound": "auto",
-          "yBucketNumber": null,
-          "yBucketSize": null
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "description": "Total number of V8 context enter failures. A context receives a context\nenter event every time it begins to execute some JavaScript. If no\ncontext is available at such a time the system waits for 60s for a\ncontext to become free. If this does not happen within the 60s, the\ncontext enter event fails, a warning is logged and this counter is\nincreased by one.\n",
-          "fieldConfig": {
-            "defaults": {},
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 8
-          },
-          "hiddenSeries": false,
-          "id": 152,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.5.4",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "rate(arangodb_v8_context_enter_failures_total[1m])",
-              "legendFormat": "{{instance}}:{{shortname}}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Total number of V8 context enter failures",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
         },
         {
           "datasource": null,
@@ -4323,8 +4485,8 @@
             "x": 0,
             "y": 16
           },
-          "id": 144,
-          "pluginVersion": "7.5.4",
+          "id": 146,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
               "expr": "rate(arangodb_agencycomm_request_time_msec_sum[60s]) / rate(arangodb_agencycomm_request_time_msec_count[60s])",
@@ -4337,7 +4499,7 @@
         },
         {
           "datasource": null,
-          "description": "This counter reflects the total number of V8 context exit events.\nA context receives a context exit event every time it finishes to\nexecute some JavaScript.\n",
+          "description": "Total number of V8 context enter failures. A context receives a context\nenter event every time it begins to execute some JavaScript. If no\ncontext is available at such a time the system waits for 60s for a\ncontext to become free. If this does not happen within the 60s, the\ncontext enter event fails, a warning is logged and this counter is\nincreased by one.\n",
           "fieldConfig": {
             "defaults": {},
             "overrides": []
@@ -4349,15 +4511,15 @@
             "y": 16
           },
           "id": 154,
-          "pluginVersion": "7.5.4",
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_exited_total[1m])",
+              "expr": "rate(arangodb_v8_context_enter_failures_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
-          "title": "Total number of V8 context exit events",
+          "title": "Total number of V8 context enter failures",
           "type": "graph"
         },
         {
@@ -4373,16 +4535,41 @@
             "x": 0,
             "y": 24
           },
-          "id": 146,
-          "pluginVersion": "7.5.4",
+          "id": 148,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_network_request_timeouts_total[1m])",
+              "expr": "rate(arangodb_network_request_timeouts_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
           ],
           "title": "Number of internal requests that have timed out",
+          "type": "graph"
+        },
+        {
+          "datasource": null,
+          "description": "This counter reflects the total number of V8 context exit events.\nA context receives a context exit event every time it finishes to\nexecute some JavaScript.\n",
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 24
+          },
+          "id": 156,
+          "pluginVersion": "7.5.6",
+          "targets": [
+            {
+              "expr": "rate(arangodb_v8_context_exited_total[3m])",
+              "legendFormat": "{{instance}}:{{shortname}}",
+              "refId": "A"
+            }
+          ],
+          "title": "Total number of V8 context exit events",
           "type": "graph"
         }
       ],
@@ -4398,7 +4585,7 @@
         "x": 0,
         "y": 8
       },
-      "id": 148,
+      "id": 150,
       "panels": [
         {
           "datasource": null,
@@ -4413,11 +4600,11 @@
             "x": 0,
             "y": 9
           },
-          "id": 149,
-          "pluginVersion": "7.5.4",
+          "id": 151,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_created_total[1m])",
+              "expr": "rate(arangodb_v8_context_created_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4438,11 +4625,11 @@
             "x": 12,
             "y": 9
           },
-          "id": 150,
-          "pluginVersion": "7.5.4",
+          "id": 152,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_creation_time_msec_total[1m])",
+              "expr": "rate(arangodb_v8_context_creation_time_msec_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4463,11 +4650,11 @@
             "x": 0,
             "y": 17
           },
-          "id": 151,
-          "pluginVersion": "7.5.4",
+          "id": 153,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_destroyed_total[1m])",
+              "expr": "rate(arangodb_v8_context_destroyed_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4488,11 +4675,11 @@
             "x": 0,
             "y": 25
           },
-          "id": 153,
-          "pluginVersion": "7.5.4",
+          "id": 155,
+          "pluginVersion": "7.5.6",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_entered_total[1m])",
+              "expr": "rate(arangodb_v8_context_entered_total[3m])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4513,7 +4700,7 @@
         "x": 0,
         "y": 9
       },
-      "id": 155,
+      "id": 157,
       "panels": [],
       "title": "Agency",
       "type": "row"
@@ -4527,7 +4714,7 @@
         "x": 0,
         "y": 10
       },
-      "id": 156,
+      "id": 158,
       "panels": [],
       "title": "Scheduler",
       "type": "row"
@@ -4541,7 +4728,7 @@
         "x": 0,
         "y": 11
       },
-      "id": 157,
+      "id": 159,
       "panels": [],
       "title": "Maintenance",
       "type": "row"
@@ -4559,7 +4746,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "ArangoDB 3.8, for system administrators",
-  "uid": "AHQgceXGk",
+  "title": "ArangoDB_3.8_for_dbadmins",
+  "uid": "Nz9FkdqGk",
   "version": 1
 }
