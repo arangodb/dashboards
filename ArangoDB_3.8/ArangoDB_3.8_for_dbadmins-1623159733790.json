@@ -97,7 +97,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_dropped_followers_total[3m])",
+              "expr": "rate(arangodb_dropped_followers_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -186,7 +186,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_heartbeat_failures_total[3m])",
+              "expr": "rate(arangodb_heartbeat_failures_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -263,7 +263,7 @@
           "reverseYBuckets": false,
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_heartbeat_send_time_msec_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_heartbeat_send_time_msec_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -336,7 +336,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_heartbeat_send_time_msec_count[3m])",
+              "expr": "rate(arangodb_heartbeat_send_time_msec_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -425,7 +425,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_heartbeat_send_time_msec_sum[3m]) / rate(arangodb_heartbeat_send_time_msec_count[3m])",
+              "expr": "rate(arangodb_heartbeat_send_time_msec_sum[15s]) / rate(arangodb_heartbeat_send_time_msec_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -533,7 +533,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_aql_all_query_total[3m])",
+              "expr": "rate(arangodb_aql_all_query_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -859,7 +859,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_global_query_memory_limit_reached_total[3m])",
+              "expr": "rate(arangodb_aql_global_query_memory_limit_reached_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -880,7 +880,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_local_query_memory_limit_reached_total[3m])",
+              "expr": "rate(arangodb_aql_local_query_memory_limit_reached_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -903,7 +903,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_aql_query_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_aql_query_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -925,7 +925,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_query_time_count[3m])",
+              "expr": "rate(arangodb_aql_query_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -946,7 +946,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_query_time_sum[3m]) / rate(arangodb_aql_query_time_count[3m])",
+              "expr": "rate(arangodb_aql_query_time_sum[15s]) / rate(arangodb_aql_query_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -969,7 +969,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_aql_slow_query_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_aql_slow_query_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -991,7 +991,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_slow_query_time_count[3m])",
+              "expr": "rate(arangodb_aql_slow_query_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1012,7 +1012,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_slow_query_time_sum[3m]) / rate(arangodb_aql_slow_query_time_count[3m])",
+              "expr": "rate(arangodb_aql_slow_query_time_sum[15s]) / rate(arangodb_aql_slow_query_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1033,7 +1033,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_aql_total_query_time_msec_total[3m])",
+              "expr": "rate(arangodb_aql_total_query_time_msec_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1054,7 +1054,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_truncate_time_count[3m])",
+              "expr": "rate(arangodb_collection_truncate_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1096,7 +1096,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_collection_truncate_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_collection_truncate_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1118,7 +1118,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_truncates_total[3m])",
+              "expr": "rate(arangodb_collection_truncates_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1139,7 +1139,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_truncate_time_sum[3m]) / rate(arangodb_collection_truncate_time_count[3m])",
+              "expr": "rate(arangodb_collection_truncate_time_sum[15s]) / rate(arangodb_collection_truncate_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1160,7 +1160,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_insert_time_count[3m])",
+              "expr": "rate(arangodb_document_insert_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1183,7 +1183,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_insert_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_insert_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1207,7 +1207,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_read_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_read_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1229,7 +1229,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_insert_time_sum[3m]) / rate(arangodb_document_insert_time_count[3m])",
+              "expr": "rate(arangodb_document_insert_time_sum[15s]) / rate(arangodb_document_insert_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1250,7 +1250,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_read_time_sum[3m]) / rate(arangodb_document_read_time_count[3m])",
+              "expr": "rate(arangodb_document_read_time_sum[15s]) / rate(arangodb_document_read_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1271,7 +1271,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_read_time_count[3m])",
+              "expr": "rate(arangodb_document_read_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1292,7 +1292,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_remove_time_count[3m])",
+              "expr": "rate(arangodb_document_remove_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1315,7 +1315,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_remove_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_remove_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1339,7 +1339,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_replace_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_replace_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1361,7 +1361,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_remove_time_sum[3m]) / rate(arangodb_document_remove_time_count[3m])",
+              "expr": "rate(arangodb_document_remove_time_sum[15s]) / rate(arangodb_document_remove_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1382,7 +1382,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_replace_time_sum[3m]) / rate(arangodb_document_replace_time_count[3m])",
+              "expr": "rate(arangodb_document_replace_time_sum[15s]) / rate(arangodb_document_replace_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1403,7 +1403,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_replace_time_count[3m])",
+              "expr": "rate(arangodb_document_replace_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1424,7 +1424,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_update_time_count[3m])",
+              "expr": "rate(arangodb_document_update_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1447,7 +1447,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_update_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_document_update_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1469,7 +1469,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_aborted_total[3m])",
+              "expr": "rate(arangodb_transactions_aborted_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1490,7 +1490,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_update_time_sum[3m]) / rate(arangodb_document_update_time_count[3m])",
+              "expr": "rate(arangodb_document_update_time_sum[15s]) / rate(arangodb_document_update_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1511,7 +1511,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_expired_total[3m])",
+              "expr": "rate(arangodb_transactions_expired_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1532,7 +1532,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_committed_total[3m])",
+              "expr": "rate(arangodb_transactions_committed_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1553,7 +1553,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_bytes_received_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_bytes_received_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1574,7 +1574,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_transactions_started_total[3m])",
+              "expr": "rate(arangodb_transactions_started_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1597,7 +1597,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_bytes_sent_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_bytes_sent_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1640,7 +1640,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_bytes_received_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_bytes_received_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1662,7 +1662,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_bytes_sent_sum[3m]) / rate(arangodb_client_connection_statistics_bytes_sent_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_bytes_sent_sum[15s]) / rate(arangodb_client_connection_statistics_bytes_sent_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1683,7 +1683,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_bytes_received_sum[3m]) / rate(arangodb_client_connection_statistics_bytes_received_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_bytes_received_sum[15s]) / rate(arangodb_client_connection_statistics_bytes_received_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1706,7 +1706,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_io_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_io_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1728,7 +1728,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_bytes_sent_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_bytes_sent_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1749,7 +1749,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_io_time_sum[3m]) / rate(arangodb_client_connection_statistics_io_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_io_time_sum[15s]) / rate(arangodb_client_connection_statistics_io_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1791,7 +1791,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_queue_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_queue_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1812,7 +1812,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_io_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_io_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1835,7 +1835,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_request_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_request_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1859,7 +1859,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_queue_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_queue_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -1881,7 +1881,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_request_time_sum[3m]) / rate(arangodb_client_connection_statistics_request_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_request_time_sum[15s]) / rate(arangodb_client_connection_statistics_request_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1902,7 +1902,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_queue_time_sum[3m]) / rate(arangodb_client_connection_statistics_queue_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_queue_time_sum[15s]) / rate(arangodb_client_connection_statistics_queue_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1923,7 +1923,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_total_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_total_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1944,7 +1944,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_request_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_request_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1965,7 +1965,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_async_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_async_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -1988,7 +1988,7 @@
           },
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_total_time_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_client_connection_statistics_total_time_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -2010,7 +2010,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_get_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_get_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2031,7 +2031,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_client_connection_statistics_total_time_sum[3m]) / rate(arangodb_client_connection_statistics_total_time_count[3m])",
+              "expr": "rate(arangodb_client_connection_statistics_total_time_sum[15s]) / rate(arangodb_client_connection_statistics_total_time_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2052,7 +2052,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_options_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_options_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2073,7 +2073,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_delete_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_delete_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2094,7 +2094,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_post_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_post_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2115,7 +2115,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_head_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_head_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2136,7 +2136,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_other_http_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_other_http_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2157,7 +2157,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_patch_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_patch_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2178,7 +2178,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_total_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_total_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2199,7 +2199,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_http_put_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_http_put_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2220,7 +2220,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_intermediate_commits_total[3m])",
+              "expr": "rate(arangodb_intermediate_commits_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2241,7 +2241,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_superuser_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_superuser_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2283,7 +2283,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_http_request_statistics_user_requests_total[3m])",
+              "expr": "rate(arangodb_http_request_statistics_user_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2325,7 +2325,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_process_statistics_major_page_faults_total[3m])",
+              "expr": "rate(arangodb_process_statistics_major_page_faults_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2577,7 +2577,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_server_statistics_server_uptime_total[3m])",
+              "expr": "rate(arangodb_server_statistics_server_uptime_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2682,7 +2682,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_document_writes_replication_total[3m])",
+              "expr": "rate(arangodb_document_writes_replication_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2724,7 +2724,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_cluster_inventory_requests_total[3m])",
+              "expr": "rate(arangodb_replication_cluster_inventory_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2766,7 +2766,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_bytes_received_total[3m])",
+              "expr": "rate(arangodb_replication_dump_bytes_received_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2806,7 +2806,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_collection_truncates_replication_total[3m])",
+              "expr": "rate(arangodb_collection_truncates_replication_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2827,7 +2827,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_request_time_total[3m])",
+              "expr": "rate(arangodb_replication_dump_request_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2848,7 +2848,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_refused_followers_total[3m])",
+              "expr": "rate(arangodb_refused_followers_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2869,7 +2869,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_failed_connects_total[3m])",
+              "expr": "rate(arangodb_replication_failed_connects_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2890,7 +2890,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_apply_time_total[3m])",
+              "expr": "rate(arangodb_replication_dump_apply_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2911,7 +2911,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_docs_requests_time_total[3m])",
+              "expr": "rate(arangodb_replication_initial_docs_requests_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2932,7 +2932,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_documents_total[3m])",
+              "expr": "rate(arangodb_replication_dump_documents_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2953,7 +2953,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_keys_requests_time_total[3m])",
+              "expr": "rate(arangodb_replication_initial_keys_requests_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2974,7 +2974,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_dump_requests_total[3m])",
+              "expr": "rate(arangodb_replication_dump_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -2995,7 +2995,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_bytes_received_total[3m])",
+              "expr": "rate(arangodb_replication_initial_sync_bytes_received_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3016,7 +3016,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_chunks_requests_time_total[3m])",
+              "expr": "rate(arangodb_replication_initial_chunks_requests_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3037,7 +3037,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_removed_total[3m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_removed_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3058,7 +3058,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_insert_apply_time_total[3m])",
+              "expr": "rate(arangodb_replication_initial_insert_apply_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3079,7 +3079,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_requests_total[3m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3100,7 +3100,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_remove_apply_time_total[3m])",
+              "expr": "rate(arangodb_replication_initial_remove_apply_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3121,7 +3121,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_synchronous_requests_total_number_total[3m])",
+              "expr": "rate(arangodb_replication_synchronous_requests_total_number_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3142,7 +3142,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_inserted_total[3m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_inserted_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3163,7 +3163,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_apply_time_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_apply_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3184,7 +3184,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_docs_requested_total[3m])",
+              "expr": "rate(arangodb_replication_initial_sync_docs_requested_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3205,7 +3205,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_documents_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_documents_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3226,7 +3226,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_initial_sync_keys_requests_total[3m])",
+              "expr": "rate(arangodb_replication_initial_sync_keys_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3247,7 +3247,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_markers_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_markers_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3268,7 +3268,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_synchronous_requests_total_time_total[3m])",
+              "expr": "rate(arangodb_replication_synchronous_requests_total_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3289,7 +3289,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_request_time_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_request_time_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3310,7 +3310,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_bytes_received_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_bytes_received_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3352,7 +3352,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_follow_tick_failures_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_follow_tick_failures_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3394,7 +3394,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_removals_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_removals_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3415,7 +3415,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_sync_rebuilds_total[3m])",
+              "expr": "rate(arangodb_sync_rebuilds_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3436,7 +3436,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_replication_tailing_requests_total[3m])",
+              "expr": "rate(arangodb_replication_tailing_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3457,7 +3457,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_rocksdb_write_stops_total[3m])",
+              "expr": "rate(arangodb_rocksdb_write_stops_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3499,7 +3499,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_agencycomm_request_time_msec_count[3m])",
+              "expr": "rate(arangodb_agencycomm_request_time_msec_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3541,7 +3541,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_network_forwarded_requests_total[3m])",
+              "expr": "rate(arangodb_network_forwarded_requests_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3562,7 +3562,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_sync_wrong_checksum_total[3m])",
+              "expr": "rate(arangodb_sync_wrong_checksum_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3602,7 +3602,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_rocksdb_write_stalls_total[3m])",
+              "expr": "rate(arangodb_rocksdb_write_stalls_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3681,7 +3681,7 @@
           "reverseYBuckets": false,
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_connection_pool_lease_time_hist_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_connection_pool_lease_time_hist_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -3754,7 +3754,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_connection_pool_lease_time_hist_count[3m])",
+              "expr": "rate(arangodb_connection_pool_lease_time_hist_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3843,7 +3843,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_connection_pool_lease_time_hist_sum[3m]) / rate(arangodb_connection_pool_lease_time_hist_count[3m])",
+              "expr": "rate(arangodb_connection_pool_lease_time_hist_sum[15s]) / rate(arangodb_connection_pool_lease_time_hist_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -3932,7 +3932,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_enter_failures_total[3m])",
+              "expr": "rate(arangodb_v8_context_enter_failures_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4028,7 +4028,7 @@
           "reverseYBuckets": false,
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(arangodb_agencycomm_request_time_msec_bucket[3m])) by (le))",
+              "expr": "histogram_quantile(0.95, sum(rate(arangodb_agencycomm_request_time_msec_bucket[15s])) by (le))",
               "format": "heatmap",
               "legendFormat": "",
               "refId": "A"
@@ -4101,7 +4101,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_exited_total[3m])",
+              "expr": "rate(arangodb_v8_context_exited_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4190,7 +4190,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_agencycomm_request_time_msec_sum[3m]) / rate(arangodb_agencycomm_request_time_msec_count[3m])",
+              "expr": "rate(arangodb_agencycomm_request_time_msec_sum[15s]) / rate(arangodb_agencycomm_request_time_msec_count[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4249,7 +4249,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_network_request_timeouts_total[3m])",
+              "expr": "rate(arangodb_network_request_timeouts_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4319,7 +4319,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_created_total[3m])",
+              "expr": "rate(arangodb_v8_context_created_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4408,7 +4408,7 @@
           "steppedLine": false,
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_creation_time_msec_total[3m])",
+              "expr": "rate(arangodb_v8_context_creation_time_msec_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4467,7 +4467,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_destroyed_total[3m])",
+              "expr": "rate(arangodb_v8_context_destroyed_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
@@ -4488,7 +4488,7 @@
           "pluginVersion": "8.0.0",
           "targets": [
             {
-              "expr": "rate(arangodb_v8_context_entered_total[3m])",
+              "expr": "rate(arangodb_v8_context_entered_total[15s])",
               "legendFormat": "{{instance}}:{{shortname}}",
               "refId": "A"
             }
