@@ -1552,7 +1552,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(arangodb_agency_read_ok_total{namespace=\"depl-$deployment_id\",pod=~\"($pod)\",role=\"agent\"}[1m])",
+          "expr": "rate(arangodb_agency_read_ok_total{role=\"agent\"}[1m])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -2635,7 +2635,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{namespace=\"depl-$deployment_id\",pod=~\"($pod)\",pool=\"AgencyComm\"}[1m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\"}[1m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2710,7 +2710,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{namespace=\"depl-$deployment_id\",pod=~\"($pod)\",pool=\"ClusterComm\"}[1m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\"}[1m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2783,6 +2783,6 @@
   },
   "timezone": "browser",
   "title": "ArangoDB 3.8 Oasis",
-  "uid": "9FpcjiFGz",
+  "uid": "9FpcjiFZg",
   "version": 3
 }
