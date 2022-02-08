@@ -18,7 +18,7 @@
       }
     ]
   },
-  "description": "ArangoDB kubernetes dashboard",
+  "description": "ArangoDB overview",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -74,7 +74,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(arangodb_process_statistics_user_time{instance!=\"\"}[2m])*6",
+          "expr": "rate(arangodb_process_statistics_user_time{instance!=\"\"}[15s])*6",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -165,7 +165,7 @@
             "uid": "0_kgwcanz"
           },
           "exemplar": true,
-          "expr": "rate(arangodb_aql_total_query_time_msec_total{instance!=\"\"}[2m])",
+          "expr": "rate(arangodb_aql_total_query_time_msec_total{instance!=\"\"}[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -342,7 +342,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(rocksdb_actual_delayed_write_rate{instance!=\"\"}[2m])",
+          "expr": "rate(rocksdb_actual_delayed_write_rate{instance!=\"\"}[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -1026,7 +1026,7 @@
             "uid": "0_kgwcanz"
           },
           "exemplar": true,
-          "expr": "rate(arangodb_agency_write_ok_total{instance!=\"\"}[2m])",
+          "expr": "rate(arangodb_agency_write_ok_total{instance!=\"\"}[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -1116,7 +1116,7 @@
             "uid": "0_kgwcanz"
           },
           "exemplar": true,
-          "expr": "rate(arangodb_agency_read_no_leader_total{instance!=\"\"}[2m])",
+          "expr": "rate(arangodb_agency_read_no_leader_total{instance!=\"\"}[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -1465,7 +1465,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(rocksdb_size_all_mem_tables{instance!=\"\"}[2m])",
+          "expr": "rate(rocksdb_size_all_mem_tables{instance!=\"\"}[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -1632,7 +1632,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(rocksdb_block_cache_usage{instance!=\"\"}[2m])",
+          "expr": "rate(rocksdb_block_cache_usage{instance!=\"\"}[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "refId": "A"
@@ -1836,7 +1836,7 @@
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{instance!=\"\",pool=\"AgencyComm\"}[2m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{instance!=\"\",pool=\"AgencyComm\"}[15s])",
           "format": "time_series",
           "instant": false,
           "interval": "",
