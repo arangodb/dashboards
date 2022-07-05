@@ -29,10 +29,7 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -49,10 +46,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of drop-follower events. This metric is increased on leaders\nwhenever a write operation cannot be replicated to a follower during\nsynchronous replication, and it would be unsafe in terms of data consistency\nto keep that follower.\nThis metric was named `arangodb_dropped_followers_count` in previous\nversions of ArangoDB.\n",
       "fill": 1,
       "fillGradient": 0,
@@ -130,10 +124,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of failed heartbeat transmissions.\nServers in a cluster periodically send their heartbeats to\nthe Agency to report their own liveliness. This counter gets\nincreased whenever sending such a heartbeat fails. In the single\nserver, this counter is only used in active failover mode.\n",
       "fill": 1,
       "fillGradient": 0,
@@ -216,10 +207,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "timeseries",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of times required to send heartbeats. For every heartbeat\nsent the time is measured and an event is put into the histogram.\nIn the single server, this counter is only used in active failover mode.\n",
       "gridPos": {
         "h": 8,
@@ -264,10 +252,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of times required to send heartbeats. For every heartbeat\nsent the time is measured and an event is put into the histogram.\nIn the single server, this counter is only used in active failover mode.\n",
       "fill": 1,
       "fillGradient": 0,
@@ -345,10 +330,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of times required to send heartbeats. For every heartbeat\nsent the time is measured and an event is put into the histogram.\nIn the single server, this counter is only used in active failover mode.\n",
       "fill": 1,
       "fillGradient": 0,
@@ -426,10 +408,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter is increased whenever the io heartbeat encounters a delay\nof at least 1s when writing a small file to the database directory,\nreading it and then removing it again.\nThis test is done periodically to ensure that the underlying volume is\nusable and performs reasonably well. The test can be switched off\nexplicitly with the flag `--database.io-heartbeat=false`, but the\ndefault is `true`. Furthermore, every such failure leads to a line in\nthe log at INFO level for the `ENGINES` topic.\n",
       "fill": 1,
       "fillGradient": 0,
@@ -512,10 +491,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "timeseries",
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This histogram is updated whenever the io heartbeat runs its test in\nthe database directory. It writes a small file, syncs it to durable\nstorage, reads it, and then unlinks the file again. This test is done\nperiodically to ensure that the underlying volume is usable and performs\nreasonably well. The test can be switched off explicitly with the flag\n`--database.io-heartbeat=false`, but the default is `true`.\n",
       "gridPos": {
         "h": 8,
@@ -560,10 +536,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This histogram is updated whenever the io heartbeat runs its test in\nthe database directory. It writes a small file, syncs it to durable\nstorage, reads it, and then unlinks the file again. This test is done\nperiodically to ensure that the underlying volume is usable and performs\nreasonably well. The test can be switched off explicitly with the flag\n`--database.io-heartbeat=false`, but the default is `true`.\n",
       "fill": 1,
       "fillGradient": 0,
@@ -637,10 +610,7 @@
       }
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This histogram is updated whenever the io heartbeat runs its test in\nthe database directory. It writes a small file, syncs it to durable\nstorage, reads it, and then unlinks the file again. This test is done\nperiodically to ensure that the underlying volume is usable and performs\nreasonably well. The test can be switched off explicitly with the flag\n`--database.io-heartbeat=false`, but the default is `true`.\n",
       "gridPos": {
         "h": 8,
@@ -660,10 +630,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter is increased whenever the io heartbeat encounters a problem\nwhen writing a small file to the database directory, reading it and then\nremoving it again. This test is done\nperiodically to ensure that the underlying volume is usable. The test can\nbe switched off explicitly with the flag `--database.io-heartbeat=false`,\nbut the default is `true`. Furthermore, every such failure leads to a\nline in the log at INFO level for the `ENGINES` topic.\n",
       "gridPos": {
         "h": 8,
@@ -683,10 +650,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -699,10 +663,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of AQL queries finished.\nThis metric was named `arangodb_aql_all_query` in previous\nversions of ArangoDB.\n",
       "gridPos": {
         "h": 8,
@@ -722,10 +683,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Current number of AQL queries executing.\n",
       "gridPos": {
         "h": 8,
@@ -745,10 +703,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total memory limit for all AQL queries combined, in bytes.\nIf this value is reported as `0`, it means there is no total memory\nlimit in place for AQL queries. The value can be adjusted by the setting\nthe `--query.global-memory-limit` startup option.\n",
       "gridPos": {
         "h": 8,
@@ -768,10 +723,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total memory usage of all AQL queries currently executing.\nThe granularity of this metric is steps of 32768 bytes. The current\nmemory usage of all AQL queries will be compared against the configured\nlimit in the `--query.global-memory-limit` startup option.\nIf the startup option has a value of `0`, then no global memory limit\nwill be enforced. If the startup option has a non-zero value, queries\nwill be aborted once the total query memory usage goes above the configured\nlimit.\n",
       "gridPos": {
         "h": 8,
@@ -791,10 +743,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of times the global query memory limit threshold was reached.\nThis can happen if all running AQL queries in total try to use more memory than\nconfigured via the `--query.global-memory-limit` startup option.\nEvery time this counter will increase, an AQL query will have aborted with a\n\"resource limit exceeded\" error.\n",
       "gridPos": {
         "h": 8,
@@ -814,10 +763,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of times a local query memory limit threshold was reached, i.e.\na single query tried to allocate more memory than configured in the query's\n`memoryLimit` attribute or the value configured via the startup option\n`--query.memory-limit`.\nEvery time this counter will increase, an AQL query will have aborted with a\n\"resource limit exceeded\" error.\n",
       "gridPos": {
         "h": 8,
@@ -837,10 +783,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Execution time histogram for all AQL queries, in seconds.\nThe histogram includes all slow queries.\n",
       "gridPos": {
         "h": 8,
@@ -864,10 +807,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Execution time histogram for all AQL queries, in seconds.\nThe histogram includes all slow queries.\n",
       "gridPos": {
         "h": 8,
@@ -887,10 +827,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Execution time histogram for all AQL queries, in seconds.\nThe histogram includes all slow queries.\n",
       "gridPos": {
         "h": 8,
@@ -910,10 +847,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Execution time histogram for slow AQL queries, in seconds.\nQueries are considered \"slow\" if their execution time is above the\nthreshold configured in the startup options `--query.slow-threshold`\nor `--query.slow-streaming-threshold`, resp.\n",
       "gridPos": {
         "h": 8,
@@ -937,10 +871,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Execution time histogram for slow AQL queries, in seconds.\nQueries are considered \"slow\" if their execution time is above the\nthreshold configured in the startup options `--query.slow-threshold`\nor `--query.slow-streaming-threshold`, resp.\n",
       "gridPos": {
         "h": 8,
@@ -960,10 +891,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Execution time histogram for slow AQL queries, in seconds.\nQueries are considered \"slow\" if their execution time is above the\nthreshold configured in the startup options `--query.slow-threshold`\nor `--query.slow-streaming-threshold`, resp.\n",
       "gridPos": {
         "h": 8,
@@ -983,10 +911,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total execution time of all AQL queries, in milliseconds,\nincluding all slow queries.\n",
       "gridPos": {
         "h": 8,
@@ -1006,10 +931,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1022,10 +944,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total amount of time it took to acquire collection/shard locks for\nwrite operations, summed up for all collections/shards. Will not be increased\nfor any read operations.\nThe value is measured in microseconds.\n",
       "gridPos": {
         "h": 8,
@@ -1045,10 +964,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of transactions using sequential locking of collections to avoid deadlocking.\nBy default, a Coordinator will try to lock all shards of a collection in parallel.\nThis approach is normally fast but can cause deadlocks with other transactions that\nlock the same shards in a different order. In case such a deadlock is detected, the\nCoordinator will abort the lock round and start a new one that locks all shards in\nsequential order. This will avoid deadlocks, but has a higher setup overhead.\n",
       "gridPos": {
         "h": 8,
@@ -1068,10 +984,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of timeouts when trying to acquire collection exclusive locks.\nThis counter will be increased whenever an exclusive collection lock\ncannot be acquired within the configured lock timeout.\n",
       "gridPos": {
         "h": 8,
@@ -1091,10 +1004,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of timeouts when trying to acquire collection write locks.\nThis counter will be increased whenever a collection write lock\ncannot be acquired within the configured lock timeout.\nThis can only happen if writes on a collection are locked out by\nother operations on the collection that use an exclusive lock. Writes\nare not locked out by other, non-exclusively locked writes.\n",
       "gridPos": {
         "h": 8,
@@ -1114,10 +1024,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in collection truncate operations, including both\nuser-initiated truncate operations and truncate operations\nexecuted by the synchronous replication on followers.\nNote that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1141,10 +1048,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in collection truncate operations, including both\nuser-initiated truncate operations and truncate operations\nexecuted by the synchronous replication on followers.\nNote that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1164,10 +1068,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in collection truncate operations, including both\nuser-initiated truncate operations and truncate operations\nexecuted by the synchronous replication on followers.\nNote that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1187,10 +1088,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of collection truncate operations on leaders (excluding synchronous\nreplication). Note that this metric is only present when the command\nline option `--server.export-read-write-metrics` is set to `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1210,10 +1108,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1237,10 +1132,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1260,10 +1152,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document insert operations, including both\nuser-initiated insert operations and insert operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1283,10 +1172,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document read-by-primary-key operations. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1310,10 +1196,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document read-by-primary-key operations. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1333,10 +1216,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document read-by-primary-key operations. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1356,10 +1236,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1383,10 +1260,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1406,10 +1280,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1429,10 +1300,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1456,10 +1324,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1479,10 +1344,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document replace operations, including both\nuser-initiated replace operations and replace operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1502,10 +1364,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1529,10 +1388,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1552,10 +1408,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total time spent in document update operations, including both\nuser-initiated update operations and update operations executed by\nthe synchronous replication on followers. This metric\nis only present if the option `--server.export-read-write-metrics` is set\nto `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1575,10 +1428,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of document write operations (insert, update, replace, remove) on\nleaders, excluding writes by the synchronous replication on followers.\nThis metric is only present if the option `--server.export-read-write-metrics`\nis set to `true`.\n",
       "gridPos": {
         "h": 8,
@@ -1598,10 +1448,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of read-only transactions. In the cluster, this metric will\nbe collected separately for transactions on Coordinators and the\ntransaction counterparts on leaders and followers.\n",
       "gridPos": {
         "h": 8,
@@ -1621,10 +1468,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of transactions aborted. In the cluster, this metric will\nbe collected separately for transactions on Coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_aborted` in previous\nversions of ArangoDB.\n",
       "gridPos": {
         "h": 8,
@@ -1644,10 +1488,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of transactions committed. In the cluster, this metric will\nbe collected separately for transactions on Coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_committed` in previous\nversions of ArangoDB.\n",
       "gridPos": {
         "h": 8,
@@ -1667,10 +1508,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of expired transactions, i.e. transactions that have\nbeen begun but that were automatically garbage-collected due to\ninactivity within the transactions' time-to-live (TTL) period.\nIn the cluster, this metric will be collected separately for transactions\non Coordinators and the transaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_expired` in previous\nversions of ArangoDB.\n",
       "gridPos": {
         "h": 8,
@@ -1690,10 +1528,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of transactions started/begun. In the cluster, this metric will\nbe collected separately for transactions on Coordinators and the\ntransaction counterparts on leaders and followers.\nThis metric was named `arangodb_transactions_started` in previous\nversions of ArangoDB.\n",
       "gridPos": {
         "h": 8,
@@ -1713,10 +1548,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the received request sizes in bytes.\n",
       "gridPos": {
         "h": 8,
@@ -1736,10 +1568,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -1752,10 +1581,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the received request sizes in bytes.\n",
       "gridPos": {
         "h": 8,
@@ -1779,10 +1605,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the sent response sizes in bytes\n",
       "gridPos": {
         "h": 8,
@@ -1806,10 +1629,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the received request sizes in bytes.\n",
       "gridPos": {
         "h": 8,
@@ -1829,10 +1649,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the sent response sizes in bytes\n",
       "gridPos": {
         "h": 8,
@@ -1852,10 +1669,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the sent response sizes in bytes\n",
       "gridPos": {
         "h": 8,
@@ -1875,10 +1689,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of I/O times needed to answer a request. This includes the time\nrequired to read the incoming request as well as the time required to send\nthe response.\n",
       "gridPos": {
         "h": 8,
@@ -1902,10 +1713,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The number of client connections that are currently open.\nNote: this metric considers only HTTP and HTTP/2 connections, but not VST\nconnections.\n",
       "gridPos": {
         "h": 8,
@@ -1925,10 +1733,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of I/O times needed to answer a request. This includes the time\nrequired to read the incoming request as well as the time required to send\nthe response.\n",
       "gridPos": {
         "h": 8,
@@ -1948,10 +1753,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of I/O times needed to answer a request. This includes the time\nrequired to read the incoming request as well as the time required to send\nthe response.\n",
       "gridPos": {
         "h": 8,
@@ -1971,10 +1773,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the time requests are spending on a queue waiting to be\nprocessed. The overwhelming majority of these times should be clearly\nsub-second.\n",
       "gridPos": {
         "h": 8,
@@ -1994,10 +1793,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the time requests are spending on a queue waiting to be\nprocessed. The overwhelming majority of these times should be clearly\nsub-second.\n",
       "gridPos": {
         "h": 8,
@@ -2021,10 +1817,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the time required to actually process a request. This does not\ninclude the time required to read the incoming request, the time the request\nis sitting on the queue, or the time required to send the response.\n",
       "gridPos": {
         "h": 8,
@@ -2048,10 +1841,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the time requests are spending on a queue waiting to be\nprocessed. The overwhelming majority of these times should be clearly\nsub-second.\n",
       "gridPos": {
         "h": 8,
@@ -2071,10 +1861,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the time required to actually process a request. This does not\ninclude the time required to read the incoming request, the time the request\nis sitting on the queue, or the time required to send the response.\n",
       "gridPos": {
         "h": 8,
@@ -2094,10 +1881,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the time required to actually process a request. This does not\ninclude the time required to read the incoming request, the time the request\nis sitting on the queue, or the time required to send the response.\n",
       "gridPos": {
         "h": 8,
@@ -2117,10 +1901,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the total times required to process a request. This includes\nthe time required to read the incoming request, the time the request is\nsitting in the queue, the time to actually process the request, and the\ntime required to send the response.\n",
       "gridPos": {
         "h": 8,
@@ -2140,10 +1921,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the total times required to process a request. This includes\nthe time required to read the incoming request, the time the request is\nsitting in the queue, the time to actually process the request, and the\ntime required to send the response.\n",
       "gridPos": {
         "h": 8,
@@ -2167,10 +1945,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of **asynchronous** HTTP (or VST)\nrequests which have hit this particular instance of `arangod`. Asynchronous\nrefers to the fact that the response is not sent with the HTTP response,\nbut is rather queried separately using the `/_api/jobs` API.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2190,10 +1965,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the total times required to process a request. This includes\nthe time required to read the incoming request, the time the request is\nsitting in the queue, the time to actually process the request, and the\ntime required to send the response.\n",
       "gridPos": {
         "h": 8,
@@ -2213,10 +1985,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **GET**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2236,10 +2005,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **DELETE**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2259,10 +2025,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **OPTIONS**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2282,10 +2045,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **HEAD**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2305,10 +2065,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **POST**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2328,10 +2085,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **PATCH**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2351,10 +2105,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **other**\nor **ILLEGAL** requests which have hit this particular instance of\n`arangod`. These are all requests, which are not one of the following:\n`DELETE`, `GET`, `HEAD`, `POST`, `PUT`, `OPTIONS`, `PATCH`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2374,10 +2125,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) **PUT**\nrequests which have hit this particular instance of `arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2397,10 +2145,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) requests which\nhave hit this particular instance of `arangod`. Note that this counter\nis ever growing during the lifetime of the `arangod` process. However,\nwhen the process is restarted, it starts from scratch. In the Grafana\ndashboards, it is usually visualized as a rate per second, averaged\nwith a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2420,10 +2165,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST)\nrequests that have been authenticated with the JWT superuser token,\nwhich have hit this particular instance of\n`arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2443,10 +2185,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of intermediate commits performed in transactions.\nAn intermediate commit happens if a logical transaction needs to be\nsplit into multiple physical transaction because of the volume of data\nhandled in the transaction. The thresholds for when to perform an\nintermediate commit can be controlled by startup options\n`--rocksdb.intermediate-commit-count` (number of write operations after\nwhich an intermediate commit is triggered) and `--rocksdb.intermediate-commit-size`\n(cumulated size of write operations after which an intermediate commit is triggered).\nThe values can also be overridden for individual transactions.\nThis metric was named `arangodb_intermediate_commits` in previous\nversions of ArangoDb.\n",
       "gridPos": {
         "h": 8,
@@ -2466,10 +2205,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of HTTP (or VST) requests\nthat have been authenticated for some user (as opposed to with the\nJWT superuser token), which have hit this particular instance of\n`arangod`.\n\nNote that this counter is ever growing during the lifetime of the\n`arangod` process. However, when the process is restarted, it starts\nfrom scratch. In the Grafana dashboards, it is usually visualized as a\nrate per second, averaged with a sliding window of a minute.\n",
       "gridPos": {
         "h": 8,
@@ -2489,10 +2225,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The number of minor faults the process has made which have not required\nloading a memory page from disk. This figure is not reported on Windows.\n",
       "gridPos": {
         "h": 8,
@@ -2512,10 +2245,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "On Windows, this figure contains the total number of page faults.\nOn other system, this figure contains the number of major faults the\nprocess has made which have required loading a memory page from disk.\n",
       "gridPos": {
         "h": 8,
@@ -2535,10 +2265,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The total size of the number of pages the process has in real memory.\nThis is just the pages which count toward text, data, or stack space.\nThis does not include pages which have not been demand-loaded in, or\nwhich are swapped out. The resident set size is reported in bytes.\n",
       "gridPos": {
         "h": 8,
@@ -2558,10 +2285,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of threads in the arangod process.\n",
       "gridPos": {
         "h": 8,
@@ -2581,10 +2305,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Amount of time that this process has been scheduled in kernel mode,\nmeasured in seconds.\n",
       "gridPos": {
         "h": 8,
@@ -2604,10 +2325,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The relative size of the number of pages the process has in real\nmemory compared to system memory. This is just the pages which count\ntoward text, data, or stack space. This does not include pages which\nhave not been demand-loaded in, or which are swapped out. The value is a\nratio between 0.00 and 1.00.\n",
       "gridPos": {
         "h": 8,
@@ -2627,10 +2345,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "On Windows, this figure contains the total amount of memory that the\nmemory manager has committed for the arangod process. On other systems,\nthis figure contains the size of the virtual memory the process is\nusing.\n",
       "gridPos": {
         "h": 8,
@@ -2650,10 +2365,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Amount of time that this process has been scheduled in user mode,\nmeasured in seconds.\n",
       "gridPos": {
         "h": 8,
@@ -2673,10 +2385,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received HTTP/1.1 requests in bytes.\nNote that this does not account for the header.\n",
       "gridPos": {
         "h": 8,
@@ -2696,10 +2405,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received HTTP/1.1 requests in bytes.\nNote that this does not account for the header.\n",
       "gridPos": {
         "h": 8,
@@ -2723,10 +2429,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received HTTP/2 requests in bytes.\nNote that this does not account for the header.\n",
       "gridPos": {
         "h": 8,
@@ -2750,10 +2453,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received HTTP/1.1 requests in bytes.\nNote that this does not account for the header.\n",
       "gridPos": {
         "h": 8,
@@ -2773,10 +2473,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received HTTP/2 requests in bytes.\nNote that this does not account for the header.\n",
       "gridPos": {
         "h": 8,
@@ -2796,10 +2493,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received HTTP/2 requests in bytes.\nNote that this does not account for the header.\n",
       "gridPos": {
         "h": 8,
@@ -2819,10 +2513,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received VST requests in bytes.\nNote that this does include the binary header.\n",
       "gridPos": {
         "h": 8,
@@ -2842,10 +2533,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received VST requests in bytes.\nNote that this does include the binary header.\n",
       "gridPos": {
         "h": 8,
@@ -2869,10 +2557,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of CPU cores visible to the arangod process, unless the\nenvironment variable `ARANGODB_OVERRIDE_DETECTED_NUMBER_OF_CORES`\nis set. In that case, the environment variable's value will be reported.\n",
       "gridPos": {
         "h": 8,
@@ -2892,10 +2577,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Histogram of the body sizes of the received VST requests in bytes.\nNote that this does include the binary header.\n",
       "gridPos": {
         "h": 8,
@@ -2915,10 +2597,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Percentage of time that the system CPUs have been waiting for I/O, as\na value between 0 and 100, and as reported by the operating system.\nThis metric is only reported on some operating systems.\n",
       "gridPos": {
         "h": 8,
@@ -2938,10 +2617,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Percentage of time that the system CPUs have been idle, as\na value between 0 and 100, and as reported by the operating system.\nThis metric is only reported on some operating systems.\n",
       "gridPos": {
         "h": 8,
@@ -2961,10 +2637,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of seconds elapsed since server start, including fractional\nseconds.\nThis metric was named `arangodb_server_statistics_server_uptime`\nin previous versions of ArangoDB.\n",
       "gridPos": {
         "h": 8,
@@ -2984,10 +2657,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Physical memory of the system in bytes, as reported by the operating system\nunless the environment variable `ARANGODB_OVERRIDE_DETECTED_TOTAL_MEMORY`\nis set. In that case, the environment variable's value will be reported.\n",
       "gridPos": {
         "h": 8,
@@ -3007,10 +2677,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Percentage of time that the system CPUs have spent in user mode, as\na value between 0 and 100, and as reported by the operating system.\nThis metric is only reported on some operating systems.\n",
       "gridPos": {
         "h": 8,
@@ -3030,10 +2697,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Percentage of time that the system CPUs have spent in kernel mode, as\na value between 0 and 100, and as reported by the operating system.\nThis metric is only reported on some operating systems.\n",
       "gridPos": {
         "h": 8,
@@ -3053,10 +2717,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of V8 contexts currently busy, that means, they are currently\nworking on some JavaScript task. Normally, only Coordinators and\nsingle servers should have V8 contexts, for DB-Servers and Agents the\nvalue is always zero.\n",
       "gridPos": {
         "h": 8,
@@ -3076,10 +2737,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of V8 contexts currently alive. Normally, only Coordinators and\nsingle servers should have V8 contexts, for DB-Servers and Agents the\nvalue is always zero.\n",
       "gridPos": {
         "h": 8,
@@ -3099,10 +2757,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This gauge reflects the number of V8 contexts that are currently free.\nIf this number drops to 0 there might be a shortage of V8 contexts.\n",
       "gridPos": {
         "h": 8,
@@ -3122,10 +2777,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This gauge reflects the number of V8 contexts that are currently dirty.\nA V8 context is dirty, if it has executed JavaScript for some time and\nis due for a garbage collection.\n",
       "gridPos": {
         "h": 8,
@@ -3145,10 +2797,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This is the minimum number of concurrent V8 contexts. This is limited\nby a server option. V8 contexts are created and destroyed as needed\nbut there are never fewer than the limit shown in this metric.\n",
       "gridPos": {
         "h": 8,
@@ -3168,10 +2817,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This is the maximum number of concurrent V8 contexts. This is limited\nby a server option, since V8 contexts can use a lot of RAM. V8 contexts\nare created and destroyed as needed up to the limit shown in this metric.\n",
       "gridPos": {
         "h": 8,
@@ -3191,10 +2837,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3207,10 +2850,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "During initial replication the existing data from the leader is copied asynchronously\nover to new shards. The amount of documents transported to this server, as a replica for\na shard, is counted here.\n",
       "gridPos": {
         "h": 8,
@@ -3230,10 +2870,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total memory usage of all revision trees for collections/shards.\nThe revision trees of collections/shards are normally present\nin RAM in an uncompressed state. However, to reduce the memory\nusage of keeping all revision trees in RAM at the same time, \nrevision trees can be put into \"hibernation\" mode. Any inactive\nrevision tree will automatically be hibernated by ArangoDB after\na while. For the hibernation step, a revision tree will be \ncompressed in RAM, and only the compressed version is then kept.\nLater accesses of a compressed revision tree require uncompressing\nthe tree again. \nThis metrics reports the total memory usage of all revision trees,\nincluding both the hibernated and uncompressed forms).\n",
       "gridPos": {
         "h": 8,
@@ -3253,10 +2890,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of leader shards on this machine. Every shard has a leader and\npotentially multiple followers.\n",
       "gridPos": {
         "h": 8,
@@ -3276,10 +2910,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of shards not replicated at all. This is counted for all shards\nfor which this server is currently the leader. The number is increased\nby one for every shards for which no follower is in sync.\n",
       "gridPos": {
         "h": 8,
@@ -3299,10 +2930,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of shards on this machine. Every shard has a leader and\npotentially multiple followers. This metric counts both leader and\nfollower shards.\n",
       "gridPos": {
         "h": 8,
@@ -3322,10 +2950,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of leader shards not fully replicated. This is counted for all\nshards for which this server is currently the leader. The number is\nincreased by one for every shards for which not all followers are in sync.\n",
       "gridPos": {
         "h": 8,
@@ -3345,10 +2970,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3361,10 +2983,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of errors (ERR messages) logged by the logger. \n\nIf a problem is encountered which is fatal to some operation, but not for\nthe service or the application as a whole, then an _error is logged.\n\nReasons for log entries of this severity are for example include missing\ndata, inability to open required files, incorrect connection strings,\nmissing services.\n\nIf an error is logged then it should be taken seriously as it may require \nuser intervention to solve.\n",
       "gridPos": {
         "h": 8,
@@ -3384,10 +3003,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of warnings (WARN messages) logged by the logger, \nincluding startup warnings.\n\nWarnings might indicate problems, or might not. For example, \nexpected transient environmental conditions such as short loss of \nnetwork or database connectivity are logged as warnings, not errors. \n",
       "gridPos": {
         "h": 8,
@@ -3407,10 +3023,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3423,10 +3036,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the number of times RocksDB was observed by\nArangoDB to have entered a stalled (slowed) write state.\n\nIf the RocksDB background threads which do cleanup and compaction\ncannot keep up with the writing, then RocksDB first throttles its\nwrite rate (\"write stall\") and later stops the writing entirely\n(\"write stop\"). Both are suboptimal, since the write rate is too high.\n",
       "gridPos": {
         "h": 8,
@@ -3446,10 +3056,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the number of times RocksDB was observed by\nArangoDB to have entered a stopped write state.\n\nIf the RocksDB background threads which do cleanup and compaction\ncannot keep up with the writing, then RocksDB first throttles its\nwrite rate (\"write stall\") and later stops the writing entirely\n(\"write stop\"). Both are suboptimal, since the write rate is too high,\nbut write stops are considerably worse, since they can lead to service\nunavailability.\n",
       "gridPos": {
         "h": 8,
@@ -3469,10 +3076,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This metric indicates whether RocksDB currently is in read-only\nmode, due to a background error. If RocksDB is in read-only mode,\nthis metric will have a value of \"1\". When in read-only mode, all\nwrites into RocksDB will fail. When RocksDB is in normal operations\nmode, this metric will have a value of \"0\".\n",
       "gridPos": {
         "h": 8,
@@ -3492,10 +3096,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of requests forwarded to another Coordinator.\nRequest forwarding can happen in load-balanced setups,\nwhen one Coordinator receives and forwards requests\nthat can only be handled by a different Coordinator.\nThis includes requests for streaming transactions,\nAQL, query cursors, Pregel jobs and some others.\n",
       "gridPos": {
         "h": 8,
@@ -3515,10 +3116,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3531,10 +3129,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3547,10 +3142,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This histogram shows how long requests to the Agency took.\n",
       "gridPos": {
         "h": 8,
@@ -3574,10 +3166,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This histogram shows how long requests to the Agency took.\n",
       "gridPos": {
         "h": 8,
@@ -3597,10 +3186,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This histogram shows how long requests to the Agency took.\n",
       "gridPos": {
         "h": 8,
@@ -3620,10 +3206,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of outgoing internal requests in flight. This metric is increased\nwhenever any cluster-internal request is about to be sent via the underlying\nconnection pool, and is decreased whenever a response for such a request is\nreceived or the request runs into a timeout.\nThis metric provides an estimate of the fan-out of operations. For example,\na user operation on a collection with a single shard will normally lead to\na single internal request (plus replication), whereas an operation on a\ncollection with 10 shards may lead to a fan-out of 10 (plus replication).\n",
       "gridPos": {
         "h": 8,
@@ -3643,10 +3226,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of internal requests that have timed out. This metric is increased\nwhenever any cluster-internal request executed in the underlying connection\npool runs into a timeout.\n",
       "gridPos": {
         "h": 8,
@@ -3666,10 +3246,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of V8 context enter failures. A context receives a context\nenter event every time it begins to execute some JavaScript. If no\ncontext is available at such a time the system waits for 60s for a\ncontext to become free. If this does not happen within the 60s, the\ncontext enter event fails, a warning is logged and this counter is\nincreased by one.\n",
       "gridPos": {
         "h": 8,
@@ -3689,10 +3266,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3705,10 +3279,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of V8 contexts ever created. It is\nOK if this number keeps growing since the V8 contexts are created and\ndestroyed as needed. In rare cases a high fluctuation can indicate\nsome unfortunate usage pattern.\n",
       "gridPos": {
         "h": 8,
@@ -3728,10 +3299,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the accumulated total time for creating V8\ncontexts, in milliseconds. It is OK if this number keeps growing since\nthe V8 contexts are created and destroyed as needed. In rare cases a\nhigh fluctuation can indicate some unfortunate usage pattern.\n",
       "gridPos": {
         "h": 8,
@@ -3751,10 +3319,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of V8 contexts ever destroyed.\nIt is OK if this number keeps growing since the V8 contexts are\ncreated and destroyed as needed. In rare cases a high fluctuation can\nindicate some unfortunate usage pattern.\n",
       "gridPos": {
         "h": 8,
@@ -3774,10 +3339,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This counter reflects the total number of V8 context exit events.\nA context receives a context exit event every time it finishes to\nexecute some JavaScript.\n",
       "gridPos": {
         "h": 8,
@@ -3797,10 +3359,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of V8 context enter events. A context receives a context\nenter event every time it begins to execute some JavaScript. This number\nis a rough estimate as to how much JavaScript the server executes.\n",
       "gridPos": {
         "h": 8,
@@ -3820,10 +3379,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The current number of threads actually working on some job (i.e., not\nspinning while waiting for new work).\n",
       "gridPos": {
         "h": 8,
@@ -3843,10 +3399,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3859,10 +3412,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3875,10 +3425,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Last recorded dequeue time for a low priority queue item, i.e., the amount of\ntime the job was sitting in the queue. If there is nothing to do for a long\ntime, this metric will be reset to zero.\nA large value for this metric indicates that the server is under heavy load\nand low priority jobs cannot be dequeued in a timely manner\n",
       "gridPos": {
         "h": 8,
@@ -3898,10 +3445,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The number of worker threads currently working on some job or spinning while\nwaiting for new work (i.e., not sleeping).\n",
       "gridPos": {
         "h": 8,
@@ -3921,10 +3465,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The number of worker threads currently started. Worker threads can be started\nand stopped dynamically based on the server load.\n",
       "gridPos": {
         "h": 8,
@@ -3944,10 +3485,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of tasks dropped because the queue was already full. The queue capacities\ncan be configured via the startup options `--server.scheduler-queue-size`,\n`--server.prio1-size`, `--server.prio2-size` and `--server.maximal-queue-size`.\n",
       "gridPos": {
         "h": 8,
@@ -3967,10 +3505,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Total number of low priority jobs currently being processed.\n",
       "gridPos": {
         "h": 8,
@@ -3990,10 +3525,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "Number of tasks/requests dropped because the client-specified queue time\nrequirements, as indicated by client applications in the request header\n\"x-arango-queue-time-seconds\" could not be satisfied by the receiving \nserver instance. This happens when the actual time need to queue/dequeue\nrequests on the scheduler queue exceeds the maximum time value that the\nclient has specified in the request. \nWhenever this happens, the client application will get an HTTP 412 error \nresponse back with error code 21004 (\"queue time violated\").\nAlthough the metric is exposed on all instance types, it will very likely\nalways be 0 on DB servers, simply because coordinators do not forward the\n\"x-arango-queue-time-seconds\" when they send internal requests to DB\nservers.\n",
       "gridPos": {
         "h": 8,
@@ -4013,10 +3545,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "The total number of currently queued jobs in all queues.\n",
       "gridPos": {
         "h": 8,
@@ -4036,10 +3565,7 @@
       "type": "graph"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4052,10 +3578,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -4068,10 +3591,7 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "YcPg057nk"
-      },
+      "datasource": null,
       "description": "This instance's remaining license validity time.\n",
       "gridPos": {
         "h": 8,
