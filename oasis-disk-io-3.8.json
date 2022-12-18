@@ -1451,7 +1451,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Writes stalled",
+      "title": "Writes stopped",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1549,7 +1549,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Agency read",
+      "title": "Writes stalled",
       "tooltip": {
         "shared": true,
         "sort": 0,

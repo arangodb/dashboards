@@ -1464,7 +1464,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Writes stalled",
+      "title": "Writes stopped",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1509,7 +1509,6 @@
       "datasource": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "links": []
         },
         "overrides": []
@@ -1537,11 +1536,10 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "options": {
-        "alertThreshold": true,
-        "dataLinks": []
+        "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.5.6",
+      "pluginVersion": "9.1.7",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1551,18 +1549,19 @@
       "steppedLine": false,
       "targets": [
         {
+          "datasource": null,
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_agency_read_ok_total{role=\"agent\"}[1m])",
+          "expr": "rate(rocksdb_stall_micros[15s])",
           "interval": "",
           "legendFormat": "{{instance}}",
+          "range": true,
           "refId": "A"
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
-      "title": "Agency read",
+      "title": "Writes stall time",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1570,35 +1569,28 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
-          "format": "short",
-          "label": null,
+          "$$hashKey": "object:237",
+          "format": "µs",
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
+          "$$hashKey": "object:238",
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
-    },
+    },    
     {
       "aliasColors": {},
       "bars": false,
