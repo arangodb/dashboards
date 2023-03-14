@@ -30,6 +30,7 @@
   "liveNow": false,
   "panels": [
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -106,10 +107,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_cur_size_all_mem_tables",
+          "expr": "rocksdb_cur_size_all_mem_tables{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -117,6 +121,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -194,9 +199,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_search_columns_cache_size",
+          "expr": "arangodb_search_columns_cache_size{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -207,6 +213,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -284,9 +291,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_cache_allocated",
+          "expr": "rocksdb_cache_allocated{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -297,6 +305,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -376,9 +385,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_server_statistics_user_percent[1m])+avg_over_time(arangodb_server_statistics_system_percent[1m])",
+          "expr": "avg_over_time(arangodb_server_statistics_user_percent{deployment_arangodb_com_member!=\"\"}[1m])+avg_over_time(arangodb_server_statistics_system_percent{deployment_arangodb_com_member!=\"\"}[1m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -391,6 +401,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -467,11 +478,14 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level0",
+          "expr": "rocksdb_num_files_at_level0{deployment_arangodb_com_member!=\"\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -532,102 +546,7 @@
           },
           "unit": "Bps"
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-bgiyjjyh\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.82.150:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-bgiyjjyh-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-cikspxjz\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.30.106:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-cikspxjz-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-ckwvpplj\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.85.152:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-ckwvpplj-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-dfasdahh\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.53.249:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-dfasdahh-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-eqw78obf\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.31.110:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-eqw78obf-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-eye1fgms\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.88.154:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-eye1fgms-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-fxyxtzde\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.58.43:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-fxyxtzde-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-ggviut0i\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.73.179:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-ggviut0i-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-gq4mooxu\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.55.209:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-gq4mooxu-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-gvxywixa\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.13.244:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-gvxywixa-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-igmqk3ud\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.13.170:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-igmqk3ud-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-jhfihzjy\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.81.208:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-jhfihzjy-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-jvukv7sq\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.48.168:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-jvukv7sq-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-jzazwya1\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.85.230:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-jzazwya1-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-kvy18v5u\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.24.118:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-kvy18v5u-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-mingvw5l\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.40.230:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-mingvw5l-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-pgaerek6\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.29.165:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-pgaerek6-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-rft9lp2r\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.65.100:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-rft9lp2r-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-rnytuivp\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.46.186:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-rnytuivp-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-uic07rec\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.42.107:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-uic07rec-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-vwvlsmv4\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.44.234:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-vwvlsmv4-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-wdk9klfh\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.18.14:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-wdk9klfh-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", arango_exporter=\"yes\", deployment_arangodb_com_active=\"true\", deployment_arangodb_com_member=\"PRMR-xqwb6kxi\", deployment_arangodb_com_scheduled=\"1\", instance=\"192.168.65.109:9101\", job=\"kubernetes-pods\", namespace=\"default\", pod=\"arangodb-staging-prmr-xqwb6kxi-5d280b\", role=\"dbserver\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.10.162:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-24-51.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.10.162:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-24-51.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.13.170:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-23-163.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.13.170:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-23-163.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.13.244:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-17-4.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.13.244:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-17-4.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.18.14:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-3-34.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.18.14:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-3-34.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.24.118:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-13-196.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.24.118:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-13-196.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.29.165:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-23-75.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.29.165:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-23-75.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.30.106:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-0-114.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.30.106:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-0-114.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.31.110:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-12-91.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.31.110:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-12-91.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.40.230:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-36-81.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.40.230:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-36-81.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.42.107:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-58-35.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.42.107:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-58-35.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.44.234:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-51-121.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.44.234:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-51-121.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.46.186:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-51-119.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.46.186:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-51-119.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.48.168:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-56-90.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.48.168:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-56-90.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.53.249:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-56-173.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.53.249:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-56-173.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.55.209:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-62-19.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.55.209:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-62-19.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.58.43:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-36-29.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.58.43:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-36-29.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.65.100:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-85-39.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.65.100:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-85-39.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.65.109:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-85-65.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.65.109:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-85-65.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.73.179:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-80-179.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.73.179:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-80-179.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.81.208:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-68-46.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.81.208:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-68-46.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.82.150:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-76-102.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.82.150:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-76-102.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.85.152:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-85-251.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.85.152:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-85-251.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.85.230:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-73-132.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.85.230:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-73-132.ec2.internal\", service=\"arangodb-staging-int\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.88.154:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-76-122.ec2.internal\", service=\"arangodb-staging-exporter\"}",
-                  "{app=\"arangodb\", arango_deployment=\"arangodb-staging\", instance=\"192.168.88.154:9101\", job=\"kubernetes-service-endpoints\", namespace=\"default\", node=\"ip-192-168-76-122.ec2.internal\", service=\"arangodb-staging-int\"}"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 5,
@@ -654,7 +573,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_read[2m])",
+          "expr": "rate(rocksdb_bytes_read{deployment_arangodb_com_member!=\"\"}[2m])",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -745,7 +664,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_actual_delayed_write_rate[2m])",
+          "expr": "rate(rocksdb_actual_delayed_write_rate{deployment_arangodb_com_member!=\"\"}[2m])",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -756,6 +675,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -832,10 +752,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync",
+          "expr": "arangodb_shards_out_of_sync{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -843,6 +766,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -919,10 +843,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level6",
+          "expr": "rocksdb_num_files_at_level6{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1010,7 +937,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_written[2m])",
+          "expr": "rate(rocksdb_bytes_written{deployment_arangodb_com_member!=\"\"}[2m])",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -1021,6 +948,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1097,10 +1025,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_estimate_pending_compaction_bytes/1024",
+          "expr": "rocksdb_estimate_pending_compaction_bytes{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1189,7 +1120,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_engine_throttle_bps",
+          "expr": "rocksdb_engine_throttle_bps{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -1200,6 +1131,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1277,12 +1209,15 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level5",
+          "expr": "rocksdb_num_files_at_level5{deployment_arangodb_com_member!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1373,7 +1308,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_write_bytes[2m])",
+          "expr": "rate(rocksdb_compact_write_bytes{deployment_arangodb_com_member!=\"\"}[2m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1386,6 +1321,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1464,10 +1400,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_is_write_stopped",
+          "expr": "rocksdb_is_write_stopped{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1555,7 +1494,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_stall_micros[2m])",
+          "expr": "rate(rocksdb_stall_micros{deployment_arangodb_com_member!=\"\"}[2m])",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -1566,6 +1505,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1607,8 +1547,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1642,10 +1581,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level4",
+          "expr": "rocksdb_num_files_at_level4{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1695,8 +1637,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1733,7 +1674,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_read_bytes[2m])",
+          "expr": "rate(rocksdb_compact_read_bytes{deployment_arangodb_com_member!=\"\"}[2m])",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
           "range": true,
@@ -1744,6 +1685,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1786,8 +1728,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1822,9 +1763,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_scheduler_low_prio_queue_last_dequeue_time",
+          "expr": "arangodb_scheduler_low_prio_queue_last_dequeue_time{deployment_arangodb_com_member!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1837,6 +1779,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1879,8 +1822,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -1915,8 +1857,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_process_statistics_number_of_threads",
+          "expr": "arangodb_process_statistics_number_of_threads{deployment_arangodb_com_member!=\"\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1929,6 +1873,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1970,8 +1915,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2005,10 +1949,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level3",
+          "expr": "rocksdb_num_files_at_level3{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2016,6 +1963,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2058,8 +2006,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2094,12 +2041,15 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_process_statistics_resident_set_size",
+          "expr": "arangodb_process_statistics_resident_set_size{deployment_arangodb_com_member!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2107,6 +2057,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2149,8 +2100,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2185,9 +2135,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_scheduler_low_prio_queue_length",
+          "expr": "arangodb_scheduler_low_prio_queue_length{deployment_arangodb_com_member!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2200,6 +2151,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2241,8 +2193,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2276,10 +2227,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_block_cache_usage",
+          "expr": "rocksdb_block_cache_usage{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2287,6 +2241,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2328,8 +2283,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2363,10 +2317,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level2",
+          "expr": "rocksdb_num_files_at_level2{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2374,6 +2331,7 @@
       "type": "timeseries"
     },
     {
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2415,8 +2373,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2450,10 +2407,13 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_live_sst_files_size",
+          "expr": "rocksdb_live_sst_files_size{deployment_arangodb_com_member!=\"\"}",
           "interval": "",
           "legendFormat": "{{deployment_arangodb_com_member}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -2470,6 +2430,7 @@
         "mode": "opacity"
       },
       "dataFormat": "timeseries",
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2551,8 +2512,10 @@
       "reverseYBuckets": false,
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\"}[1m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",deployment_arangodb_com_member!=\"\"}[2m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2590,6 +2553,7 @@
         "mode": "opacity"
       },
       "dataFormat": "timeseries",
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2671,8 +2635,10 @@
       "reverseYBuckets": false,
       "targets": [
         {
+          "datasource": {},
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\"}[1m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",deployment_arangodb_com_member!=\"\"}[2m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2709,7 +2675,7 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -2739,6 +2705,6 @@
   "timezone": "browser",
   "title": "ArangoDB 3.9.6 IO",
   "uid": "9FpcjiFZf",
-  "version": 4,
+  "version": 7,
   "weekStart": ""
 }
