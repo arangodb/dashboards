@@ -110,9 +110,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_cur_size_all_mem_tables{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_cur_size_all_mem_tables{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -202,9 +202,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_search_columns_cache_size{deployment_arangodb_com_member!=\"\"}",
+          "expr": "arangodb_search_columns_cache_size{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -294,9 +294,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_cache_allocated{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_cache_allocated{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -388,11 +388,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_server_statistics_user_percent{deployment_arangodb_com_member!=\"\"}[1m])+avg_over_time(arangodb_server_statistics_system_percent{deployment_arangodb_com_member!=\"\"}[1m])",
+          "expr": "avg_over_time(arangodb_server_statistics_user_percent{pod!=\"\"}[1m])+avg_over_time(arangodb_server_statistics_system_percent{pod!=\"\"}[1m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -481,10 +481,10 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level0{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_num_files_at_level0{pod!=\"\"}",
           "format": "time_series",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -573,9 +573,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_read{deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(rocksdb_bytes_read{pod!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -664,9 +664,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_actual_delayed_write_rate{deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(rocksdb_actual_delayed_write_rate{pod!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -755,9 +755,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync{deployment_arangodb_com_member!=\"\"}",
+          "expr": "arangodb_shards_out_of_sync{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -846,9 +846,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level6{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_num_files_at_level6{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -937,9 +937,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_written{deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(rocksdb_bytes_written{pod!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1028,9 +1028,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_estimate_pending_compaction_bytes{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_estimate_pending_compaction_bytes{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1120,9 +1120,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_engine_throttle_bps{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_engine_throttle_bps{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1212,11 +1212,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level5{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_num_files_at_level5{pod!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1308,11 +1308,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_write_bytes{deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(rocksdb_compact_write_bytes{pod!=\"\"}[2m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1403,9 +1403,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_is_write_stopped{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_is_write_stopped{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1494,9 +1494,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_stall_micros{deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(rocksdb_stall_micros{pod!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1584,9 +1584,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level4{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_num_files_at_level4{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1674,9 +1674,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_read_bytes{deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(rocksdb_compact_read_bytes{pod!=\"\"}[2m])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1766,11 +1766,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_scheduler_low_prio_queue_last_dequeue_time{deployment_arangodb_com_member!=\"\"}",
+          "expr": "arangodb_scheduler_low_prio_queue_last_dequeue_time{pod!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1860,12 +1860,12 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_process_statistics_number_of_threads{deployment_arangodb_com_member!=\"\"}",
+          "expr": "arangodb_process_statistics_number_of_threads{pod!=\"\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "refId": "A"
         }
       ],
@@ -1952,9 +1952,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level3{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_num_files_at_level3{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2044,11 +2044,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_process_statistics_resident_set_size{deployment_arangodb_com_member!=\"\"}",
+          "expr": "arangodb_process_statistics_resident_set_size{pod!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2138,11 +2138,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_scheduler_low_prio_queue_length{deployment_arangodb_com_member!=\"\"}",
+          "expr": "arangodb_scheduler_low_prio_queue_length{pod!=\"\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2230,9 +2230,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_block_cache_usage{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_block_cache_usage{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2320,9 +2320,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_num_files_at_level2{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_num_files_at_level2{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2410,9 +2410,9 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_live_sst_files_size{deployment_arangodb_com_member!=\"\"}",
+          "expr": "rocksdb_live_sst_files_size{pod!=\"\"}",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2515,7 +2515,7 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",pod!=\"\"}[2m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -2638,11 +2638,11 @@
           "datasource": {},
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",deployment_arangodb_com_member!=\"\"}[2m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",pod!=\"\"}[2m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "refId": "A"
         }
       ],
