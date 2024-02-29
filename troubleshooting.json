@@ -150,8 +150,8 @@
         {
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
-          "exemplar": true, 
-          "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "exemplar": true,
+          "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -243,7 +243,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -429,7 +429,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_server_statistics_user_percent{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_server_statistics_user_percent{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -523,7 +523,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level0{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level0{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -709,7 +709,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_cache_allocated{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_cache_allocated{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -802,7 +802,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -896,7 +896,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level6{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level6{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -989,7 +989,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_read{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_bytes_read{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1080,7 +1080,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}",
+          "expr": "arangodb_shards_out_of_sync{instance=~\"$instance\",job=\"arangodb\",role=\"PRIMARY\"}",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1174,7 +1174,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_free_disk_space{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_free_disk_space{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1266,7 +1266,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level5{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level5{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1359,7 +1359,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_written{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_bytes_written{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1450,7 +1450,7 @@
         {
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_is_write_stopped{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}",
+          "expr": "rocksdb_is_write_stopped{instance=~\"$instance\",job=\"arangodb\"}",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1542,7 +1542,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_stall_micros{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_stall_micros{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1634,7 +1634,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level4{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level4{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1728,7 +1728,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_write_bytes{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_compact_write_bytes{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1821,7 +1821,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_block_cache_usage{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_block_cache_usage{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -1913,7 +1913,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_engine_throttle_bps{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_engine_throttle_bps{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -2190,7 +2190,7 @@
         {
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_scheduler_low_prio_queue_length{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}",
+          "expr": "arangodb_scheduler_low_prio_queue_length{instance=~\"$instance\",job=\"arangodb\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2380,7 +2380,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level2{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level2{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -2471,7 +2471,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_live_sst_files_size{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_live_sst_files_size{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -2589,7 +2589,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_estimate_pending_compaction_bytes{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_estimate_pending_compaction_bytes{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -2778,7 +2778,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_cache_edge_compression_ratio{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_cache_edge_compression_ratio{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -2869,7 +2869,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_actual_delayed_write_rate{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_actual_delayed_write_rate{instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "hide": false,
           "interval": "",
           "legendFormat": "{{instance}}",
@@ -2975,7 +2975,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\",pool=\"ClusterComm\"}[$__rate_interval])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",instance=~\"$instance\",job=\"arangodb\"}[$__rate_interval])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -3097,7 +3097,7 @@
         {
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{namespace=\"depl-$deployment_id\",pod=~\"($pod.*)\",pool=\"AgencyComm\"}[1m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",instance=~\"$instance\",job=\"arangodb\"}[1m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -3130,84 +3130,11 @@
   "schemaVersion": 38,
   "style": "dark",
   "tags": [],
-"templating": {
+  "templating": {
     "list": [
       {
         "current": {
           "selected": false,
-          "text": "Cortex",
-          "value": "P6693426190CB2316"
-        },
-        "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "datasource",
-        "options": [],
-        "query": "prometheus",
-        "queryValue": "",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "type": "datasource"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "definition": "query_result(count by (data_cluster_id)(count_over_time(arangodb_oasis_data_manager_deployment_tier[$__range])))",
-        "hide": 0,
-        "includeAll": true,
-        "multi": true,
-        "name": "datacluster_id",
-        "options": [],
-        "query": {
-          "query": "query_result(count by (data_cluster_id)(count_over_time(arangodb_oasis_data_manager_deployment_tier[$__range])))",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 2,
-        "regex": "/data_cluster_id=\"(.*)\"}.*$/",
-        "skipUrlSync": false,
-        "sort": 1,
-        "type": "query"
-      },
-      {
-        "current": {
-          "selected": false,
-          "text": "0odmeo8cnl5egvwmrajg",
-          "value": "0odmeo8cnl5egvwmrajg"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "definition": "query_result(max by (deployment_id)(max_over_time(arangodb_oasis_data_manager_deployment_tier{data_cluster_id=~\"$datacluster_id\"}[$__range])))",
-        "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "deployment_id",
-        "options": [],
-        "query": {
-          "query": "query_result(max by (deployment_id)(max_over_time(arangodb_oasis_data_manager_deployment_tier{data_cluster_id=~\"$datacluster_id\"}[$__range])))",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 2,
-        "regex": "/deployment_id=\"(?<text>[^\"]+)/",
-        "skipUrlSync": false,
-        "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "current": {
-          "selected": true,
           "text": [
             "All"
           ],
@@ -3215,97 +3142,24 @@
             "$__all"
           ]
         },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${datasource}"
-        },
-        "definition": "query_result(count by (pod)(count_over_time(kube_pod_info{pod=~\"deployment-.+\", namespace=\"depl-$deployment_id\"}[$__range])))",
+        "datasource": "${DS_PROMETHEUS}",
+        "definition": "label_values(instance)",
+        "description": "Instance",
         "hide": 0,
         "includeAll": true,
+        "label": "instance",
         "multi": true,
-        "name": "pod",
+        "name": "instance",
         "options": [],
         "query": {
-          "query": "query_result(count by (pod)(count_over_time(kube_pod_info{pod=~\"deployment-.+\", namespace=\"depl-$deployment_id\"}[$__range])))",
+          "query": "label_values(instance)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
-        "refresh": 2,
-        "regex": "/pod=\"(deployment-.*)-(.*)\"}/",
+        "refresh": 1,
+        "regex": "",
         "skipUrlSync": false,
-        "sort": 1,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "auto": false,
-        "auto_count": 30,
-        "auto_min": "10s",
-        "current": {
-          "selected": false,
-          "text": "1m",
-          "value": "1m"
-        },
-        "hide": 0,
-        "name": "aggregation_period",
-        "options": [
-          {
-            "selected": true,
-            "text": "1m",
-            "value": "1m"
-          },
-          {
-            "selected": false,
-            "text": "10m",
-            "value": "10m"
-          },
-          {
-            "selected": false,
-            "text": "30m",
-            "value": "30m"
-          },
-          {
-            "selected": false,
-            "text": "1h",
-            "value": "1h"
-          },
-          {
-            "selected": false,
-            "text": "6h",
-            "value": "6h"
-          },
-          {
-            "selected": false,
-            "text": "12h",
-            "value": "12h"
-          },
-          {
-            "selected": false,
-            "text": "1d",
-            "value": "1d"
-          },
-          {
-            "selected": false,
-            "text": "7d",
-            "value": "7d"
-          },
-          {
-            "selected": false,
-            "text": "14d",
-            "value": "14d"
-          },
-          {
-            "selected": false,
-            "text": "30d",
-            "value": "30d"
-          }
-        ],
-        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
-        "queryValue": "2m",
-        "refresh": 2,
-        "skipUrlSync": false,
-        "type": "interval"
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
