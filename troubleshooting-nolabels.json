@@ -1080,7 +1080,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync{,role=\"PRIMARY\"}",
+          "expr": "arangodb_shards_out_of_sync{role=\"PRIMARY\"}",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
