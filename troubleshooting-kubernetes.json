@@ -33,7 +33,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 31,
+  "id": 38,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -3377,7 +3377,7 @@
           "unit": "µs"
         }
       },
-      "pluginVersion": "10.1.2",
+      "pluginVersion": "10.1.4",
       "reverseYBuckets": false,
       "targets": [
         {
@@ -3500,7 +3500,7 @@
           "unit": "µs"
         }
       },
-      "pluginVersion": "10.1.2",
+      "pluginVersion": "10.1.4",
       "reverseYBuckets": false,
       "targets": [
         {
@@ -3555,7 +3555,7 @@
           "type": "prometheus",
           "uid": "prometheus"
         },
-        "definition": "label_values(namespace)",
+        "definition": "label_values(arangodb_server_statistics_cpu_cores,namespace)",
         "description": "Namespace",
         "hide": 0,
         "includeAll": true,
@@ -3564,7 +3564,7 @@
         "name": "namespace",
         "options": [],
         "query": {
-          "query": "label_values(namespace)",
+          "query": "label_values(arangodb_server_statistics_cpu_cores,namespace)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -3587,7 +3587,7 @@
           "type": "prometheus",
           "uid": "prometheus"
         },
-        "definition": "label_values(pod)",
+        "definition": "label_values(arangodb_server_statistics_cpu_cores,pod)",
         "description": "Pod",
         "hide": 0,
         "includeAll": true,
@@ -3596,7 +3596,7 @@
         "name": "pod",
         "options": [],
         "query": {
-          "query": "label_values(pod)",
+          "query": "label_values(arangodb_server_statistics_cpu_cores,pod)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -3636,8 +3636,8 @@
     ]
   },
   "timezone": "utc",
-  "title": "Troubleshooting",
+  "title": "ArangoDB Troubleshooting",
   "uid": "9FcpjiFZg",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
