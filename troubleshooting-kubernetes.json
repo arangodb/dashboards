@@ -123,7 +123,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -217,7 +217,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -309,9 +309,9 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_file_descriptors_current{\"$instance\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_file_descriptors_current{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -408,7 +408,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -503,7 +503,7 @@
           "expr": "avg_over_time(rocksdb_num_files_at_level0{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -595,9 +595,9 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_search_columns_cache_size{\"$instance\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_search_columns_cache_size{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -692,7 +692,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_cache_allocated{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -788,7 +788,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -882,7 +882,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level6{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -977,7 +977,7 @@
           "exemplar": true,
           "expr": "rate(rocksdb_bytes_read{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1070,7 +1070,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_block_cache_usage{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1166,7 +1166,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_free_disk_space{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1261,7 +1261,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1354,7 +1354,7 @@
           "exemplar": true,
           "expr": "rate(rocksdb_bytes_written{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1450,7 +1450,7 @@
           "exemplar": true,
           "expr": "arangodb_shards_out_of_sync{namespace=~\"$namespace\",pod=~\"$pod\",role=\"PRIMARY\"}",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1544,7 +1544,7 @@
           "exemplar": true,
           "expr": "rate(rocksdb_stall_micros{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1638,7 +1638,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level4{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1735,7 +1735,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1861,9 +1861,9 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_leases_failed_total{namespace=~\"$namespace\",pod=~\"$pod\",pool=\"ClusterComm\"} [15s])",
+          "expr": "rate(arangodb_connection_pool_leases_failed_total{namespace=~\"$namespace\",pod=~\"$pod\",pool=\"ClusterComm\"} [$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1957,7 +1957,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_engine_throttle_bps{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2051,7 +2051,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level3[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2145,7 +2145,7 @@
           "exemplar": true,
           "expr": "rate(rocksdb_compact_read_bytes[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2241,7 +2241,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2338,7 +2338,7 @@
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2432,7 +2432,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level2{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2525,7 +2525,7 @@
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_live_sst_files_size{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2624,7 +2624,7 @@
           "exemplar": true,
           "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]) ",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2823,7 +2823,7 @@
           "exemplar": true,
           "expr": "rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]) ",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2920,7 +2920,7 @@
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "refId": "A"
         }
       ],
@@ -3192,7 +3192,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{namespace=~\"$namespace\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{ instance }}",
@@ -3268,7 +3268,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{namespace=~\"$namespace\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{ instance }}",
@@ -3379,7 +3379,7 @@
           "format": "time_series",
           "instant": false,
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{pod}}",
           "refId": "A"
         }
       ],
@@ -3527,6 +3527,74 @@
       "yBucketBound": "auto"
     }
   ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(namespace)",
+        "description": "Namespace",
+        "hide": 0,
+        "includeAll": true,
+        "label": "namespace",
+        "multi": true,
+        "name": "namespace",
+        "options": [],
+        "query": {
+          "query": "label_values(namespace)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(pod)",
+        "description": "Pod",
+        "hide": 0,
+        "includeAll": true,
+        "label": "pod",
+        "multi": true,
+        "name": "pod",
+        "options": [],
+        "query": {
+          "query": "label_values(pod)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
   "time": {
     "from": "now-8h",
     "to": "now"
