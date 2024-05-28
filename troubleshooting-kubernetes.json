@@ -38,10 +38,7 @@
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -49,6 +46,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -120,7 +118,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
@@ -134,7 +132,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -142,6 +140,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -213,10 +212,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -227,7 +226,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -235,6 +234,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -306,10 +306,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_file_descriptors_current{pod=~\"$pod\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_file_descriptors_current{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -320,13 +320,14 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -385,7 +386,6 @@
         "y": 0
       },
       "id": 16,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -401,10 +401,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_server_statistics_user_percent{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_server_statistics_user_percent{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -417,7 +417,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -425,6 +425,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -496,10 +497,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level0{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level0{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{pod}}",
@@ -511,7 +512,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -519,6 +520,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -590,10 +592,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_search_columns_cache_size{pod=~\"$pod\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_search_columns_cache_size{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -604,7 +606,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -612,6 +614,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -684,10 +687,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_cache_allocated{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_cache_allocated{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -698,7 +701,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -706,6 +709,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -762,7 +766,6 @@
         "y": 6
       },
       "id": 10,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -778,10 +781,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -794,7 +797,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -802,6 +805,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -873,10 +877,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level6{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level6{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -887,7 +891,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -895,6 +899,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -967,10 +972,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_read{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_bytes_read{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -981,13 +986,14 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1033,7 +1039,7 @@
               }
             ]
           },
-          "unit": "short"
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -1043,7 +1049,7 @@
         "x": 12,
         "y": 11
       },
-      "id": 30,
+      "id": 39,
       "options": {
         "legend": {
           "calcs": [],
@@ -1059,21 +1065,21 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync{pod=~\"$pod\",namespace=~\"$namespace\"}",
+          "expr": "avg_over_time(rocksdb_block_cache_usage{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Out of sync shards",
+      "title": "RocksDB cache usage",
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1081,6 +1087,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1154,10 +1161,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_free_disk_space{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_free_disk_space{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -1168,13 +1175,14 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1231,7 +1239,6 @@
         "y": 16
       },
       "id": 2,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -1247,10 +1254,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level5{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level5{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1263,13 +1270,14 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1341,10 +1349,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_written{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_bytes_written{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -1355,12 +1363,17 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1393,8 +1406,6 @@
           },
           "links": [],
           "mappings": [],
-          "max": 1,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1418,7 +1429,7 @@
         "x": 12,
         "y": 16
       },
-      "id": 45,
+      "id": 30,
       "options": {
         "legend": {
           "calcs": [],
@@ -1434,26 +1445,28 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rocksdb_is_write_stopped{pod=~\"$pod\",namespace=~\"$namespace\"}",
+          "expr": "arangodb_shards_out_of_sync{namespace=~\"$namespace\",pod=~\"$pod\",role=\"PRIMARY\"}",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Writes stopped",
+      "title": "Out of sync shards",
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1526,10 +1539,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_stall_micros{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_stall_micros{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -1540,7 +1553,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1548,6 +1561,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1619,10 +1633,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level4{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level4{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -1633,7 +1647,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1641,6 +1655,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1698,7 +1713,6 @@
         "y": 21
       },
       "id": 60,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -1714,10 +1728,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_write_bytes{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_compact_write_bytes{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1730,13 +1744,17 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1769,6 +1787,8 @@
           },
           "links": [],
           "mappings": [],
+          "max": 1,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1782,9 +1802,36 @@
               }
             ]
           },
-          "unit": "decbytes"
+          "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "e1:8530",
+                  "e2:8530",
+                  "e3:8530"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 5,
@@ -1792,7 +1839,7 @@
         "x": 12,
         "y": 21
       },
-      "id": 39,
+      "id": 45,
       "options": {
         "legend": {
           "calcs": [],
@@ -1808,21 +1855,24 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_block_cache_usage{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(arangodb_connection_pool_leases_failed_total{namespace=~\"$namespace\",pod=~\"$pod\",pool=\"ClusterComm\"} [$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "RocksDB cache usage",
+      "title": "Connection lease failed",
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1830,6 +1880,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1901,10 +1952,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_engine_throttle_bps{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_engine_throttle_bps{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -1915,7 +1966,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1923,6 +1974,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -1994,7 +2046,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level3[$__rate_interval])",
@@ -2008,7 +2060,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2016,6 +2068,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -2087,7 +2140,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(rocksdb_compact_read_bytes[$__rate_interval])",
@@ -2101,7 +2154,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2109,6 +2162,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -2166,7 +2220,6 @@
         "y": 26
       },
       "id": 4,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -2184,7 +2237,7 @@
         {
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_scheduler_low_prio_queue_length{pod=~\"$pod\",namespace=~\"$namespace\"}",
+          "expr": "arangodb_scheduler_low_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -2197,7 +2250,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2205,6 +2258,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -2262,7 +2316,6 @@
         "y": 26
       },
       "id": 14,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -2278,7 +2331,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_last_dequeue_time[$__rate_interval])",
@@ -2294,7 +2347,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2302,6 +2355,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -2373,10 +2427,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level2{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level2{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -2387,13 +2441,14 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -2465,10 +2520,10 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_live_sst_files_size{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_live_sst_files_size{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -2479,7 +2534,10 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2487,11 +2545,110 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 1000000000,
+            "axisSoftMax": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 31
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]) ",
+          "interval": "",
+          "legendFormat": "{{pod}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Medium priority queue length",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2533,42 +2690,17 @@
               }
             ]
           },
-          "unit": "decbytes"
+          "unit": "short"
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "d11:8530"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 5,
         "w": 6,
-        "x": 12,
+        "x": 18,
         "y": 31
       },
-      "id": 18,
+      "id": 66,
       "options": {
         "legend": {
           "calcs": [],
@@ -2584,27 +2716,130 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_estimate_pending_compaction_bytes{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(arangodb_scheduler_jobs_done_total{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{pod}}",
+          "legendFormat": "{{ instance }}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Pending compaction bytes",
+      "title": "Scheduler jobs done",
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 10,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "hertz"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 0,
+        "y": 36
+      },
+      "id": 65,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.2",
+      "targets": [
+        {
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]) ",
+          "interval": "",
+          "legendFormat": "{{pod}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "AQL queries",
+      "type": "timeseries"
+    },
+    {
+      "datasource": "${DS_PROMETHEUS}",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "nproc",
@@ -2658,11 +2893,10 @@
       "gridPos": {
         "h": 5,
         "w": 6,
-        "x": 18,
-        "y": 31
+        "x": 6,
+        "y": 36
       },
       "id": 12,
-      "links": [],
       "options": {
         "legend": {
           "calcs": [],
@@ -2678,7 +2912,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_process_statistics_number_of_threads[$__rate_interval])",
@@ -2696,7 +2930,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2705,100 +2939,7 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "axisSoftMax": 10,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 6,
-        "x": 0,
-        "y": 36
-      },
-      "id": 65,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.3.2",
-      "targets": [
-        {
-          "datasource": "prometheus",
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level1{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval]) ",
-          "interval": "",
-          "legendFormat": "{{pod}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Level 1 files",
-      "type": "timeseries"
-    },
-    {
-      "datasource": "prometheus",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
@@ -2831,105 +2972,6 @@
           },
           "links": [],
           "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "decbytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 6,
-        "x": 6,
-        "y": 36
-      },
-      "id": 43,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.3.2",
-      "targets": [
-        {
-          "datasource": "prometheus",
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "rate(rocksdb_actual_delayed_write_rate{pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "{{pod}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Actual delayed write rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "axisSoftMin": 0,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2953,7 +2995,7 @@
         "x": 12,
         "y": 36
       },
-      "id": 68,
+      "id": 69,
       "options": {
         "legend": {
           "calcs": [],
@@ -2969,23 +3011,26 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_scheduler_num_worker_threads{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]) ",
+          "expr": "rate(arangodb_scheduler_queue_full_failures_total{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]) ",
           "interval": "",
-          "legendFormat": "{{pod}}",
+          "legendFormat": "{{ instance }}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Scheduler worker threads",
+      "title": "Unfinished network requests",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -2994,11 +3039,11 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -3027,7 +3072,6 @@
           },
           "links": [],
           "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3051,7 +3095,7 @@
         "x": 18,
         "y": 36
       },
-      "id": 69,
+      "id": 70,
       "options": {
         "legend": {
           "calcs": [],
@@ -3067,65 +3111,45 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
+          "expr": "rate(arangodb_network_connectivity_failures_dbservers_total{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{pod}}",
+          "legendFormat": "{{ instance }}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "AQL queries",
+      "title": "Network connectivity failures",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "axisSoftMin": 0,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 80,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "lineWidth": 1
           },
           "links": [],
           "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3139,7 +3163,7 @@
               }
             ]
           },
-          "unit": "Bps"
+          "unit": "µs"
         },
         "overrides": []
       },
@@ -3149,94 +3173,59 @@
         "x": 0,
         "y": 41
       },
-      "id": 66,
+      "id": 68,
       "options": {
+        "bucketOffset": 0,
         "legend": {
           "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
         }
       },
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
-          "editorMode": "code",
-          "exemplar": true,
-          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{namespace=~\"$namespace\",pod=~\".*crdn.*\"}[$__rate_interval]))",
-          "interval": "",
-          "legendFormat": "Received",
-          "range": true,
-          "refId": "A"
-        },
-        {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_sent_sum{namespace=~\"$namespace\",pod=~\".*crdn.*\"}[$__rate_interval]))",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "Sent",
+          "exemplar": true,
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{namespace=~\"$namespace\"}[$__rate_interval])) by (le))",
+          "format": "time_series",
+          "interval": "",
+          "legendFormat": "{{ instance }}",
           "range": true,
-          "refId": "B"
+          "refId": "A"
         }
       ],
-      "title": "Network bytes",
-      "type": "timeseries"
+      "title": "Response duration histogram",
+      "type": "histogram"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "axisSoftMin": 0,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 80,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
+            "lineWidth": 1
           },
           "links": [],
           "mappings": [],
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -3250,7 +3239,7 @@
               }
             ]
           },
-          "unit": "short"
+          "unit": "µs"
         },
         "overrides": []
       },
@@ -3260,34 +3249,35 @@
         "x": 6,
         "y": 41
       },
-      "id": 67,
+      "id": 71,
       "options": {
+        "bucketOffset": 0,
         "legend": {
           "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
         }
       },
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_network_requests_in_flight{namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{namespace=~\"$namespace\"}[$__rate_interval])) by (le))",
+          "format": "time_series",
           "interval": "",
-          "legendFormat": "{{pod}}",
+          "legendFormat": "{{ instance }}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Network requests",
-      "type": "timeseries"
+      "title": "Network dequeue duration",
+      "type": "histogram"
     },
     {
       "cards": {},
@@ -3299,7 +3289,7 @@
         "mode": "opacity"
       },
       "dataFormat": "timeseries",
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3355,7 +3345,7 @@
           "color": "rgba(255,0,255,0.7)"
         },
         "filterValues": {
-          "le": 1e-9
+          "le": 1e-09
         },
         "legend": {
           "show": false
@@ -3365,7 +3355,8 @@
         },
         "showValue": "never",
         "tooltip": {
-          "show": true,
+          "mode": "single",
+          "showColorScale": false,
           "yHistogram": true
         },
         "yAxis": {
@@ -3377,14 +3368,14 @@
           "unit": "µs"
         }
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.1",
       "reverseYBuckets": false,
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",pod=~\"$pod\",namespace=~\"$namespace\"}[$__rate_interval])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -3422,7 +3413,7 @@
         "mode": "opacity"
       },
       "dataFormat": "timeseries",
-      "datasource": "prometheus",
+      "datasource": "${DS_PROMETHEUS}",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3478,7 +3469,7 @@
           "color": "rgba(255,0,255,0.7)"
         },
         "filterValues": {
-          "le": 1e-9
+          "le": 1e-09
         },
         "legend": {
           "show": false
@@ -3488,7 +3479,8 @@
         },
         "showValue": "never",
         "tooltip": {
-          "show": true,
+          "mode": "single",
+          "showColorScale": false,
           "yHistogram": true
         },
         "yAxis": {
@@ -3500,13 +3492,13 @@
           "unit": "µs"
         }
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.1",
       "reverseYBuckets": false,
       "targets": [
         {
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",pod=~\"$pod\",namespace=~\"$namespace\"}[1m])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",namespace=~\"$namespace\",pod=~\"$pod\"}[1m])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -3535,10 +3527,6 @@
       "yBucketBound": "auto"
     }
   ],
-  "refresh": "",
-  "schemaVersion": 38,
-  "style": "dark",
-  "tags": [],
   "templating": {
     "list": [
       {
