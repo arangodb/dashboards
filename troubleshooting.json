@@ -9,43 +9,11 @@
       "pluginName": "Prometheus"
     }
   ],
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "6.7.4"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "singlestat",
-      "name": "Singlestat",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
-        "builtIn": 1,
         "$$hashKey": "object:19",
+        "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
         "hide": true,
@@ -61,11 +29,11 @@
       }
     ]
   },
-  "description": "ArangoDB Import Performance",
+  "description": "Troubleshooting dashboard",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 38,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -83,6 +51,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -177,6 +146,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -271,6 +241,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -364,6 +335,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -462,6 +434,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -557,6 +530,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -651,6 +625,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -746,6 +721,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -842,6 +818,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -936,6 +913,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "axisSoftMax": 25000000,
             "barAlignment": 0,
             "drawStyle": "line",
@@ -1030,6 +1008,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1124,6 +1103,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "axisSoftMax": 1000000000,
             "axisSoftMin": 0,
             "barAlignment": 0,
@@ -1219,6 +1199,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1314,6 +1295,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1410,6 +1392,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1503,6 +1486,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1598,6 +1582,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1692,6 +1677,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1791,6 +1777,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -1887,10 +1874,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_connection_pool_leases_failed_total{instance=~\"$instance\",job=~\"$job\",pool=\"ClusterComm\"} [15s])",
@@ -1917,6 +1901,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2011,6 +1996,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2105,6 +2091,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2175,7 +2162,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_read_bytes[$__rate_interval])",
+          "expr": "rate(rocksdb_compact_read_bytes{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{instance}}",
           "range": true,
@@ -2199,6 +2186,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "axisSoftMax": 250,
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2267,6 +2255,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "arangodb_scheduler_low_prio_queue_length{instance=~\"$instance\",job=~\"$job\"}",
@@ -2295,6 +2284,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "axisSoftMax": 100000,
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2392,6 +2382,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2485,6 +2476,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2582,6 +2574,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "axisSoftMax": 0,
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2681,6 +2674,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2748,10 +2742,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_scheduler_jobs_done_total{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval])",
@@ -2781,6 +2772,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "axisSoftMax": 10,
             "barAlignment": 0,
             "drawStyle": "line",
@@ -2876,6 +2868,7 @@
             "axisColorMode": "text",
             "axisLabel": "nproc",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -2947,16 +2940,29 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_process_statistics_number_of_threads{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval])",
+          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval]))"
           "format": "time_series",
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "In",
           "refId": "A"
+        },
+        {
+          "datasource": "${DS_PROMETHEUS}",
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_sent_sum{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval]))",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "Out",
+          "refId": "B"
         }
       ],
-      "title": "Threads",
+      "title": "External cluster traffic",
       "type": "timeseries"
     },
     {
@@ -2976,6 +2982,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -3043,10 +3050,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_scheduler_queue_full_failures_total{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval]) ",
@@ -3076,6 +3080,7 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 10,
@@ -3143,10 +3148,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_network_connectivity_failures_dbservers_total{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval])",
@@ -3218,10 +3220,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval])) by (le))",
@@ -3294,10 +3293,7 @@
       "pluginVersion": "9.3.2",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval])) by (le))",
@@ -3631,7 +3627,7 @@
     ]
   },
   "time": {
-    "from": "now-4h",
+    "from": "now-8h",
     "to": "now"
   },
   "timepicker": {
@@ -3659,8 +3655,8 @@
     ]
   },
   "timezone": "utc",
-  "title": "Troubleshooting",
+  "title": "ArangoDB Troubleshooting",
   "uid": "9FcpjiFZg",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }

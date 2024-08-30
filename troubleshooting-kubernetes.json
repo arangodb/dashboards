@@ -2949,10 +2949,7 @@
           "refId": "A"
         },
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "prometheus"
-          },
+          "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
           "expr": "sum(rate(arangodb_client_connection_statistics_bytes_sent_sum{namespace=~\"$namespace\",pod=~\"$pod\"}[$__rate_interval]))",
@@ -3558,6 +3555,9 @@
       "yBucketBound": "auto"
     }
   ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
   "templating": {
     "list": [
       {
@@ -3572,7 +3572,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "prometheus"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(arangodb_server_statistics_cpu_cores,namespace)",
         "description": "Namespace",
@@ -3604,7 +3604,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "prometheus"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(arangodb_server_statistics_cpu_cores,pod)",
         "description": "Pod",
