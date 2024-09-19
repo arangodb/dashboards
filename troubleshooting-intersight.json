@@ -1463,7 +1463,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync{app=~\"$app\",kubernetes_pod_name=~\"$kubernetes_pod_name\",role=\"PRIMARY\"}",
+          "expr": "arangodb_shards_out_of_sync{app=~\"$app\",kubernetes_pod_name=~\"$kubernetes_pod_name\"}",
           "interval": "",
           "legendFormat": "{{kubernetes_pod_name}}",
           "range": true,
