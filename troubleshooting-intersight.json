@@ -3055,7 +3055,7 @@
           "exemplar": true,
           "expr": "rate(arangodb_scheduler_queue_full_failures_total{app=~\"$app\",kubernetes_pod_name=~\"$kubernetes_pod_name\"}[$__rate_interval]) ",
           "interval": "",
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ kubernetes_pod_name }}",
           "range": true,
           "refId": "A"
         }
@@ -3153,7 +3153,7 @@
           "exemplar": true,
           "expr": "rate(arangodb_network_connectivity_failures_dbservers_total{app=~\"$app\",kubernetes_pod_name=~\"$kubernetes_pod_name\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ kubernetes_pod_name }}",
           "range": true,
           "refId": "A"
         }
@@ -3226,7 +3226,7 @@
           "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{app=~\"$app\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ kubernetes_pod_name }}",
           "range": true,
           "refId": "A"
         }
@@ -3299,7 +3299,7 @@
           "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{app=~\"$app\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ kubernetes_pod_name }}",
           "range": true,
           "refId": "A"
         }
