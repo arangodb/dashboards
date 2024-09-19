@@ -2747,7 +2747,7 @@
           "exemplar": true,
           "expr": "rate(arangodb_scheduler_jobs_done_total{app=~\"$app\",kubernetes_pod_name=~\"$kubernetes_pod_name\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{ instance }}",
+          "legendFormat": "{{ kubernetes_pod_name }}",
           "range": true,
           "refId": "A"
         }
