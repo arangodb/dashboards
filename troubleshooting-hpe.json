@@ -2372,7 +2372,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_length{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\"}[$__rate_interval]])",
+          "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_length{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
