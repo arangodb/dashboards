@@ -3797,12 +3797,12 @@
       {
         "allFormat": "glob",
         "current": {
-          "selected": true,
+          "selected": false,
           "text": [
-            "coordinator"
+            "All"
           ],
           "value": [
-            "coordinator"
+            "$__all"
           ]
         },
         "datasource": {
@@ -3816,7 +3816,7 @@
         "label": "role",
         "multi": true,
         "name": "role",
-        "options": [],
+        "options": ["agent","coordinator","dbserver"],
         "query": {
           "qryType": 1,
           "query": "label_values(role)",
