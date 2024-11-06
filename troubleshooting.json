@@ -2940,7 +2940,7 @@
           "datasource": "${DS_PROMETHEUS}",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval]))"
+          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{instance=~\"$instance\",job=~\"$job\"}[$__rate_interval]))",
           "format": "time_series",
           "instant": false,
           "interval": "",
