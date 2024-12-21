@@ -1460,7 +1460,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -1870,7 +1870,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -1987,14 +1987,14 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_leases_failed_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\",pool=\"ClusterComm\"} [$__rate_interval])",
+          "expr": "avg_over_time(arangodb_connection_pool_connections_current{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\",pool=\"ClusterComm\"} [$__rate_interval])",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Connection lease failed",
+      "title": "Connections current pool size",
       "type": "timeseries"
     },
     {
@@ -2719,7 +2719,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2810,7 +2810,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval]) ",
+          "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval]) ",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -2823,7 +2823,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2912,7 +2912,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_scheduler_jobs_done_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_scheduler_jobs_done_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{ pod }}",
           "range": true,
@@ -2925,7 +2925,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3016,7 +3016,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval]))",
+          "expr": "sum(rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval]))",
           "interval": "",
           "legendFormat": "{{pod}}",
           "range": true,
@@ -3149,7 +3149,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3238,7 +3238,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_scheduler_queue_full_failures_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_scheduler_queue_full_failures_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
           "legendFormat": "{{ pod }}",
           "range": true,
@@ -3251,7 +3251,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3353,7 +3353,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3422,7 +3422,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{namespace=~\"$namespace\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{namespace=~\"$namespace\",service=~\"$service\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{ instance }}",
@@ -3436,7 +3436,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "prometheus"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3724,7 +3724,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "P10FF55C50D856C29"
+          "uid": "$datasource"
         },
         "definition": "label_values(namespace)",
         "description": "Namespace",
@@ -3756,7 +3756,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "P10FF55C50D856C29"
+          "uid": "$datasource"
         },
         "definition": "label_values(pod)",
         "description": "Pod",
