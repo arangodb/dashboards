@@ -4,7 +4,7 @@
       {
         "$$hashKey": "object:19",
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": "$datasource",
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -23,14 +23,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 38,
+  "id": 54,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -44,8 +44,9 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMin": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -86,8 +87,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -110,18 +110,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -132,7 +132,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -148,6 +148,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -188,8 +189,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -212,18 +212,15 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
-          },
+          "datasource": "prometheus",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -234,7 +231,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -250,6 +247,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -290,8 +288,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -314,18 +311,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_file_descriptors_current{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_file_descriptors_current{pod=~\"$pod\",namespace=~\"$namespace\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -336,7 +333,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -351,6 +348,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -393,8 +391,7 @@
               }
             ]
           },
-          "unit": "percent",
-          "unitScale": true
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -417,20 +414,17 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
-          },
+          "datasource": "prometheus",
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_server_statistics_user_percent{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_server_statistics_user_percent{pod=~\"$pod\",namespace=~\"$namespace\",service=~\"$service\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{pod=~\"$pod\",namespace=~\"$namespace\",service=~\"$service\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{pod=~\"$pod\",namespace=~\"$namespace\",service=~\"$service\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -441,7 +435,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -457,6 +451,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -497,8 +492,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -521,19 +515,19 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level0{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level0{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -544,7 +538,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -560,6 +554,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -600,8 +595,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -624,18 +618,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_search_columns_cache_size{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_search_columns_cache_size{pod=~\"$pod\",namespace=~\"$namespace\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -646,7 +640,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -662,6 +656,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -703,8 +698,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -727,18 +721,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_cache_allocated{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_cache_allocated{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -749,7 +743,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -765,6 +759,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -805,8 +800,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -829,20 +823,20 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -853,7 +847,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -869,6 +863,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -909,8 +904,7 @@
               }
             ]
           },
-          "unit": "none",
-          "unitScale": true
+          "unit": "none"
         },
         "overrides": []
       },
@@ -933,18 +927,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level6{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level6{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -955,7 +949,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -972,6 +966,7 @@
             "axisSoftMax": 25000000,
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1012,8 +1007,7 @@
               }
             ]
           },
-          "unit": "Bps",
-          "unitScale": true
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -1036,18 +1030,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_read{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_bytes_read{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1058,7 +1052,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -1073,6 +1067,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1113,8 +1108,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -1137,18 +1131,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_block_cache_usage{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_block_cache_usage{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1159,7 +1153,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1176,6 +1170,7 @@
             "axisSoftMax": 1000000000,
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1216,8 +1211,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -1240,18 +1234,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_free_disk_space{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_free_disk_space{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1262,7 +1256,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -1277,6 +1271,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1317,8 +1312,7 @@
               }
             ]
           },
-          "unit": "none",
-          "unitScale": true
+          "unit": "none"
         },
         "overrides": []
       },
@@ -1341,20 +1335,20 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level5{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level5{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1365,7 +1359,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -1380,6 +1374,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1420,8 +1415,7 @@
               }
             ]
           },
-          "unit": "Bps",
-          "unitScale": true
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -1444,18 +1438,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_bytes_written{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_bytes_written{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1481,6 +1475,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1521,8 +1516,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -1545,18 +1539,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "arangodb_shards_out_of_sync{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}",
+          "expr": "avg_over_time(arangodb_shards_out_of_sync{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1567,9 +1561,8 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1583,6 +1576,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1624,8 +1618,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "µs"
         },
         "overrides": []
       },
@@ -1648,29 +1641,29 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_vocbase_shards_read_only_by_write_concern{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_stall_micros{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Readonly shards by write concern",
+      "title": "Writes stall time",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1686,6 +1679,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1726,8 +1720,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -1750,18 +1743,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level4{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level4{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1772,7 +1765,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1788,6 +1781,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1829,8 +1823,7 @@
               }
             ]
           },
-          "unit": "Bps",
-          "unitScale": true
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -1853,20 +1846,20 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_write_bytes{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_compact_write_bytes{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1877,7 +1870,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1890,8 +1883,9 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "barAlignment": 0,
             "axisSoftMin": 0,
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -1919,6 +1913,7 @@
           },
           "links": [],
           "mappings": [],
+          "max": 1,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1933,10 +1928,36 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "e1:8530",
+                  "e2:8530",
+                  "e3:8530"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 5,
@@ -1957,18 +1978,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_leases_failed_total{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_connection_pool_leases_failed_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\",pool=\"ClusterComm\"} [$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -1979,7 +2000,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -1995,6 +2016,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2035,8 +2057,7 @@
               }
             ]
           },
-          "unit": "Bps",
-          "unitScale": true
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -2059,18 +2080,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_engine_throttle_bps{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_engine_throttle_bps{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2081,7 +2102,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2097,6 +2118,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2137,8 +2159,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2161,18 +2182,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level3{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level3{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2183,7 +2204,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2199,6 +2220,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2239,8 +2261,7 @@
               }
             ]
           },
-          "unit": "Bps",
-          "unitScale": true
+          "unit": "Bps"
         },
         "overrides": []
       },
@@ -2263,18 +2284,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(rocksdb_compact_read_bytes{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(rocksdb_compact_read_bytes{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2285,7 +2306,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2299,9 +2320,10 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 4096,
+            "axisSoftMax": 250,
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2342,8 +2364,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2366,20 +2387,20 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_length{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "arangodb_scheduler_low_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2390,7 +2411,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2407,6 +2428,7 @@
             "axisSoftMax": 100000,
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2447,8 +2469,7 @@
               }
             ]
           },
-          "unit": "µs",
-          "unitScale": true
+          "unit": "µs"
         },
         "overrides": []
       },
@@ -2471,20 +2492,20 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_last_dequeue_time{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_last_dequeue_time{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2495,7 +2516,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -2511,6 +2532,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2551,8 +2573,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2575,18 +2596,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_num_files_at_level2{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_num_files_at_level2{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2597,7 +2618,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -2612,6 +2633,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2652,8 +2674,7 @@
               }
             ]
           },
-          "unit": "decbytes",
-          "unitScale": true
+          "unit": "decbytes"
         },
         "overrides": []
       },
@@ -2676,18 +2697,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(rocksdb_live_sst_files_size{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "avg_over_time(rocksdb_live_sst_files_size{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2712,9 +2733,10 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 2048,
+            "axisSoftMax": 0,
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2756,8 +2778,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2780,18 +2801,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval]) ",
+          "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval]) ",
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
         }
@@ -2802,7 +2823,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -2818,6 +2839,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2858,8 +2880,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -2882,18 +2903,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_scheduler_jobs_done_total{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_scheduler_jobs_done_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{ deployment_arangodb_com_member }}",
+          "legendFormat": "{{ pod }}",
           "range": true,
           "refId": "A"
         }
@@ -2904,7 +2925,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -2921,6 +2942,7 @@
             "axisSoftMax": 10,
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -2962,8 +2984,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "hertz"
         },
         "overrides": []
       },
@@ -2986,44 +3007,30 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(arangodb_aql_all_query_total{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\",role=\"coordinator\"}[$__rate_interval]))",
+          "expr": "sum(rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval]))",
           "interval": "",
-          "legendFormat": "coordinators",
+          "legendFormat": "{{pod}}",
           "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(arangodb_aql_all_query_total{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\",role=\"dbserver\"}[$__rate_interval]))",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "db servers",
-          "range": true,
-          "refId": "B"
         }
       ],
-      "title": "AQL queries per s",
+      "title": "AQL queries",
       "type": "timeseries"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -3037,6 +3044,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -3078,8 +3086,7 @@
               }
             ]
           },
-          "unit": "Bps",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -3102,16 +3109,16 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\",role=\"coordinator\"}[$__rate_interval]))",
+          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval]))",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -3122,11 +3129,11 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_sent_sum{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\",role=\"coordinator\"}[$__rate_interval]))",
+          "expr": "sum(rate(arangodb_client_connection_statistics_bytes_sent_sum{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\"}[$__rate_interval]))",
           "format": "time_series",
           "hide": false,
           "instant": false,
@@ -3142,7 +3149,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -3158,6 +3165,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -3198,8 +3206,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -3222,18 +3229,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_scheduler_queue_full_failures_total{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval]) ",
+          "expr": "rate(arangodb_scheduler_queue_full_failures_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{ deployment_arangodb_com_member }}",
+          "legendFormat": "{{ pod }}",
           "range": true,
           "refId": "A"
         }
@@ -3244,7 +3251,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -3260,6 +3267,7 @@
             "axisPlacement": "auto",
             "axisSoftMin": 0,
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -3300,8 +3308,7 @@
               }
             ]
           },
-          "unit": "short",
-          "unitScale": true
+          "unit": "short"
         },
         "overrides": []
       },
@@ -3324,18 +3331,18 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_network_connectivity_failures_dbservers_total{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_network_connectivity_failures_dbservers_total{namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "interval": "",
-          "legendFormat": "{{ deployment_arangodb_com_member }}",
+          "legendFormat": "{{ pod }}",
           "range": true,
           "refId": "A"
         }
@@ -3362,7 +3369,11 @@
               "tooltip": false,
               "viz": false
             },
-            "lineWidth": 1
+            "lineWidth": 1,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
           },
           "links": [],
           "mappings": [],
@@ -3370,8 +3381,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3379,8 +3389,7 @@
               }
             ]
           },
-          "unit": "µs",
-          "unitScale": true
+          "unit": "µs"
         },
         "overrides": []
       },
@@ -3398,18 +3407,22 @@
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{namespace=~\"$namespace\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{ instance }}",
@@ -3439,7 +3452,11 @@
               "tooltip": false,
               "viz": false
             },
-            "lineWidth": 1
+            "lineWidth": 1,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            }
           },
           "links": [],
           "mappings": [],
@@ -3447,8 +3464,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -3456,8 +3472,7 @@
               }
             ]
           },
-          "unit": "µs",
-          "unitScale": true
+          "unit": "µs"
         },
         "overrides": []
       },
@@ -3475,18 +3490,22 @@
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
         }
       },
-      "pluginVersion": "9.3.2",
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "prometheus"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])) by (le))",
+          "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{namespace=~\"$namespace\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])) by (le))",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{ instance }}",
@@ -3498,18 +3517,9 @@
       "type": "histogram"
     },
     {
-      "cards": {},
-      "color": {
-        "cardColor": "#73BF69",
-        "colorScale": "sqrt",
-        "colorScheme": "interpolateOranges",
-        "exponent": 0.5,
-        "mode": "opacity"
-      },
-      "dataFormat": "timeseries",
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3523,8 +3533,7 @@
             "scaleDistribution": {
               "type": "linear"
             }
-          },
-          "unitScale": true
+          }
         },
         "overrides": []
       },
@@ -3534,13 +3543,7 @@
         "x": 12,
         "y": 41
       },
-      "heatmap": {},
-      "hideZeroBuckets": true,
-      "highlightCards": true,
       "id": 49,
-      "legend": {
-        "show": false
-      },
       "options": {
         "calculate": true,
         "calculation": {
@@ -3567,11 +3570,10 @@
           "color": "rgba(255,0,255,0.7)"
         },
         "filterValues": {
-          "le": 1e-9
+          "le": 1E-9
         },
         "legend": {
-          "show": false,
-          "showLegend": true
+          "show": false
         },
         "rowsFrame": {
           "layout": "auto"
@@ -3591,57 +3593,30 @@
           "unit": "µs"
         }
       },
-      "pluginVersion": "10.3.4",
-      "reverseYBuckets": false,
+      "pluginVersion": "11.3.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
+            "uid": "$datasource"
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "format": "time_series",
           "instant": false,
           "interval": "",
-          "legendFormat": "{{deployment_arangodb_com_member}}",
+          "legendFormat": "{{pod}}",
           "refId": "A"
         }
       ],
       "title": "Cluster communication lease duration",
-      "tooltip": {
-        "show": true,
-        "showHistogram": true
-      },
-      "type": "heatmap",
-      "xAxis": {
-        "show": true
-      },
-      "xBucketSize": "",
-      "yAxis": {
-        "decimals": 1,
-        "format": "µs",
-        "logBase": 2,
-        "max": "250",
-        "min": "0",
-        "show": true
-      },
-      "yBucketBound": "auto"
+      "type": "heatmap"
     },
     {
-      "cards": {},
-      "color": {
-        "cardColor": "#FADE2A",
-        "colorScale": "sqrt",
-        "colorScheme": "interpolateOranges",
-        "exponent": 0.5,
-        "mode": "opacity"
-      },
-      "dataFormat": "timeseries",
       "datasource": {
         "type": "prometheus",
-        "uid": "uid_prometheus_grafana_datasource"
+        "uid": "$datasource"
       },
       "description": "",
       "fieldConfig": {
@@ -3655,8 +3630,7 @@
             "scaleDistribution": {
               "type": "linear"
             }
-          },
-          "unitScale": true
+          }
         },
         "overrides": []
       },
@@ -3666,13 +3640,7 @@
         "x": 18,
         "y": 41
       },
-      "heatmap": {},
-      "hideZeroBuckets": true,
-      "highlightCards": true,
       "id": 50,
-      "legend": {
-        "show": false
-      },
       "options": {
         "calculate": true,
         "calculation": {
@@ -3699,11 +3667,10 @@
           "color": "rgba(255,0,255,0.7)"
         },
         "filterValues": {
-          "le": 1e-9
+          "le": 1E-9
         },
         "legend": {
-          "show": false,
-          "showLegend": true
+          "show": false
         },
         "rowsFrame": {
           "layout": "auto"
@@ -3723,17 +3690,12 @@
           "unit": "µs"
         }
       },
-      "pluginVersion": "10.3.4",
-      "reverseYBuckets": false,
+      "pluginVersion": "11.3.0",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "uid_prometheus_grafana_datasource"
-          },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",arango_deployment=\"cnx-arango-cluster\",job=\"kubernetes-pods\",deployment_arangodb_com_member=~\"$deployment_arangodb_com_member\",role=~\"$role\"}[$__rate_interval])",
+          "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"AgencyComm\",namespace=~\"$namespace\",pod=~\"$pod\",service=~\"$service\",role=~\"$role\"}[$__rate_interval])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -3742,32 +3704,17 @@
         }
       ],
       "title": "Agency communication lease duration",
-      "tooltip": {
-        "show": true,
-        "showHistogram": true
-      },
-      "type": "heatmap",
-      "xAxis": {
-        "show": true
-      },
-      "xBucketSize": "",
-      "yAxis": {
-        "decimals": 1,
-        "format": "µs",
-        "logBase": 2,
-        "max": "250",
-        "min": "0",
-        "show": true
-      },
-      "yBucketBound": "auto"
+      "type": "heatmap"
     }
   ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
   "templating": {
     "list": [
       {
-        "allFormat": "glob",
         "current": {
-          "selected": false,
+          "selected": true,
           "text": [
             "All"
           ],
@@ -3777,52 +3724,18 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "prometheus"
+          "uid": "P10FF55C50D856C29"
         },
-        "definition": "label_values(deployment_arangodb_com_member)",
-        "description": "Pod",
+        "definition": "label_values(namespace)",
+        "description": "Namespace",
         "hide": 0,
         "includeAll": true,
-        "label": "pod",
+        "label": "namespace",
         "multi": true,
-        "name": "deployment_arangodb_com_member",
+        "name": "namespace",
         "options": [],
         "query": {
-          "query": "label_values(deployment_arangodb_com_member)",
-          "refId": "StandardVariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      },
-      {
-        "allFormat": "glob",
-        "current": {
-          "selected": false,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "prometheus"
-        },
-        "definition": "label_values(role)",
-        "description": "Role",
-        "hide": 0,
-        "includeAll": true,
-        "label": "role",
-        "multi": true,
-        "name": "role",
-        "options": ["agent","coordinator","dbserver"],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(role)",
+          "query": "label_values(namespace)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -3830,11 +3743,135 @@
         "skipUrlSync": false,
         "sort": 0,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P10FF55C50D856C29"
+        },
+        "definition": "label_values(pod)",
+        "description": "Pod",
+        "hide": 0,
+        "includeAll": true,
+        "label": "pod",
+        "multi": true,
+        "name": "pod",
+        "options": [],
+        "query": {
+          "query": "label_values(pod)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "PRIMARY",
+            "COORDINATOR",
+            "AGENT"
+          ],
+          "value": [
+            "PRIMARY",
+            "COORDINATOR",
+            "AGENT"
+          ]
+        },
+        "description": "Role",
+        "hide": 0,
+        "includeAll": false,
+        "label": "role",
+        "multi": true,
+        "name": "role",
+        "options": [
+          {
+            "selected": true,
+            "text": "PRIMARY",
+            "value": "PRIMARY"
+          },
+          {
+            "selected": true,
+            "text": "COORDINATOR",
+            "value": "COORDINATOR"
+          },
+          {
+            "selected": true,
+            "text": "AGENT",
+            "value": "AGENT"
+          }
+        ],
+        "query": "PRIMARY, COORDINATOR, AGENT",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Thanos-Cache",
+          "value": "P10FF55C50D856C29"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Data Source",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "prometheus",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "sc-eg-global-arangodb-exporter"
+          ],
+          "value": [
+            "sc-eg-global-arangodb-exporter"
+          ]
+        },
+        "datasource": {
+          "type": "Thanos",
+          "uid": "$datasource"
+        },
+        "definition": "label_values(service)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "Service",
+        "multi": true,
+        "name": "service",
+        "options": [],
+        "query": {
+          "query": "label_values(service)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/.*arangodb-exporter.*/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
   "time": {
-    "from": "now-8h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -3864,6 +3901,6 @@
   "timezone": "utc",
   "title": "ArangoDB Troubleshooting",
   "uid": "9FcpjiFZh",
-  "version": 4,
+  "version": 5,
   "weekStart": ""
-}    
+}
