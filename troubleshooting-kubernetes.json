@@ -38,7 +38,7 @@
   "liveNow": false,
   "panels": [
   {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -120,7 +120,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_cur_size_all_mem_tables{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -134,7 +134,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -216,7 +216,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_estimate_table_readers_mem{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -230,7 +230,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -312,7 +312,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_file_descriptors_current{pod=~\"$pod\",namespace=~\"$namespace\",role=~\"$role\"}[$__rate_interval])",
@@ -326,7 +326,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -409,7 +409,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_server_statistics_user_percent{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_system_percent{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])+avg_over_time(arangodb_server_statistics_iowait_percent{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -425,7 +425,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -507,7 +507,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level0{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -522,7 +522,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -604,7 +604,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_search_columns_cache_size{pod=~\"$pod\",namespace=~\"$namespace\",role=~\"$role\"}[$__rate_interval])",
@@ -618,7 +618,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -701,7 +701,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_cache_allocated{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -715,7 +715,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -797,7 +797,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_process_statistics_resident_set_size{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -813,7 +813,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -895,7 +895,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level6{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -909,7 +909,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -992,7 +992,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(rocksdb_bytes_read{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1006,7 +1006,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1087,7 +1087,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_block_cache_usage{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1101,7 +1101,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1184,7 +1184,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_free_disk_space{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1198,7 +1198,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1279,7 +1279,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level5{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1295,7 +1295,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1376,7 +1376,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(rocksdb_bytes_written{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1391,8 +1391,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1474,7 +1473,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "arangodb_shards_out_of_sync{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}",
@@ -1488,7 +1487,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1570,7 +1569,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(rocksdb_stall_micros{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1584,7 +1583,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1666,7 +1665,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level4{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1680,7 +1679,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1763,7 +1762,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(rocksdb_compact_write_bytes{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1780,8 +1779,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "fieldConfig": {
         "defaults": {
@@ -1866,7 +1864,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "arangodb_scheduler_ongoing_low_prio{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}",
@@ -1880,7 +1878,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1963,7 +1961,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_engine_throttle_bps{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -1977,7 +1975,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2059,7 +2057,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level3{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -2073,7 +2071,9 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": {
+        "type": "prometheus"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2155,7 +2155,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(rocksdb_compact_read_bytes{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -2169,7 +2169,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2252,7 +2252,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "arangodb_scheduler_low_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}",
@@ -2268,7 +2268,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2351,7 +2351,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_scheduler_low_prio_queue_last_dequeue_time{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -2367,7 +2367,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2449,7 +2449,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_num_files_at_level2{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -2463,7 +2463,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2544,7 +2544,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_live_sst_files_size{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -2559,8 +2559,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -2645,7 +2644,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(arangodb_scheduler_medium_prio_queue_length{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval]) ",
@@ -2660,8 +2659,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -2744,7 +2742,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_scheduler_jobs_done_total{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -2759,8 +2757,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -2845,7 +2842,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "sum(rate(arangodb_aql_all_query_total{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval]))",
@@ -2859,7 +2856,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2941,7 +2938,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "sum(rate(arangodb_client_connection_statistics_bytes_received_sum{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval]))",
@@ -2953,7 +2950,7 @@
           "refId": "A"
         },
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "sum(rate(arangodb_client_connection_statistics_bytes_sent_sum{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval]))",
@@ -2971,8 +2968,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -3055,7 +3051,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_scheduler_queue_full_failures_total{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -3070,8 +3066,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -3154,7 +3149,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "avg_over_time(rocksdb_estimate_pending_compaction_bytes{namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -3169,8 +3164,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -3234,7 +3228,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_response_duration_bucket{namespace=~\"$namespace\",role=~\"$role\"}[$__rate_interval])) by (le))",
@@ -3250,8 +3244,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "prometheus"
+        "type": "prometheus"
       },
       "description": "",
       "fieldConfig": {
@@ -3315,7 +3308,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "histogram_quantile(0.95, sum(rate(arangodb_network_dequeue_duration_bucket{namespace=~\"$namespace\",role=~\"$role\"}[$__rate_interval])) by (le))",
@@ -3330,7 +3323,7 @@
       "type": "histogram"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3406,7 +3399,7 @@
       "pluginVersion": "12.1.0",
       "targets": [
         {
-          "datasource": "prometheus",
+          "datasource": { "type": "prometheus" },
           "editorMode": "code",
           "exemplar": true,
           "expr": "rate(arangodb_connection_pool_lease_time_hist_bucket{pool=\"ClusterComm\",namespace=~\"$namespace\",pod=~\"$pod\",role=~\"$role\"}[$__rate_interval])",
@@ -3421,7 +3414,7 @@
       "type": "heatmap"
     },
     {
-      "datasource": "prometheus",
+      "datasource": { "type": "prometheus" },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -3591,7 +3584,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": "prometheus"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(role)",
         "description": "Role",
