@@ -25,7 +25,7 @@
               {
                 "name": "query1",
                 "data_source": "metrics",
-                "query": "avg:arangodb.rocksdb_cur_size_all_mem_tables{$pod} by {shortname}"
+                "query": "avg:arangodb.rocksdb_cur_size_all_mem_tables{$pod,$kube_namespace} by {shortname}"
               }
             ],
             "formulas": [
@@ -90,7 +90,7 @@
               {
                 "data_source": "metrics",
                 "name": "query1",
-                "query": "avg:arangodb.rocksdb_estimate_table_readers_mem{$pod} by {shortname}"
+                "query": "avg:arangodb.rocksdb_estimate_table_readers_mem{$pod,$kube_namespace} by {shortname}"
               }
             ],
             "formulas": [
@@ -148,7 +148,7 @@
               {
                 "data_source": "metrics",
                 "name": "query1",
-                "query": "avg:arangodb.arangodb_file_descriptors_current{$pod} by {shortname}"
+                "query": "avg:arangodb.arangodb_file_descriptors_current{$pod,$kube_namespace} by {shortname}"
               }
             ],
             "formulas": [
@@ -191,19 +191,6 @@
         "type": "timeseries",
         "requests": [
           {
-            "response_format": "timeseries",
-            "queries": [
-              {
-                "data_source": "metrics",
-                "name": "query1",
-                "query": "avg:arangodb.arangodb_process_statistics_system_time{$pod} by {shortname}"
-              },
-              {
-                "data_source": "metrics",
-                "name": "query2",
-                "query": "avg:arangodb.arangodb_process_statistics_user_time{$pod} by {shortname}"
-              }
-            ],
             "formulas": [
               {
                 "number_format": {
@@ -212,9 +199,22 @@
                     "unit_name": "percent"
                   }
                 },
-                "formula": "diff(query1 + query2)/dt(query1 + query2)"
+                "formula": "100 * diff(use + sys) / dt(use + sys)"
               }
             ],
+            "queries": [
+              {
+                "data_source": "metrics",
+                "name": "use",
+                "query": "avg:arangodb.arangodb_process_statistics_user_time{$pod,$kube_namespace} by {shortname}"
+              },
+              {
+                "data_source": "metrics",
+                "name": "sys",
+                "query": "avg:arangodb.arangodb_process_statistics_system_time{$pod,$kube_namespace} by {shortname}"
+              }
+            ],
+            "response_format": "timeseries",
             "style": {
               "palette": "dog_classic",
               "order_by": "values",
@@ -226,6 +226,7 @@
         ],
         "yaxis": {
           "include_zero": true,
+          "min": "0",
           "max": "100"
         }
       },
@@ -604,7 +605,12 @@
             },
             "display_type": "line"
           }
-        ]
+        ],
+        "yaxis": {
+          "include_zero": true,
+          "min": "0",
+          "max": "auto"
+        }
       },
       "layout": {
         "x": 6,
@@ -1242,7 +1248,11 @@
             },
             "display_type": "line"
           }
-        ]
+        ],
+        "yaxis": {
+          "include_zero": true,
+          "max": "1"
+        }
       },
       "layout": {
         "x": 6,
@@ -1300,7 +1310,10 @@
             },
             "display_type": "line"
           }
-        ]
+        ],
+        "yaxis": {
+          "include_zero": true
+        }
       },
       "layout": {
         "x": 9,
@@ -1454,7 +1467,11 @@
             },
             "display_type": "line"
           }
-        ]
+        ],
+        "yaxis": {
+          "include_zero": true,
+          "max": "12"
+        }
       },
       "layout": {
         "x": 6,
@@ -1740,10 +1757,17 @@
       "prefix": "shortname",
       "available_values": [],
       "default": "*"
+    },
+    {
+      "name": "kube_namespace",
+      "prefix": "kube_namespace",
+      "available_values": [],
+      "default": "*"
     }
   ],
   "layout_type": "ordered",
   "notify_list": [],
+  "pause_auto_refresh": false,
   "reflow_type": "fixed",
   "tags": [
     "team:devops",
